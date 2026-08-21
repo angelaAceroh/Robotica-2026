@@ -1,1 +1,0 @@
-data=xlsread("datos_experimento_Arreglado.csv")
