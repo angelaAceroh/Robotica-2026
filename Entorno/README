@@ -1,4 +1,5 @@
 //En esta carpeta se encuenta la distribucion a montar, evienciando espacio de trabajo general de cada uno de los robots asegurando el 
 //alcance dede la materia prima hasta su posición final. 
 
-// Tambien se evidencian unas convenciones que relacionan cada color con cada tipo de robot 
+// Tambien se evidencia un espacio de convenciones que relacionan cada color con cada tipo de robot y su numeración (ensamblador / transportador). junto con la 
+//posición de las cajas relacionadas al empaqutemiento de los chocolates, evidenciando el orden de moviemnto del sistema.
