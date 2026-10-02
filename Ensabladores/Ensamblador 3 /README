@@ -1,0 +1,13 @@
+En esta carpeta se encuentra toda la informacion relacionada con el desarollo del ensambalador número 3 estipulado dentro del entorno a trabajar. La carpeta se encuentra distribuida de la siguiente manera: 
+o Diagramas de la arquitectura del sistema
+o Diagramas de secuencia de proceso
+o Diagramas de flujo de la lógica de la programación del sistema
+o Planos mecánicos y eléctricos/electrónicos
+o Memorias de cálculo
+o Hojas de especificaciones de dispositivos
+o Instructivo para usuarios
+o Se puede incluir la cartilla
+o Paquetes de ROS2 con los respectivos archivos urdf y/o xacro, archivos launch
+o Proyectos de programación de microcontroladores
+o Código de la interfaz de usuario
+o Todo el código fuente debe estar comentado/documentado
