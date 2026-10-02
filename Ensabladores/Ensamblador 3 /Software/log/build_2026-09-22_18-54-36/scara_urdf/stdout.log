@@ -1,0 +1,51 @@
+-- The C compiler identification is GNU 15.2.0
+-- The CXX compiler identification is GNU 15.2.0
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /usr/bin/cc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/c++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Found ament_cmake: 2.8.8 (/opt/ros/lyrical/share/ament_cmake/cmake)
+-- Configuring done (2.0s)
+-- Generating done (0.0s)
+-- Build files have been written to: /home/sergio/ros2_ws/build/scara_urdf
+-- Install configuration: ""
+-- Installing: /home/sergio/ros2_ws/install/scara_urdf/share/scara_urdf/config
+-- Installing: /home/sergio/ros2_ws/install/scara_urdf/share/scara_urdf/config/joint_names_scara_urdf.yaml
+-- Installing: /home/sergio/ros2_ws/install/scara_urdf/share/scara_urdf/launch
+-- Installing: /home/sergio/ros2_ws/install/scara_urdf/share/scara_urdf/launch/gazebo.launch.py
+-- Installing: /home/sergio/ros2_ws/install/scara_urdf/share/scara_urdf/launch/display.launch.py
+-- Installing: /home/sergio/ros2_ws/install/scara_urdf/share/scara_urdf/meshes
+-- Installing: /home/sergio/ros2_ws/install/scara_urdf/share/scara_urdf/meshes/Ian.STL
+-- Installing: /home/sergio/ros2_ws/install/scara_urdf/share/scara_urdf/meshes/Dave.STL
+-- Installing: /home/sergio/ros2_ws/install/scara_urdf/share/scara_urdf/meshes/Alvin.STL
+-- Installing: /home/sergio/ros2_ws/install/scara_urdf/share/scara_urdf/meshes/Simon.STL
+-- Installing: /home/sergio/ros2_ws/install/scara_urdf/share/scara_urdf/meshes/Teodoro.STL
+-- Installing: /home/sergio/ros2_ws/install/scara_urdf/share/scara_urdf/rviz
+-- Installing: /home/sergio/ros2_ws/install/scara_urdf/share/scara_urdf/rviz/scara.rviz
+-- Installing: /home/sergio/ros2_ws/install/scara_urdf/share/scara_urdf/rviz/urdf.rviz
+-- Installing: /home/sergio/ros2_ws/install/scara_urdf/share/scara_urdf/urdf
+-- Installing: /home/sergio/ros2_ws/install/scara_urdf/share/scara_urdf/urdf/scara_urdf.urdf
+-- Installing: /home/sergio/ros2_ws/install/scara_urdf/share/scara_urdf/urdf/scara_urdf_gz.urdf
+-- Installing: /home/sergio/ros2_ws/install/scara_urdf/share/scara_urdf/environment/gz_resource_path.dsv
+-- Installing: /home/sergio/ros2_ws/install/scara_urdf/share/ament_index/resource_index/package_run_dependencies/scara_urdf
+-- Installing: /home/sergio/ros2_ws/install/scara_urdf/share/ament_index/resource_index/parent_prefix_path/scara_urdf
+-- Installing: /home/sergio/ros2_ws/install/scara_urdf/share/scara_urdf/environment/ament_prefix_path.sh
+-- Installing: /home/sergio/ros2_ws/install/scara_urdf/share/scara_urdf/environment/ament_prefix_path.dsv
+-- Installing: /home/sergio/ros2_ws/install/scara_urdf/share/scara_urdf/environment/path.sh
+-- Installing: /home/sergio/ros2_ws/install/scara_urdf/share/scara_urdf/environment/path.dsv
+-- Installing: /home/sergio/ros2_ws/install/scara_urdf/share/scara_urdf/local_setup.bash
+-- Installing: /home/sergio/ros2_ws/install/scara_urdf/share/scara_urdf/local_setup.fish
+-- Installing: /home/sergio/ros2_ws/install/scara_urdf/share/scara_urdf/local_setup.sh
+-- Installing: /home/sergio/ros2_ws/install/scara_urdf/share/scara_urdf/local_setup.zsh
+-- Installing: /home/sergio/ros2_ws/install/scara_urdf/share/scara_urdf/local_setup.dsv
+-- Installing: /home/sergio/ros2_ws/install/scara_urdf/share/scara_urdf/package.dsv
+-- Installing: /home/sergio/ros2_ws/install/scara_urdf/share/ament_index/resource_index/packages/scara_urdf
+-- Installing: /home/sergio/ros2_ws/install/scara_urdf/share/scara_urdf/cmake/scara_urdfConfig.cmake
+-- Installing: /home/sergio/ros2_ws/install/scara_urdf/share/scara_urdf/cmake/scara_urdfConfig-version.cmake
+-- Installing: /home/sergio/ros2_ws/install/scara_urdf/share/scara_urdf/package.xml

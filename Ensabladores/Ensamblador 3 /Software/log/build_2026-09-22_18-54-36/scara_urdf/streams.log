@@ -1,0 +1,66 @@
+[0.023s] Invoking command in '/home/sergio/ros2_ws/build/scara_urdf': AMENT_PREFIX_PATH=/home/sergio/ros2_ws/install/scara_kinematics:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/lyrical DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/sergio/ros2_ws/install/scara_kinematics/lib/python3.14/site-packages:${PYTHONPATH} /usr/bin/cmake /home/sergio/ros2_ws/src/scara_urdf -DCMAKE_INSTALL_PREFIX=/home/sergio/ros2_ws/install/scara_urdf
+[0.089s] CMake Deprecation Warning at CMakeLists.txt:1 (cmake_minimum_required):
+[0.089s]   Compatibility with CMake < 3.10 will be removed from a future version of
+[0.090s]   CMake.
+[0.090s] 
+[0.090s]   Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
+[0.090s]   to tell CMake that the project requires at least <min> but has been updated
+[0.090s]   to work with policies introduced by <max> or earlier.
+[0.090s] 
+[0.091s] 
+[0.312s] -- The C compiler identification is GNU 15.2.0
+[0.580s] -- The CXX compiler identification is GNU 15.2.0
+[0.601s] -- Detecting C compiler ABI info
+[0.760s] -- Detecting C compiler ABI info - done
+[0.787s] -- Check for working C compiler: /usr/bin/cc - skipped
+[0.787s] -- Detecting C compile features
+[0.789s] -- Detecting C compile features - done
+[0.820s] -- Detecting CXX compiler ABI info
+[0.983s] -- Detecting CXX compiler ABI info - done
+[1.008s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[1.008s] -- Detecting CXX compile features
+[1.009s] -- Detecting CXX compile features - done
+[1.045s] -- Found ament_cmake: 2.8.8 (/opt/ros/lyrical/share/ament_cmake/cmake)
+[2.106s] -- Configuring done (2.0s)
+[2.112s] -- Generating done (0.0s)
+[2.115s] -- Build files have been written to: /home/sergio/ros2_ws/build/scara_urdf
+[2.123s] Invoked command in '/home/sergio/ros2_ws/build/scara_urdf' returned '0': AMENT_PREFIX_PATH=/home/sergio/ros2_ws/install/scara_kinematics:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/lyrical DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/sergio/ros2_ws/install/scara_kinematics/lib/python3.14/site-packages:${PYTHONPATH} /usr/bin/cmake /home/sergio/ros2_ws/src/scara_urdf -DCMAKE_INSTALL_PREFIX=/home/sergio/ros2_ws/install/scara_urdf
+[2.125s] Invoking command in '/home/sergio/ros2_ws/build/scara_urdf': AMENT_PREFIX_PATH=/home/sergio/ros2_ws/install/scara_kinematics:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/lyrical DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/sergio/ros2_ws/install/scara_kinematics/lib/python3.14/site-packages:${PYTHONPATH} /usr/bin/cmake --build /home/sergio/ros2_ws/build/scara_urdf -- -j4 -l4
+[2.192s] Invoked command in '/home/sergio/ros2_ws/build/scara_urdf' returned '0': AMENT_PREFIX_PATH=/home/sergio/ros2_ws/install/scara_kinematics:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/lyrical DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/sergio/ros2_ws/install/scara_kinematics/lib/python3.14/site-packages:${PYTHONPATH} /usr/bin/cmake --build /home/sergio/ros2_ws/build/scara_urdf -- -j4 -l4
+[2.209s] Invoking command in '/home/sergio/ros2_ws/build/scara_urdf': AMENT_PREFIX_PATH=/home/sergio/ros2_ws/install/scara_kinematics:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/lyrical DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/sergio/ros2_ws/install/scara_kinematics/lib/python3.14/site-packages:${PYTHONPATH} /usr/bin/cmake --install /home/sergio/ros2_ws/build/scara_urdf
+[2.223s] -- Install configuration: ""
+[2.223s] -- Installing: /home/sergio/ros2_ws/install/scara_urdf/share/scara_urdf/config
+[2.223s] -- Installing: /home/sergio/ros2_ws/install/scara_urdf/share/scara_urdf/config/joint_names_scara_urdf.yaml
+[2.224s] -- Installing: /home/sergio/ros2_ws/install/scara_urdf/share/scara_urdf/launch
+[2.224s] -- Installing: /home/sergio/ros2_ws/install/scara_urdf/share/scara_urdf/launch/gazebo.launch.py
+[2.224s] -- Installing: /home/sergio/ros2_ws/install/scara_urdf/share/scara_urdf/launch/display.launch.py
+[2.225s] -- Installing: /home/sergio/ros2_ws/install/scara_urdf/share/scara_urdf/meshes
+[2.225s] -- Installing: /home/sergio/ros2_ws/install/scara_urdf/share/scara_urdf/meshes/Ian.STL
+[2.225s] -- Installing: /home/sergio/ros2_ws/install/scara_urdf/share/scara_urdf/meshes/Dave.STL
+[2.226s] -- Installing: /home/sergio/ros2_ws/install/scara_urdf/share/scara_urdf/meshes/Alvin.STL
+[2.226s] -- Installing: /home/sergio/ros2_ws/install/scara_urdf/share/scara_urdf/meshes/Simon.STL
+[2.227s] -- Installing: /home/sergio/ros2_ws/install/scara_urdf/share/scara_urdf/meshes/Teodoro.STL
+[2.227s] -- Installing: /home/sergio/ros2_ws/install/scara_urdf/share/scara_urdf/rviz
+[2.228s] -- Installing: /home/sergio/ros2_ws/install/scara_urdf/share/scara_urdf/rviz/scara.rviz
+[2.228s] -- Installing: /home/sergio/ros2_ws/install/scara_urdf/share/scara_urdf/rviz/urdf.rviz
+[2.228s] -- Installing: /home/sergio/ros2_ws/install/scara_urdf/share/scara_urdf/urdf
+[2.228s] -- Installing: /home/sergio/ros2_ws/install/scara_urdf/share/scara_urdf/urdf/scara_urdf.urdf
+[2.229s] -- Installing: /home/sergio/ros2_ws/install/scara_urdf/share/scara_urdf/urdf/scara_urdf_gz.urdf
+[2.229s] -- Installing: /home/sergio/ros2_ws/install/scara_urdf/share/scara_urdf/environment/gz_resource_path.dsv
+[2.230s] -- Installing: /home/sergio/ros2_ws/install/scara_urdf/share/ament_index/resource_index/package_run_dependencies/scara_urdf
+[2.230s] -- Installing: /home/sergio/ros2_ws/install/scara_urdf/share/ament_index/resource_index/parent_prefix_path/scara_urdf
+[2.230s] -- Installing: /home/sergio/ros2_ws/install/scara_urdf/share/scara_urdf/environment/ament_prefix_path.sh
+[2.230s] -- Installing: /home/sergio/ros2_ws/install/scara_urdf/share/scara_urdf/environment/ament_prefix_path.dsv
+[2.231s] -- Installing: /home/sergio/ros2_ws/install/scara_urdf/share/scara_urdf/environment/path.sh
+[2.231s] -- Installing: /home/sergio/ros2_ws/install/scara_urdf/share/scara_urdf/environment/path.dsv
+[2.232s] -- Installing: /home/sergio/ros2_ws/install/scara_urdf/share/scara_urdf/local_setup.bash
+[2.232s] -- Installing: /home/sergio/ros2_ws/install/scara_urdf/share/scara_urdf/local_setup.fish
+[2.232s] -- Installing: /home/sergio/ros2_ws/install/scara_urdf/share/scara_urdf/local_setup.sh
+[2.232s] -- Installing: /home/sergio/ros2_ws/install/scara_urdf/share/scara_urdf/local_setup.zsh
+[2.233s] -- Installing: /home/sergio/ros2_ws/install/scara_urdf/share/scara_urdf/local_setup.dsv
+[2.233s] -- Installing: /home/sergio/ros2_ws/install/scara_urdf/share/scara_urdf/package.dsv
+[2.233s] -- Installing: /home/sergio/ros2_ws/install/scara_urdf/share/ament_index/resource_index/packages/scara_urdf
+[2.234s] -- Installing: /home/sergio/ros2_ws/install/scara_urdf/share/scara_urdf/cmake/scara_urdfConfig.cmake
+[2.234s] -- Installing: /home/sergio/ros2_ws/install/scara_urdf/share/scara_urdf/cmake/scara_urdfConfig-version.cmake
+[2.234s] -- Installing: /home/sergio/ros2_ws/install/scara_urdf/share/scara_urdf/package.xml
+[2.237s] Invoked command in '/home/sergio/ros2_ws/build/scara_urdf' returned '0': AMENT_PREFIX_PATH=/home/sergio/ros2_ws/install/scara_kinematics:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/lyrical DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/sergio/ros2_ws/install/scara_kinematics/lib/python3.14/site-packages:${PYTHONPATH} /usr/bin/cmake --install /home/sergio/ros2_ws/build/scara_urdf
