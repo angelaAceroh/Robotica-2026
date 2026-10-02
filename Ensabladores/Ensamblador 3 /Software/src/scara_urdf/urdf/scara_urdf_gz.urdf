@@ -1,0 +1,353 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.6.0-4-g7f85cfe  Build Version: 1.6.7995.38578
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<!-- VERSION PARA ROS 2 + GAZEBO (gz sim) — generada desde scara_urdf_corregido.urdf
+     Cambios respecto al export de SolidWorks:
+       - juntura1 y juntura2: continuous -> revolute con limites reales
+       - todos los joints: effort distinto de cero (era 0 y bloqueaba
+         ros2_control y Gazebo)
+       - manita declarada revolute; si el robot debe ser de 3 GDL
+         estrictos, cambiar su type a "fixed"
+-->
+<robot
+  name="scara_urdf">
+
+  <!-- ================= ANCLAJE AL MUNDO =================
+       Sin esto Gazebo trata el robot como un cuerpo libre y se cae.
+       El desplazamiento compensa el origen del ensamblaje de SolidWorks para
+       que el eje de la junta 1 quede en (0, 0, 0.25) del mundo. -->
+  <link name="world"/>
+  <joint name="world_to_base" type="fixed">
+    <parent link="world"/>
+    <child link="Alvin"/>
+    <origin xyz="0.14505 0.77092 -1.2344" rpy="0 0 0"/>
+  </joint>
+
+  <link
+    name="Alvin">
+    <inertial>
+      <origin
+        xyz="-0.14505 -0.77092 1.3844"
+        rpy="0 0 0" />
+      <mass
+        value="2.3562" />
+      <inertia
+        ixx="0.019144"
+        ixy="2.1505E-51"
+        ixz="-3.415E-35"
+        iyy="0.019144"
+        iyz="-9.9186E-19"
+        izz="0.0029452" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://scara_urdf/meshes/Alvin.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.89412 0.89412 0.89412 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://scara_urdf/meshes/Alvin.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="Simon">
+    <inertial>
+      <origin
+        xyz="0.13444 0.025 -0.030876"
+        rpy="0 0 0" />
+      <mass
+        value="1.9346" />
+      <inertia
+        ixx="0.004628"
+        ixy="-3.8095E-19"
+        ixz="0.0031704"
+        iyy="0.021527"
+        iyz="8.3923E-20"
+        izz="0.017705" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://scara_urdf/meshes/Simon.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.89412 0.89412 0.89412 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://scara_urdf/meshes/Simon.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="juntura1"
+    type="revolute">
+    <origin
+      xyz="-0.14505 -0.77092 1.4844"
+      rpy="1.5708 0 0.0011194" />
+    <parent
+      link="Alvin" />
+    <child
+      link="Simon" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="-2.0944"
+      upper="2.0944"
+      effort="12"
+      velocity="2.0" />
+    <dynamics damping="0.5" friction="0.1"/>
+  </joint>
+  <link
+    name="Teodoro">
+    <inertial>
+      <origin
+        xyz="0.122460155916732 0.0249999999999999 0.025070105960079"
+        rpy="0 0 0" />
+      <mass
+        value="2.13484510006475" />
+      <inertia
+        ixx="0.004851589913966"
+        ixy="7.31625421190779E-19"
+        ixz="-0.00353401567033521"
+        iyy="0.0253528113883727"
+        iyz="1.03676786823507E-19"
+        izz="0.0213907402661003" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://scara_urdf/meshes/Teodoro.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.894117647058823 0.894117647058823 0.894117647058823 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://scara_urdf/meshes/Teodoro.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="juntura2"
+    type="revolute">
+    <origin
+      xyz="0.24366 0.05 -0.055959"
+      rpy="0 -0.0020914 0" />
+    <parent
+      link="Simon" />
+    <child
+      link="Teodoro" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="-2.618"
+      upper="2.618"
+      effort="8"
+      velocity="2.0" />
+    <dynamics damping="0.5" friction="0.1"/>
+  </joint>
+  <link
+    name="Dave">
+    <inertial>
+      <origin
+        xyz="6.66133814775094E-16 -0.0648093500290701 3.33066907387547E-16"
+        rpy="0 0 0" />
+      <mass
+        value="0.7696902001295" />
+      <inertia
+        ixx="0.00280135162422132"
+        ixy="-6.62422220230561E-21"
+        ixz="4.23516473627149E-21"
+        iyy="0.000471435247579319"
+        iyz="8.06157379776966E-20"
+        izz="0.00280135162422132" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://scara_urdf/meshes/Dave.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.894117647058823 0.894117647058823 0.894117647058823 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://scara_urdf/meshes/Dave.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="vertiacal1"
+    type="prismatic">
+    <origin
+      xyz="0.24492 0 0.05014"
+      rpy="0 0.00097201 0" />
+    <parent
+      link="Teodoro" />
+    <child
+      link="Dave" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="0.02"
+      upper="0.17"
+      effort="500"
+      velocity="0.15" />
+    <dynamics damping="5.0" friction="0.5"/>
+  </joint>
+  <link
+    name="Ian">
+    <inertial>
+      <origin
+        xyz="0.0789110363719798 0 -0.00858948178085339"
+        rpy="0 0 0" />
+      <mass
+        value="0.102" />
+      <inertia
+        ixx="6.43000000000001E-05"
+        ixy="-3.10192729707385E-22"
+        ixz="7.50824986030051E-21"
+        iyy="5.18147058823528E-05"
+        iyz="9.88205105130021E-22"
+        izz="0.000100814705882353" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://scara_urdf/meshes/Ian.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.894117647058823 0.894117647058823 0.894117647058823 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://scara_urdf/meshes/Ian.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="manita"
+    type="revolute">
+    <origin
+      xyz="0 -0.11649 0"
+      rpy="0 0 -1.5708" />
+    <parent
+      link="Dave" />
+    <child
+      link="Ian" />
+    <axis
+      xyz="1 0 0" />
+    <limit
+      lower="-3.1416"
+      upper="3.1416"
+      effort="8"
+      velocity="2.0" />
+    <!-- la muneca es ligera: con el amortiguamiento de los ejes 1 y 2 tardaba
+         medio minuto en llegar a la consigna -->
+    <dynamics damping="0.02" friction="0.005"/>
+  </joint>
+
+  <!-- ================= GAZEBO (gz sim) =================
+       JointStatePublisher publica el estado de las juntas (se puentea a
+       /joint_states) y un JointPositionController por junta ejecuta las
+       consignas que manda el nodo de cinematica inversa. -->
+  <gazebo>
+    <plugin filename="gz-sim-joint-state-publisher-system"
+            name="gz::sim::systems::JointStatePublisher">
+      <joint_name>juntura1</joint_name>
+      <joint_name>juntura2</joint_name>
+      <joint_name>vertiacal1</joint_name>
+      <joint_name>manita</joint_name>
+    </plugin>
+
+    <plugin filename="gz-sim-joint-position-controller-system"
+            name="gz::sim::systems::JointPositionController">
+      <joint_name>juntura1</joint_name>
+      <p_gain>60.0</p_gain> <i_gain>0.5</i_gain> <d_gain>8.0</d_gain>
+      <i_max>10</i_max> <i_min>-10</i_min>
+      <cmd_max>12</cmd_max> <cmd_min>-12</cmd_min>
+    </plugin>
+
+    <plugin filename="gz-sim-joint-position-controller-system"
+            name="gz::sim::systems::JointPositionController">
+      <joint_name>juntura2</joint_name>
+      <p_gain>30.0</p_gain> <i_gain>0.3</i_gain> <d_gain>4.0</d_gain>
+      <i_max>8</i_max> <i_min>-8</i_min>
+      <cmd_max>8</cmd_max> <cmd_min>-8</cmd_min>
+    </plugin>
+
+    <!-- El husillo carga contra la gravedad: hace falta integral para que no
+         se quede por debajo de la consigna. -->
+    <plugin filename="gz-sim-joint-position-controller-system"
+            name="gz::sim::systems::JointPositionController">
+      <joint_name>vertiacal1</joint_name>
+      <p_gain>4000.0</p_gain> <i_gain>800.0</i_gain> <d_gain>200.0</d_gain>
+      <i_max>400</i_max> <i_min>-400</i_min>
+      <cmd_max>400</cmd_max> <cmd_min>-400</cmd_min>
+    </plugin>
+
+    <plugin filename="gz-sim-joint-position-controller-system"
+            name="gz::sim::systems::JointPositionController">
+      <joint_name>manita</joint_name>
+      <p_gain>60.0</p_gain> <i_gain>25.0</i_gain> <d_gain>1.0</d_gain>
+      <i_max>5</i_max> <i_min>-5</i_min>
+      <cmd_max>8</cmd_max> <cmd_min>-8</cmd_min>
+    </plugin>
+  </gazebo>
+</robot>

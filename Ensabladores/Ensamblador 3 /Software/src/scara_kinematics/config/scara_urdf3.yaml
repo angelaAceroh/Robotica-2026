@@ -1,0 +1,51 @@
+# Parametros cinematicos del SCARA scara_urdf tal y como esta CONSTRUIDO:
+# 3 GDL (R-R-P), sin la muneca. Es el mismo robot que scara_urdf.yaml y la
+# misma geometria; lo unico que cambia es que 'manita' no existe.
+#
+# has_wrist: false no es solo quitar un nombre de la lista: con muneca, la IK
+# puede elegir la orientacion de la herramienta libremente (yaw es un grado de
+# libertad mas); sin ella, el yaw queda determinado por el brazo (q1 + q2) y
+# pedir una orientacion concreta deja de tener sentido. El modelo, el panel y
+# el marcador de RViz se enteran solos de esto a traves de ndof.
+#
+# El URDF sigue siendo el de 4 juntas: 'manita' simplemente no aparece en
+# /joint_states, asi que robot_state_publisher la dibuja en su cero y el
+# eslabon Ian se queda quieto. No hay que tocar el URDF ni las mallas.
+/**:
+  ros__parameters:
+    joint_names: ['juntura1', 'juntura2', 'vertiacal1']
+
+    l1: 0.2500032
+    b1: 0.2268643    # el codo va desplazado ~13 deg respecto del eje X de Simon
+    l2: 0.2499997
+    b2: -0.2029018
+
+    # husillo: sube con d3.  Ian esta a z=0.18351 con d3=0 y la punta de la
+    # pinza (Ian.STL) queda 0.118 m por debajo del origen del link.
+    z_ref: 0.06551
+    z_dir: 1.0
+
+    q1_min: -2.0944
+    q1_max: 2.0944
+    q2_min: -2.618
+    q2_max: 2.618
+    d3_min: 0.02
+    d3_max: 0.17
+
+    has_wrist: false
+    # Se dejan declarados porque los nodos los esperan, pero con has_wrist:
+    # false no entran en ningun calculo.
+    wrist_sign: -1.0
+    yaw_offset: 0.0
+    q4_min: -3.1416
+    q4_max: 3.1416
+
+    # Tres entradas, una por junta. El techo real del hardware lo impone
+    # hardware.launch.py (MAX_VEL_HW), que es mas restrictivo en el husillo.
+    max_vel: [1.5, 1.5, 0.10]
+
+    # solo para dibujar el esqueleto en RViz, no entra en la cinematica
+    z_arm: 0.30   # plano del brazo (juntura2 / vertiacal1)
+
+    base_frame: 'world'
+    cmd_prefix: '/scara_urdf/cmd/'

@@ -1,0 +1,38 @@
+# Parametros cinematicos del SCARA scara_urdf (4 GDL: R-R-P-R).
+# El export de SolidWorks gira la base 90 deg en X, asi que los tres primeros
+# ejes acaban siendo Z del mundo y la muneca -Z. l1/l2/b1/b2 se obtuvieron
+# recorriendo la cadena del URDF, no del <origin> suelto de cada junta.
+/**:
+  ros__parameters:
+    joint_names: ['juntura1', 'juntura2', 'vertiacal1', 'manita']
+
+    l1: 0.2500032
+    b1: 0.2268643    # el codo va desplazado ~13 deg respecto del eje X de Simon
+    l2: 0.2499997
+    b2: -0.2029018
+
+    # husillo: sube con d3.  Ian esta a z=0.18351 con d3=0 y la punta de la
+    # pinza (Ian.STL) queda 0.118 m por debajo del origen del link.
+    z_ref: 0.06551
+    z_dir: 1.0
+
+    q1_min: -2.0944
+    q1_max: 2.0944
+    q2_min: -2.618
+    q2_max: 2.618
+    d3_min: 0.02
+    d3_max: 0.17
+
+    has_wrist: true
+    wrist_sign: -1.0   # 'manita' gira sobre -Z del mundo: yaw = q1 + q2 - q4
+    yaw_offset: 0.0
+    q4_min: -3.1416
+    q4_max: 3.1416
+
+    max_vel: [1.5, 1.5, 0.10, 2.0]
+
+    # solo para dibujar el esqueleto en RViz, no entra en la cinematica
+    z_arm: 0.30   # plano del brazo (juntura2 / vertiacal1)
+
+    base_frame: 'world'
+    cmd_prefix: '/scara_urdf/cmd/'
