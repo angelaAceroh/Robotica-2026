@@ -1,0 +1,48 @@
+import os
+from ament_index_python.packages import get_package_share_directory
+from launch import LaunchDescription
+from launch_ros.actions import Node
+
+def generate_launch_description():
+    # 1. Nombre de tu paquete y archivo URDF
+    package_name = 'EnsamblajeURDFPRIMO'
+    urdf_file_name = 'EnsamblajeURDFPRIMO.urdf' # Cambia esto si usaste 'EnsamblajeURDFPRIMO_2.urdf'
+    
+    # 2. Construir la ruta completa al archivo URDF
+    urdf_path = os.path.join(
+        get_package_share_directory(package_name),
+        'urdf',
+        urdf_file_name
+    )
+
+    # 3. Leer el contenido del URDF
+    with open(urdf_path, 'r') as infp:
+        robot_desc = infp.read()
+
+    # 4. Declarar los nodos que vamos a lanzar
+    return LaunchDescription([
+        # Nodo 1: robot_state_publisher (Publica el estado del robot a partir del URDF)
+        Node(
+            package='robot_state_publisher',
+            executable='robot_state_publisher',
+            name='robot_state_publisher',
+            output='screen',
+            parameters=[{'robot_description': robot_desc}]
+        ),
+        
+        # Nodo 2: joint_state_publisher_gui (Abre la ventana con los sliders para mover las piezas)
+        Node(
+            package='joint_state_publisher_gui',
+            executable='joint_state_publisher_gui',
+            name='joint_state_publisher_gui',
+            output='screen'
+        ),
+        
+        # Nodo 3: rviz2 (Abre el visualizador 3D)
+        Node(
+            package='rviz2',
+            executable='rviz2',
+            name='rviz2',
+            output='screen'
+        )
+    ])

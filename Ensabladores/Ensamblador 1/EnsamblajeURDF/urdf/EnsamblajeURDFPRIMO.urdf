@@ -1,0 +1,336 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- URDF Refactorizado y Optimizado para ROS / ROS 2 -->
+<robot name="EnsamblajeURDFPRIMO">
+  
+  <!-- ================= BASE LINK ================= -->
+  <link name="base_link">
+    <inertial>
+      <origin xyz="-0.00463657197333743 -0.0535003767890727 1.12265129345619" rpy="0 0 0" />
+      <mass value="1.30360101580612" />
+      <inertia ixx="0.00281045061573916" ixy="-0.000173244988387081" ixz="0.000152339452313174" iyy="0.00413386101144482" iyz="4.97906279103626E-05" izz="0.00359317152815648" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://EnsamblajeURDFPRIMO/meshes/base_link.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://EnsamblajeURDFPRIMO/meshes/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <!-- ================= EJE PRINCIPAL ================= -->
+  <link name="Eje_Principal_link">
+    <inertial>
+      <origin xyz="-7.96081809362192E-08 0.0827613274366685 0.014177932892296" rpy="0 0 0" />
+      <mass value="0.406547632545889" />
+      <inertia ixx="0.00102020987879379" ixy="7.05360308620492E-10" ixz="1.58718418297882E-09" iyy="0.000414220910322189" iyz="-0.000205175143679086" izz="0.000772370250110572" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://EnsamblajeURDFPRIMO/meshes/Eje_Principal_link.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://EnsamblajeURDFPRIMO/meshes/Eje_Principal_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="Eje_Principal_joint" type="revolute">
+    <origin xyz="0.039121 -1.1227 -0.078858" rpy="1.5708 0 -1.3658" />
+    <parent link="base_link" />
+    <child link="Eje_Principal_link" />
+    <axis xyz="0 1 0" />
+    <limit lower="-3.1416" upper="3.1416" effort="100.0" velocity="1.0" />
+  </joint>
+
+  <!-- ================= EJE LARGO ================= -->
+  <link name="Eje_largo_link">
+    <inertial>
+      <origin xyz="0.088429 0.019994 0.020191" rpy="0 0 0" />
+      <mass value="0.2582" />
+      <inertia ixx="6.8654E-05" ixy="9.7049E-08" ixz="3.4742E-06" iyy="0.00081643" iyz="3.5684E-09" izz="0.00082041" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://EnsamblajeURDFPRIMO/meshes/Eje_largo_link.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://EnsamblajeURDFPRIMO/meshes/Eje_largo_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="Eje_largo_joint" type="revolute">
+    <origin xyz="-0.02003659 0.12026112 0.03250566" rpy="1.5708059838 -0.90986 -1.5708010505" />
+    <parent link="Eje_Principal_link" />
+    <child link="Eje_largo_link" />
+    <axis xyz="0 0 1" />
+    <limit lower="-3.1416" upper="3.1416" effort="100.0" velocity="1.0" />
+  </joint>
+
+  <!-- ================= EJE FINAL ================= -->
+  <link name="Eje_final_link">
+    <inertial>
+      <origin xyz="-0.0133680800677922 0.00465875090965151 0.0195317020666297" rpy="0 0 0" />
+      <mass value="0.104891483187442" />
+      <inertia ixx="2.3891820659192E-05" ixy="1.3025475218467E-08" ixz="-1.16357056851567E-06" iyy="7.02602178644742E-05" iyz="2.12162625792475E-10" izz="7.40936373845695E-05" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://EnsamblajeURDFPRIMO/meshes/Eje_final_link.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://EnsamblajeURDFPRIMO/meshes/Eje_final_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="Eje_final_joint" type="revolute">
+    <origin xyz="0.2053453 0.02049235 -0.03997881" rpy="0 0 0.13836" />
+    <parent link="Eje_largo_link" />
+    <child link="Eje_final_link" />
+    <axis xyz="0 0 1" />
+    <limit lower="-3.1416" upper="3.1416" effort="100.0" velocity="1.0" />
+  </joint>
+
+  <!-- ================= BASE DEL GRIPPER (FIJA) ================= -->
+  <link name="Gripper_Link">
+    <inertial>
+      <origin xyz="-0.0226784991553353 0.00692204273672276 -0.0355931412899155" rpy="0 0 0" />
+      <mass value="0.0157913527240515" />
+      <inertia ixx="4.66774838436116E-06" ixy="-4.97878301855351E-07" ixz="-3.95381512796538E-08" iyy="6.56396650195895E-06" iyz="7.9338885325547E-08" izz="3.35343160703395E-06" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://EnsamblajeURDFPRIMO/meshes/Gripper_Link.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.698039215686274 0.698039215686274 0.698039215686274 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://EnsamblajeURDFPRIMO/meshes/Gripper_Link.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="Gripper_Joint" type="fixed">
+    <origin xyz="0.025941 0.0040618 -0.015211" rpy="-3.1416 0 -3.1416" />
+    <parent link="Eje_final_link" />
+    <child link="Gripper_Link" />
+  </joint>
+
+  <!-- ================= ELEMENTOS MÓVILES DEL GRIPPER ================= -->
+  <!-- Engranaje Derecho -->
+  <link name="Engraderecho_Link">
+    <inertial>
+      <origin xyz="-0.0034847 0.0015628 0.00031861" rpy="0 0 0" />
+      <mass value="0.0022074" />
+      <inertia ixx="1.1161E-07" ixy="3.9779E-10" ixz="2.5764E-09" iyy="4.2751E-07" iyz="4.4141E-11" izz="3.1919E-07" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://EnsamblajeURDFPRIMO/meshes/Engraderecho_Link.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.019608 0.019608 0.019608 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://EnsamblajeURDFPRIMO/meshes/Engraderecho_Link.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="Engraderecho_joint" type="fixed">
+    <origin xyz="0.052941 0.010062 0.0047892" rpy="0 -1.3128 -3.1416" />
+    <parent link="Eje_final_link" />
+    <child link="Engraderecho_Link" />
+  </joint>
+
+  <!-- Engranaje Izquierdo -->
+  <link name="Engraizquierdo_Link">
+    <inertial>
+      <origin xyz="-0.00381218780883807 0.00149999999999995 0.00026023766954264" rpy="0 0 0" />
+      <mass value="0.00233493264577781" />
+      <inertia ixx="1.14247386816342E-07" ixy="7.51907176810702E-22" ixz="2.80835484927694E-09" iyy="4.3789351476009E-07" iyz="4.51640614453953E-22" izz="3.27148526912415E-07" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://EnsamblajeURDFPRIMO/meshes/Engraizquierdo_Link.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.0196078431372549 0.0196078431372549 0.0196078431372549 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://EnsamblajeURDFPRIMO/meshes/Engraizquierdo_Link.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="Engraizquierdo_joint" type="fixed">
+    <origin xyz="0.052941 0.0070618 0.034789" rpy="-3.1416 1.2335 3.1416" />
+    <parent link="Eje_final_link" />
+    <child link="Engraizquierdo_Link" />
+  </joint>
+
+  <!-- Brazo Derecho -->
+  <link name="braerecho_Link">
+    <inertial>
+      <origin xyz="-0.044113 0.0050097 -0.011195" rpy="0 0 0" />
+      <mass value="0.012445" />
+      <inertia ixx="6.9887E-07" ixy="-3.707E-09" ixz="-5.9581E-07" iyy="3.1719E-06" iyz="-8.3511E-10" izz="3.3548E-06" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://EnsamblajeURDFPRIMO/meshes/braerecho_Link.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.69804 0.69804 0.69804 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://EnsamblajeURDFPRIMO/meshes/braerecho_Link.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="braerecho_joint" type="fixed">
+    <origin xyz="0.061553 0.0035618 -0.027844" rpy="-3.1416 0 -3.1416" />
+    <parent link="Eje_final_link" />
+    <child link="braerecho_Link" />
+  </joint>
+
+  <!-- Brazo Izquierdo -->
+  <link name="braizquierdo_Link">
+    <inertial>
+      <origin xyz="-0.0441131161508655 0.00500965549627927 -0.0111946654022019" rpy="0 0 0" />
+      <mass value="0.0124453068089912" />
+      <inertia ixx="6.98870290204349E-07" ixy="-3.70701166045819E-09" ixz="-5.95805484647487E-07" iyy="3.17185012605375E-06" iyz="-8.35109120343707E-10" izz="3.35484845662561E-06" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://EnsamblajeURDFPRIMO/meshes/braizquierdo_Link.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.698039215686274 0.698039215686274 0.698039215686274 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://EnsamblajeURDFPRIMO/meshes/braizquierdo_Link.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="braizquierdo_Joint" type="fixed">
+    <origin xyz="0.064112 0.013062 0.066637" rpy="0 0 3.1416" />
+    <parent link="Eje_final_link" />
+    <child link="braizquierdo_Link" />
+  </joint>
+
+  <!-- Soporte Derecho -->
+  <link name="sopoderecho_Link">
+    <inertial>
+      <origin xyz="-1.94289029309402E-16 0.00149999999999989 -0.0168749999999998" rpy="0 0 0" />
+      <mass value="0.00068227599352447" />
+      <inertia ixx="7.4681309547896E-08" ixy="1.02363600803437E-23" ixz="-6.86430661448302E-22" iyy="7.66742249182633E-08" iyz="-2.64232506922408E-22" izz="3.01632936065399E-09" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://EnsamblajeURDFPRIMO/meshes/sopoderecho_Link.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0 0 0 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://EnsamblajeURDFPRIMO/meshes/sopoderecho_Link.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="sopoderecho_Joint" type="fixed">
+    <origin xyz="0.084553 0.010062 -0.020344" rpy="3.1416 -0.25803 0" />
+    <parent link="Eje_final_link" />
+    <child link="sopoderecho_Link" />
+  </joint>
+
+  <!-- Soporte Izquierdo -->
+  <link name="sopoizquierdo_Link">
+    <inertial>
+      <origin xyz="-1.11022302462516E-16 0.00150000000000003 -0.016875" rpy="0 0 0" />
+      <mass value="0.000682275993524476" />
+      <inertia ixx="7.46813095478963E-08" ixy="8.06501097239202E-24" ixz="-4.17726209339279E-23" iyy="7.66742249182637E-08" iyz="2.03900020994321E-22" izz="3.01632936065406E-09" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://EnsamblajeURDFPRIMO/meshes/sopoizquierdo_Link.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0 0 0 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://EnsamblajeURDFPRIMO/meshes/sopoizquierdo_Link.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="sopoizquierdo_Joint" type="fixed">
+    <origin xyz="0.087112 0.010062 0.059137" rpy="0 -0.33735 -3.1416" />
+    <parent link="Eje_final_link" />
+    <child link="sopoizquierdo_Link" />
+  </joint>
+
+</robot>
