@@ -1,0 +1,5 @@
+source;share/scara_urdf/local_setup.bash
+source;share/scara_urdf/local_setup.dsv
+source;share/scara_urdf/local_setup.fish
+source;share/scara_urdf/local_setup.sh
+source;share/scara_urdf/local_setup.zsh

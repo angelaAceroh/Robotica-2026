@@ -1,0 +1,13 @@
+[console_scripts]
+alvin = scara_kinematics.alvin:main
+auditor = scara_kinematics.auditor:main
+brazo_hw = scara_kinematics.brazo_hw:main
+cc = scara_kinematics.cc:main
+esp = scara_kinematics.esp:main
+esp_rec = scara_kinematics.esp_rec:main
+ruta = scara_kinematics.ruta:main
+ruta_nodo = scara_kinematics.ruta_nodo:main
+simon = scara_kinematics.simon:main
+teodoro = scara_kinematics.teodoro:main
+tray = scara_kinematics.tray:main
+tray_gui = scara_kinematics.tray_gui:main
