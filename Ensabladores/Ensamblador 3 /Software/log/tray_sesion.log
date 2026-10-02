@@ -1,0 +1,168 @@
+[INFO] [launch]: All log files can be found below /home/sergio/.ros/log/2026-09-25-09-50-50-906765-sergio-Inspiron-3481-18577
+[INFO] [launch]: Default logging verbosity is set to INFO
+[INFO] [gazebo-1]: process started with pid [18590]
+[INFO] [robot_state_publisher-2]: process started with pid [18591]
+[INFO] [parameter_bridge-3]: process started with pid [18593]
+[INFO] [tray-4]: process started with pid [18594]
+[INFO] [tray_gui-5]: process started with pid [18595]
+[robot_state_publisher-2] [INFO] [1790347851.670011127] [robot_state_publisher]: Robot initialized
+[gazebo-1] (2026-09-25 09:50:52.148) [info] [Gui.cc:339] Gazebo Sim GUI    v10.5.0
+[gazebo-1] (2026-09-25 09:50:52.149) [info] [Gui.cc:368] Detected Wayland. Setting Qt to use the xcb plugin: 'QT_QPA_PLATFORM=xcb'.
+[gazebo-1] (2026-09-25 09:50:52.256) [info] [gz.cc:242] Received world [/opt/ros/lyrical/opt/gz_sim_vendor/share/gz/gz-sim/worlds/empty.sdf] from the GUI.
+[gazebo-1] (2026-09-25 09:50:52.257) [info] [gz.cc:407] Gazebo Sim Server v10.5.0
+[gazebo-1] (2026-09-25 09:50:52.305) [info] [ServerPrivate.cc:697] Loading SDF world file[/opt/ros/lyrical/opt/gz_sim_vendor/share/gz/gz-sim/worlds/empty.sdf].
+[gazebo-1] (2026-09-25 09:50:52.560) [warning] [Application.cc:923] [GUI] [QT] QQmlComponent: attempted to load via a relative URL 'qrc:qml/Main.qml' in resource file system. This is not fully supported and may not work
+[parameter_bridge-3] [INFO] [1790347852.670155441] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/clock (gz.msgs.Clock) -> /clock (rosgraph_msgs/msg/Clock)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1790347852.696856602] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/world/empty/model/scara_urdf/joint_state (gz.msgs.Model) -> /joint_states (sensor_msgs/msg/JointState)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1790347852.707191524] [ros_gz_bridge]: Creating ROS->GZ Bridge: [/scara_urdf/cmd/juntura1 (std_msgs/msg/Float64) -> /model/scara_urdf/joint/juntura1/0/cmd_pos (gz.msgs.Double)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1790347852.710246953] [ros_gz_bridge]: Creating ROS->GZ Bridge: [/scara_urdf/cmd/juntura2 (std_msgs/msg/Float64) -> /model/scara_urdf/joint/juntura2/0/cmd_pos (gz.msgs.Double)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1790347852.712780551] [ros_gz_bridge]: Creating ROS->GZ Bridge: [/scara_urdf/cmd/vertiacal1 (std_msgs/msg/Float64) -> /model/scara_urdf/joint/vertiacal1/0/cmd_pos (gz.msgs.Double)] (Lazy 0)
+[gazebo-1] (2026-09-25 09:50:52.832) [warning] [Application.cc:923] [GUI] [QT] qrc:qml/Main.qml:163:11: QML ToolBar (parent or ancestor of Material): Binding loop detected for property "foreground":
+[gazebo-1] qrc:qml/Main.qml:165:5
+[tray-4] [INFO] [1790347853.256865410] [tray]: planificador | destino=gz | perfil=quintico codo=auto dt=0.020s | anillo r=[0.023, 0.500] m, z=[0.086, 0.236] m | ordenes por scara/tray/orden
+[gazebo-1] (2026-09-25 09:50:54.027) [info] [SystemManager.cc:54] Serving entity system service on [/entity/system/add]
+[gazebo-1] (2026-09-25 09:50:54.029) [info] [SimulationRunner.cc:347] Serving world controls on [/world/empty/control], [/world/empty/control/state] and [/world/empty/playback/control]
+[gazebo-1] (2026-09-25 09:50:54.030) [info] [SimulationRunner.cc:373] Serving GUI information on [/world/empty/gui/info]
+[gazebo-1] (2026-09-25 09:50:54.030) [info] [SimulationRunner.cc:376] World [empty] initialized with [1ms] physics profile.
+[gazebo-1] (2026-09-25 09:50:54.030) [info] [SimulationRunner.cc:383] Serving world SDF generation service on [/world/empty/generate_world_sdf]
+[gazebo-1] (2026-09-25 09:50:54.031) [info] [ServerPrivate.cc:357] Serving world names on [/gazebo/worlds]
+[gazebo-1] (2026-09-25 09:50:54.031) [info] [ServerPrivate.cc:370] Resource path add service on [/gazebo/resource_paths/add].
+[gazebo-1] (2026-09-25 09:50:54.031) [info] [ServerPrivate.cc:383] Resource path get service on [/gazebo/resource_paths/get].
+[gazebo-1] (2026-09-25 09:50:54.031) [info] [ServerPrivate.cc:398] Resource path resolve service on [/gazebo/resource_paths/resolve].
+[gazebo-1] (2026-09-25 09:50:54.132) [info] [ServerPrivate.cc:412] Resource paths published on [/gazebo/resource_paths].
+[gazebo-1] (2026-09-25 09:50:54.133) [info] [ServerPrivate.cc:425] Server control service on [/server_control].
+[gazebo-1] (2026-09-25 09:50:54.133) [info] [SimulationRunner.cc:868] Found no publishers on /stats, adding root stats topic
+[gazebo-1] (2026-09-25 09:50:54.133) [info] [SimulationRunner.cc:902] Found no publishers on /clock, adding root clock topic
+[gazebo-1] (2026-09-25 09:50:54.254) [warning] [Application.cc:923] [GUI] [QT] QQmlComponent: attempted to load via a relative URL 'qrc:qml/GzCard.qml' in resource file system. This is not fully supported and may not work
+[gazebo-1] (2026-09-25 09:50:54.441) [info] [Application.cc:756] [GUI] Added plugin [3D View] to main window
+[gazebo-1] (2026-09-25 09:50:54.441) [info] [Application.cc:653] [GUI] Loaded plugin [MinimalScene] from path [/opt/ros/lyrical/opt/gz_gui_vendor/lib/gz-gui-10/plugins/libMinimalScene.so]
+[gazebo-1] (2026-09-25 09:50:54.453) [info] [EntityContextMenu.cc:134] [GUI] Currently tracking topic on [/gui/currently_tracked]
+[INFO] [create-6]: process started with pid [18732]
+[gazebo-1] (2026-09-25 09:50:54.489) [warning] [Application.cc:923] [GUI] [QT] QQmlComponent: attempted to load via a relative URL 'qrc:qml/GzCard.qml' in resource file system. This is not fully supported and may not work
+[gazebo-1] (2026-09-25 09:50:54.523) [info] [Application.cc:756] [GUI] Added plugin [Entity Context Menu] to main window
+[gazebo-1] (2026-09-25 09:50:54.523) [info] [Application.cc:653] [GUI] Loaded plugin [EntityContextMenuPlugin] from path [/opt/ros/lyrical/opt/gz_sim_vendor/lib/gz-sim-10/plugins/gui/libEntityContextMenuPlugin.so]
+[create-6] [INFO] [1790347854.633312681] [ros_gz_sim]: Requesting list of world names.
+[gazebo-1] (2026-09-25 09:50:54.846) [info] [UserCommands.cc:751] Create service on [/world/empty/create_multiple] (async)
+[gazebo-1] (2026-09-25 09:50:54.846) [info] [UserCommands.cc:753] Create service on [/world/empty/create_multiple/blocking] (blocking)
+[gazebo-1] (2026-09-25 09:50:54.846) [info] [UserCommands.cc:751] Remove service on [/world/empty/remove] (async)
+[gazebo-1] (2026-09-25 09:50:54.846) [info] [UserCommands.cc:753] Remove service on [/world/empty/remove/blocking] (blocking)
+[gazebo-1] (2026-09-25 09:50:54.846) [info] [UserCommands.cc:751] Pose service on [/world/empty/set_pose] (async)
+[gazebo-1] (2026-09-25 09:50:54.846) [info] [UserCommands.cc:753] Pose service on [/world/empty/set_pose/blocking] (blocking)
+[gazebo-1] (2026-09-25 09:50:54.846) [info] [UserCommands.cc:751] Pose service on [/world/empty/set_pose_vector] (async)
+[gazebo-1] (2026-09-25 09:50:54.846) [info] [UserCommands.cc:753] Pose service on [/world/empty/set_pose_vector/blocking] (blocking)
+[gazebo-1] (2026-09-25 09:50:54.846) [info] [UserCommands.cc:751] Light configuration service on [/world/empty/light_config] (async)
+[gazebo-1] (2026-09-25 09:50:54.846) [info] [UserCommands.cc:753] Light configuration service on [/world/empty/light_config/blocking] (blocking)
+[gazebo-1] (2026-09-25 09:50:54.848) [info] [UserCommands.cc:751] Physics service on [/world/empty/set_physics] (async)
+[gazebo-1] (2026-09-25 09:50:54.848) [info] [UserCommands.cc:753] Physics service on [/world/empty/set_physics/blocking] (blocking)
+[gazebo-1] (2026-09-25 09:50:54.849) [info] [UserCommands.cc:751] SphericalCoordinates service on [/world/empty/set_spherical_coordinates] (async)
+[gazebo-1] (2026-09-25 09:50:54.849) [info] [UserCommands.cc:753] SphericalCoordinates service on [/world/empty/set_spherical_coordinates/blocking] (blocking)
+[gazebo-1] (2026-09-25 09:50:54.852) [info] [UserCommands.cc:751] Enable collision service on [/world/empty/enable_collision] (async)
+[gazebo-1] (2026-09-25 09:50:54.852) [info] [UserCommands.cc:753] Enable collision service on [/world/empty/enable_collision/blocking] (blocking)
+[gazebo-1] (2026-09-25 09:50:54.852) [info] [UserCommands.cc:751] Disable collision service on [/world/empty/disable_collision] (async)
+[gazebo-1] (2026-09-25 09:50:54.852) [info] [UserCommands.cc:753] Disable collision service on [/world/empty/disable_collision/blocking] (blocking)
+[gazebo-1] (2026-09-25 09:50:54.853) [info] [UserCommands.cc:751] Material service on [/world/empty/visual_config] (async)
+[gazebo-1] (2026-09-25 09:50:54.853) [info] [UserCommands.cc:753] Material service on [/world/empty/visual_config/blocking] (blocking)
+[gazebo-1] (2026-09-25 09:50:54.853) [info] [UserCommands.cc:751] Material service on [/world/empty/wheel_slip] (async)
+[gazebo-1] (2026-09-25 09:50:54.853) [info] [UserCommands.cc:753] Material service on [/world/empty/wheel_slip/blocking] (blocking)
+[gazebo-1] (2026-09-25 09:50:54.864) [info] [LevelManager.cc:646] Loaded level [default]
+[gazebo-1] (2026-09-25 09:50:54.870) [warning] [Application.cc:923] [GUI] [QT] QQmlComponent: attempted to load via a relative URL 'qrc:qml/GzCard.qml' in resource file system. This is not fully supported and may not work
+[gazebo-1] (2026-09-25 09:50:54.883) [info] [SceneBroadcaster.cc:654] Serving scene information on [/world/empty/scene/info]
+[gazebo-1] (2026-09-25 09:50:54.883) [info] [SceneBroadcaster.cc:663] Serving graph information on [/world/empty/scene/graph]
+[gazebo-1] (2026-09-25 09:50:54.883) [info] [SceneBroadcaster.cc:674] Serving full state on [/world/empty/state]
+[gazebo-1] (2026-09-25 09:50:54.884) [info] [SceneBroadcaster.cc:683] Serving full state (async) on [/world/empty/state_async]
+[gazebo-1] (2026-09-25 09:50:54.884) [info] [SceneBroadcaster.cc:691] Publishing scene information on [/world/empty/scene/info]
+[gazebo-1] (2026-09-25 09:50:54.884) [info] [SceneBroadcaster.cc:700] Publishing entity deletions on [/world/empty/scene/deletion]
+[gazebo-1] (2026-09-25 09:50:54.885) [info] [SceneBroadcaster.cc:709] Publishing state changes on [/world/empty/state]
+[gazebo-1] (2026-09-25 09:50:54.886) [info] [SceneBroadcaster.cc:720] Publishing pose messages on [/world/empty/pose/info]
+[gazebo-1] (2026-09-25 09:50:54.886) [info] [SceneBroadcaster.cc:731] Publishing dynamic pose messages on [/world/empty/dynamic_pose/info]
+[gazebo-1] (2026-09-25 09:50:54.945) [info] [Application.cc:756] [GUI] Added plugin [Scene Manager] to main window
+[gazebo-1] (2026-09-25 09:50:54.945) [info] [Application.cc:653] [GUI] Loaded plugin [GzSceneManager] from path [/opt/ros/lyrical/opt/gz_sim_vendor/lib/gz-sim-10/plugins/gui/libGzSceneManager.so]
+[gazebo-1] (2026-09-25 09:50:54.955) [info] [InteractiveViewControl.cc:409] [GUI] Camera view controller topic advertised on [/gui/camera/view_control]
+[gazebo-1] (2026-09-25 09:50:54.956) [info] [InteractiveViewControl.cc:417] [GUI] Camera reference visual topic advertised on [/gui/camera/view_control/reference_visual]
+[gazebo-1] (2026-09-25 09:50:54.957) [info] [InteractiveViewControl.cc:427] [GUI] Camera view control sensitivity advertised on [/gui/camera/view_control/sensitivity]
+[gazebo-1] (2026-09-25 09:50:54.958) [warning] [Application.cc:923] [GUI] [QT] QQmlComponent: attempted to load via a relative URL 'qrc:qml/GzCard.qml' in resource file system. This is not fully supported and may not work
+[gazebo-1] (2026-09-25 09:50:55.015) [info] [Application.cc:756] [GUI] Added plugin [Interactive view control] to main window
+[gazebo-1] (2026-09-25 09:50:55.015) [info] [Application.cc:653] [GUI] Loaded plugin [InteractiveViewControl] from path [/opt/ros/lyrical/opt/gz_gui_vendor/lib/gz-gui-10/plugins/libInteractiveViewControl.so]
+[gazebo-1] (2026-09-25 09:50:55.020) [warning] [Application.cc:923] [GUI] [QT] QQmlComponent: attempted to load via a relative URL 'qrc:qml/GzCard.qml' in resource file system. This is not fully supported and may not work
+[gazebo-1] (2026-09-25 09:50:55.046) [info] [Application.cc:756] [GUI] Added plugin [Camera tracking] to main window
+[gazebo-1] (2026-09-25 09:50:55.046) [info] [Application.cc:653] [GUI] Loaded plugin [CameraTracking] from path [/opt/ros/lyrical/opt/gz_gui_vendor/lib/gz-gui-10/plugins/libCameraTracking.so]
+[gazebo-1] (2026-09-25 09:50:55.050) [info] [MarkerManager.cc:752] [GUI] Listening to stats on [/world/empty/stats]
+[gazebo-1] (2026-09-25 09:50:55.051) [warning] [Application.cc:923] [GUI] [QT] QQmlComponent: attempted to load via a relative URL 'qrc:qml/GzCard.qml' in resource file system. This is not fully supported and may not work
+[create-6] [INFO] [1790347855.057684062] [ros_gz_sim]: Waiting messages on topic [robot_description].
+[gazebo-1] (2026-09-25 09:50:55.121) [info] [Application.cc:756] [GUI] Added plugin [Marker Manager] to main window
+[gazebo-1] (2026-09-25 09:50:55.121) [info] [Application.cc:653] [GUI] Loaded plugin [MarkerManager] from path [/opt/ros/lyrical/opt/gz_gui_vendor/lib/gz-gui-10/plugins/libMarkerManager.so]
+[gazebo-1] (2026-09-25 09:50:55.125) [warning] [Application.cc:923] [GUI] [QT] QQmlComponent: attempted to load via a relative URL 'qrc:qml/GzCard.qml' in resource file system. This is not fully supported and may not work
+[gazebo-1] (2026-09-25 09:50:55.158) [info] [Application.cc:756] [GUI] Added plugin [Select entities] to main window
+[gazebo-1] (2026-09-25 09:50:55.158) [info] [Application.cc:653] [GUI] Loaded plugin [SelectEntities] from path [/opt/ros/lyrical/opt/gz_sim_vendor/lib/gz-sim-10/plugins/gui/libSelectEntities.so]
+[create-6] [INFO] [1790347855.173324994] [ros_gz_sim]: Entity creation successful.
+[gazebo-1] (2026-09-25 09:50:55.175) [warning] [Application.cc:923] [GUI] [QT] QQmlComponent: attempted to load via a relative URL 'qrc:qml/GzCard.qml' in resource file system. This is not fully supported and may not work
+[gazebo-1] (2026-09-25 09:50:55.211) [info] [Application.cc:756] [GUI] Added plugin [Spawn] to main window
+[gazebo-1] (2026-09-25 09:50:55.211) [info] [Application.cc:653] [GUI] Loaded plugin [Spawn] from path [/opt/ros/lyrical/opt/gz_sim_vendor/lib/gz-sim-10/plugins/gui/libSpawn.so]
+[gazebo-1] (2026-09-25 09:50:55.218) [info] [VisualizationCapabilities.cc:2850] [GUI] View as transparent service on [/gui/view/transparent]
+[gazebo-1] (2026-09-25 09:50:55.218) [info] [VisualizationCapabilities.cc:2857] [GUI] View as wireframes service on [/gui/view/wireframes]
+[gazebo-1] (2026-09-25 09:50:55.218) [info] [VisualizationCapabilities.cc:2864] [GUI] View center of mass service on [/gui/view/com]
+[gazebo-1] (2026-09-25 09:50:55.218) [info] [VisualizationCapabilities.cc:2871] [GUI] View inertia service on [/gui/view/inertia]
+[gazebo-1] (2026-09-25 09:50:55.218) [info] [VisualizationCapabilities.cc:2879] [GUI] View collisions service on [/gui/view/collisions]
+[gazebo-1] (2026-09-25 09:50:55.218) [info] [VisualizationCapabilities.cc:2887] [GUI] View joints service on [/gui/view/joints]
+[gazebo-1] (2026-09-25 09:50:55.219) [info] [VisualizationCapabilities.cc:2894] [GUI] View frames service on [/gui/view/frames]
+[gazebo-1] (2026-09-25 09:50:55.219) [warning] [Application.cc:923] [GUI] [QT] QQmlComponent: attempted to load via a relative URL 'qrc:qml/GzCard.qml' in resource file system. This is not fully supported and may not work
+[gazebo-1] (2026-09-25 09:50:55.240) [info] [Application.cc:756] [GUI] Added plugin [Visualization capabilities] to main window
+[gazebo-1] (2026-09-25 09:50:55.240) [info] [Application.cc:653] [GUI] Loaded plugin [VisualizationCapabilities] from path [/opt/ros/lyrical/opt/gz_sim_vendor/lib/gz-sim-10/plugins/gui/libVisualizationCapabilities.so]
+[gazebo-1] (2026-09-25 09:50:55.255) [info] [WorldControl.cc:152] [GUI] Using world control service [/world/empty/control]
+[gazebo-1] (2026-09-25 09:50:55.255) [info] [WorldControl.cc:225] [GUI] Listening to stats on [/world/empty/stats]
+[gazebo-1] (2026-09-25 09:50:55.256) [warning] [Application.cc:923] [GUI] [QT] QQmlComponent: attempted to load via a relative URL 'qrc:qml/GzCard.qml' in resource file system. This is not fully supported and may not work
+[gazebo-1] (2026-09-25 09:50:55.281) [info] [Application.cc:756] [GUI] Added plugin [World control] to main window
+[gazebo-1] (2026-09-25 09:50:55.282) [info] [Application.cc:653] [GUI] Loaded plugin [WorldControl] from path [/opt/ros/lyrical/opt/gz_gui_vendor/lib/gz-gui-10/plugins/libWorldControl.so]
+[gazebo-1] (2026-09-25 09:50:55.286) [info] [JointPositionController.cc:415] JointPositionController subscribing to Double messages on [/model/scara_urdf/joint/juntura1/0/cmd_pos]
+[gazebo-1] (2026-09-25 09:50:55.287) [info] [WorldStats.cc:156] [GUI] Listening to stats on [/world/empty/stats]
+[gazebo-1] (2026-09-25 09:50:55.288) [info] [JointPositionController.cc:415] JointPositionController subscribing to Double messages on [/model/scara_urdf/joint/juntura2/0/cmd_pos]
+[gazebo-1] (2026-09-25 09:50:55.288) [warning] [Application.cc:923] [GUI] [QT] QQmlComponent: attempted to load via a relative URL 'qrc:qml/GzCard.qml' in resource file system. This is not fully supported and may not work
+[gazebo-1] (2026-09-25 09:50:55.290) [info] [JointPositionController.cc:415] JointPositionController subscribing to Double messages on [/model/scara_urdf/joint/vertiacal1/0/cmd_pos]
+[gazebo-1] (2026-09-25 09:50:55.292) [info] [JointPositionController.cc:415] JointPositionController subscribing to Double messages on [/model/scara_urdf/joint/manita/0/cmd_pos]
+[gazebo-1] (2026-09-25 09:50:55.305) [warning] [Component.hh:144] Trying to serialize component with data type [St6vectorIdSaIdEE], which doesn't have `operator<<`. Component will not be serialized.
+[INFO] [create-6]: process has finished cleanly [pid 18732]
+[gazebo-1] (2026-09-25 09:50:55.317) [info] [Application.cc:756] [GUI] Added plugin [World stats] to main window
+[gazebo-1] (2026-09-25 09:50:55.317) [info] [Application.cc:653] [GUI] Loaded plugin [WorldStats] from path [/opt/ros/lyrical/opt/gz_gui_vendor/lib/gz-gui-10/plugins/libWorldStats.so]
+[gazebo-1] (2026-09-25 09:50:55.333) [warning] [Application.cc:923] [GUI] [QT] QQmlComponent: attempted to load via a relative URL 'qrc:qml/GzCard.qml' in resource file system. This is not fully supported and may not work
+[gazebo-1] (2026-09-25 09:50:55.387) [info] [Application.cc:756] [GUI] Added plugin [Shapes] to main window
+[gazebo-1] (2026-09-25 09:50:55.387) [info] [Application.cc:653] [GUI] Loaded plugin [Shapes] from path [/opt/ros/lyrical/opt/gz_sim_vendor/lib/gz-sim-10/plugins/gui/libShapes.so]
+[gazebo-1] (2026-09-25 09:50:55.395) [warning] [Application.cc:923] [GUI] [QT] QQmlComponent: attempted to load via a relative URL 'qrc:qml/GzCard.qml' in resource file system. This is not fully supported and may not work
+[gazebo-1] (2026-09-25 09:50:55.439) [info] [Application.cc:756] [GUI] Added plugin [Lights] to main window
+[gazebo-1] (2026-09-25 09:50:55.439) [info] [Application.cc:653] [GUI] Loaded plugin [Lights] from path [/opt/ros/lyrical/opt/gz_sim_vendor/lib/gz-sim-10/plugins/gui/libLights.so]
+[gazebo-1] (2026-09-25 09:50:55.517) [warning] [Application.cc:923] [GUI] [QT] QQmlComponent: attempted to load via a relative URL 'qrc:qml/GzCard.qml' in resource file system. This is not fully supported and may not work
+[gazebo-1] (2026-09-25 09:50:55.567) [info] [Application.cc:756] [GUI] Added plugin [Transform control] to main window
+[gazebo-1] (2026-09-25 09:50:55.568) [info] [Application.cc:653] [GUI] Loaded plugin [TransformControl] from path [/opt/ros/lyrical/opt/gz_sim_vendor/lib/gz-sim-10/plugins/gui/libTransformControl.so]
+[gazebo-1] (2026-09-25 09:50:55.589) [info] [Screenshot.cc:97] [GUI] Screenshot service on [/gui/screenshot]
+[gazebo-1] (2026-09-25 09:50:55.590) [warning] [Application.cc:923] [GUI] [QT] QQmlComponent: attempted to load via a relative URL 'qrc:qml/GzCard.qml' in resource file system. This is not fully supported and may not work
+[gazebo-1] (2026-09-25 09:50:55.637) [info] [Application.cc:756] [GUI] Added plugin [Screenshot] to main window
+[gazebo-1] (2026-09-25 09:50:55.638) [info] [Application.cc:653] [GUI] Loaded plugin [Screenshot] from path [/opt/ros/lyrical/opt/gz_gui_vendor/lib/gz-gui-10/plugins/libScreenshot.so]
+[gazebo-1] (2026-09-25 09:50:55.647) [warning] [Application.cc:923] [GUI] [QT] QQmlComponent: attempted to load via a relative URL 'qrc:qml/GzCard.qml' in resource file system. This is not fully supported and may not work
+[gazebo-1] (2026-09-25 09:50:55.694) [info] [Application.cc:756] [GUI] Added plugin [Copy/Paste] to main window
+[gazebo-1] (2026-09-25 09:50:55.695) [info] [Application.cc:653] [GUI] Loaded plugin [CopyPaste] from path [/opt/ros/lyrical/opt/gz_sim_vendor/lib/gz-sim-10/plugins/gui/libCopyPaste.so]
+[gazebo-1] (2026-09-25 09:50:55.862) [warning] [Application.cc:923] [GUI] [QT] QQmlComponent: attempted to load via a relative URL 'qrc:qml/GzCard.qml' in resource file system. This is not fully supported and may not work
+[gazebo-1] (2026-09-25 09:50:55.922) [info] [Application.cc:756] [GUI] Added plugin [Component inspector] to main window
+[gazebo-1] (2026-09-25 09:50:55.922) [info] [Application.cc:653] [GUI] Loaded plugin [ComponentInspector] from path [/opt/ros/lyrical/opt/gz_sim_vendor/lib/gz-sim-10/plugins/gui/libComponentInspector.so]
+[gazebo-1] (2026-09-25 09:50:55.945) [info] [EntityContextMenu.cc:134] [GUI] Currently tracking topic on [/gui/currently_tracked]
+[gazebo-1] (2026-09-25 09:50:56.128) [warning] [Application.cc:923] [GUI] [QT] QQmlComponent: attempted to load via a relative URL 'qrc:qml/GzCard.qml' in resource file system. This is not fully supported and may not work
+[gazebo-1] (2026-09-25 09:50:56.241) [info] [Application.cc:756] [GUI] Added plugin [Entity tree] to main window
+[gazebo-1] (2026-09-25 09:50:56.243) [info] [Application.cc:653] [GUI] Loaded plugin [EntityTree] from path [/opt/ros/lyrical/opt/gz_sim_vendor/lib/gz-sim-10/plugins/gui/libEntityTree.so]
+[gazebo-1] (2026-09-25 09:50:56.507) [warning] [Component.hh:189] [GUI] Trying to deserialize component with data type [St6vectorIdSaIdEE], which doesn't have `operator>>`. Component will not be deserialized.
+[gazebo-1] (2026-09-25 09:50:57.286) [info] [RenderEngineManager.cc:513] [GUI] Loading plugin [gz-rendering-ogre2]
+[gazebo-1] (2026-09-25 09:50:58.543) [info] [CameraTracking.cc:204] [GUI] Move to service on [/gui/move_to]
+[gazebo-1] (2026-09-25 09:50:58.544) [info] [CameraTracking.cc:211] [GUI] Tracking topic on [/gui/track]
+[gazebo-1] (2026-09-25 09:50:58.544) [info] [CameraTracking.cc:218] [GUI] Tracking status topic on [/gui/currently_tracked]
+[gazebo-1] (2026-09-25 09:50:58.544) [info] [CameraTracking.cc:226] [GUI] Move to pose service on [/gui/move_to/pose]
+[gazebo-1] (2026-09-25 09:50:58.544) [info] [CameraTracking.cc:233] [GUI] Camera pose topic advertised on [/gui/camera/pose]
+[INFO] [tray_gui-5]: process has finished cleanly [pid 18595]
+[INFO] [launch]: process[tray_gui-5] was required: shutting down launched system
+[INFO] [tray-4]: sending signal 'SIGINT' to process[tray-4]
+[INFO] [parameter_bridge-3]: sending signal 'SIGINT' to process[parameter_bridge-3]
+[INFO] [robot_state_publisher-2]: sending signal 'SIGINT' to process[robot_state_publisher-2]
+[INFO] [gazebo-1]: sending signal 'SIGINT' to process[gazebo-1]
+[parameter_bridge-3] [INFO] [1790350020.145900490] [rclcpp]: signal_handler(signum=2)
+[robot_state_publisher-2] [INFO] [1790350020.157577894] [rclcpp]: signal_handler(signum=2)
+[INFO] [robot_state_publisher-2]: process has finished cleanly [pid 18591]
+[INFO] [tray-4]: process has finished cleanly [pid 18594]
+[gazebo-1] (2026-09-25 10:27:01.381) [warning] [Application.cc:923] [GUI] [QT] QObject::disconnect: wildcard call disconnects from destroyed signal of gz::sim::TreeModel::unnamed
+[ERROR] [parameter_bridge-3]: process has died [pid 18593, exit code -11, cmd '/opt/ros/lyrical/lib/ros_gz_bridge/parameter_bridge --ros-args --params-file /tmp/launch_params_jnyblcdw --params-file /tmp/launch_params_61f9635t'].
+[INFO] [gazebo-1]: process has finished cleanly [pid 18590]
