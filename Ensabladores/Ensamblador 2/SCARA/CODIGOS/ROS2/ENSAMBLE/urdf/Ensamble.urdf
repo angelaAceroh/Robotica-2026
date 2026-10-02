@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+<robot name="Ensamble">
+
+  <link name="world"/>
+
+  <joint name="world_joint" type="fixed">
+    <parent link="world"/>
+    <child link="base_link"/>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+  </joint>
+
+  <!-- BASE LINK -->
+  <link name="base_link">
+    <inertial>
+      <origin xyz="-0.056032 0.0033807 0.021531" rpy="0 0 0" />
+      <mass value="0.85079" />
+      <inertia ixx="0.0019389" ixy="-9.299E-06" ixz="-1.6398E-05" iyy="0.0036565" iyz="2.4252E-06" izz="0.0050574" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://Ensamble/meshes/base_link.STL" />
+      </geometry>
+      <material name="gris">
+        <color rgba="0.69804 0.69804 0.69804 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://Ensamble/meshes/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <!-- LINK 1 -->
+  <link name="link_1">
+    <inertial>
+      <origin xyz="0.042088 0 0.017457" rpy="0 0 0" />
+      <mass value="0.93496" />
+      <inertia ixx="0.00079423" ixy="3.6586E-08" ixz="1.4041E-05" iyy="0.0013551" iyz="-5.3153E-08" izz="0.0019619" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://Ensamble/meshes/J1.STL" />
+      </geometry>
+      <material name="azul_claro">
+        <color rgba="0.86667 0.9098 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://Ensamble/meshes/J1.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="J1" type="continuous">
+    <origin xyz="0 0 0.0647" rpy="0 0 -0.010482" />
+    <parent link="base_link" />
+    <child link="link_1" />
+    <axis xyz="0 0 1" />
+    <limit effort="1000.0" velocity="100.0" />
+    <dynamics damping="10.0" friction="5.0"/>
+  </joint>
+
+  <!-- LINK 2 -->
+  <link name="link_2">
+    <inertial>
+      <origin xyz="0.070392 0 0.055205" rpy="0 0 0" />
+      <mass value="0.69898" />
+      <inertia ixx="0.00082607" ixy="0.00015781" ixz="3.2603E-06" iyy="0.0016472" iyz="-1.1473E-06" izz="0.0022106" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://Ensamble/meshes/J2.STL" />
+      </geometry>
+      <material name="gris" />
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://Ensamble/meshes/J2.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="J2" type="continuous">
+    <origin xyz="0.2 0 0.034" rpy="0 0 0.010482" />
+    <parent link="link_1" />
+    <child link="link_2" />
+    <axis xyz="0 0 1" />
+    <limit effort="1000.0" velocity="100.0" />
+    <dynamics damping="10.0" friction="5.0"/>
+  </joint>
+
+  <!-- LINK 3 -->
+  <link name="link_3">
+    <inertial>
+      <origin xyz="0.00088875 0 -0.079824" rpy="0 0 0" />
+      <mass value="0.15047" />
+      <inertia ixx="0.00031185" ixy="-3.3248E-08" ixz="1.37E-05" iyy="0.00031502" iyz="1.4361E-07" izz="2.885E-05" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://Ensamble/meshes/J3.STL" />
+      </geometry>
+      <material name="blanco">
+        <color rgba="1 0.94902 0.9098 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://Ensamble/meshes/J3.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="J3" type="prismatic">
+    <origin xyz="0.12728 0 0.025709" rpy="-3.1416 0 0" />
+    <parent link="link_2" />
+    <child link="link_3" />
+    <axis xyz="0 0 1" />
+    <limit lower="0" upper="0.1" effort="1000" velocity="10.0" />
+    <dynamics damping="10.0" friction="5.0"/>
+  </joint>
+
+  <ros2_control name="GazeboSystem" type="system">
+    <hardware>
+      <plugin>gz_ros2_control/GazeboSimSystem</plugin>
+    </hardware>
+
+    <joint name="J1">
+      <command_interface name="velocity"/>
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>
+      <state_interface name="effort"/>
+      <!-- Ganancias obligatorias para Gazebo -->
+      <param name="p">15.0</param>
+      <param name="i">0.0</param>
+      <param name="d">1.0</param>
+    </joint>
+
+    <joint name="J2">
+      <command_interface name="velocity"/>
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>
+      <state_interface name="effort"/>
+      <!-- Ganancias obligatorias para Gazebo -->
+      <param name="p">10.0</param>
+      <param name="i">0.0</param>
+      <param name="d">0.5</param>
+    </joint>
+
+    <joint name="J3">
+      <command_interface name="velocity"/>
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>
+      <state_interface name="effort"/>
+      <!-- Ganancias obligatorias para Gazebo -->
+      <param name="p">25.0</param>
+      <param name="i">0.0</param>
+      <param name="d">1.5</param>
+    </joint>
+  </ros2_control>
+
+  <gazebo>
+    <plugin filename="gz_ros2_control-system" name="gz_ros2_control::GazeboSimROS2ControlPlugin">
+      <parameters>/home/julian/urdf_ws/src/ensamble_moveit_config/config/ros2_controllers.yaml</parameters>
+    </plugin>
+  </gazebo>
+
+</robot>

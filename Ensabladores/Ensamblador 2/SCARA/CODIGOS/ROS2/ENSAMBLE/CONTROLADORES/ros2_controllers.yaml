@@ -1,0 +1,17 @@
+controller_manager:
+  ros__parameters:
+    update_rate: 100  # o la frecuencia que ya tuvieras
+    use_sim_time: true
+
+    joint_state_broadcaster:
+      type: joint_state_broadcaster/JointStateBroadcaster
+
+    scara_arm_controller:
+      type: position_controllers/JointGroupPositionController
+
+scara_arm_controller:
+  ros__parameters:
+    joints:
+      - J1
+      - J2
+      - J3

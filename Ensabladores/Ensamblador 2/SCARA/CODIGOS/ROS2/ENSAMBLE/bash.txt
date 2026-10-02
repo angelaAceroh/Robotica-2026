@@ -1,0 +1,120 @@
+#RVIZ
+cd ~/urdf_ws
+colcon build --packages-select Ensamble
+source install/setup.bash
+ros2 launch Ensamble display.launch.py
+
+#GAZEBO
+cd ~/urdf_ws
+colcon build --packages-select Ensamble
+source install/setup.bash
+ros2 launch Ensamble gazebo.launch.py
+
+#MOTORES
+export RMW_IMPLEMENTATION=rmw_cyclonedds_cpp
+export ROS_AUTOMATIC_DISCOVERY_RANGE=LOCALHOST
+source /opt/ros/jazzy/setup.bash
+source ~/urdf_ws/install/setup.bash
+
+ros2 run controller_manager spawner joint_state_broadcaster
+ros2 run controller_manager spawner position_controller
+
+ros2 topic pub /position_controller/commands std_msgs/msg/Float64MultiArray "{data: [1.0, -0.5, 0.8]}" -1
+
+#PUENTE
+cd /home/julian/urdf_ws/src/Ensamble
+source /opt/ros/humble/setup.bash
+source ~/urdf_ws/install/setup.bash
+python3 puente_udp_ros.py
+
+#COMPROBACION EFFORT Y VELOCIDAD 
+export RMW_IMPLEMENTATION=rmw_cyclonedds_cpp
+export ROS_AUTOMATIC_DISCOVERY_RANGE=LOCALHOST
+source /opt/ros/jazzy/setup.bash
+source ~/urdf_ws/install/setup.bash
+ros2 topic echo /joint_states --no-daemon
+
+#VISUALIZACION CURVAS 
+export RMW_IMPLEMENTATION=rmw_cyclonedds_cpp
+export ROS_AUTOMATIC_DISCOVERY_RANGE=LOCALHOST
+source /opt/ros/jazzy/setup.bash
+ros2 run plotjuggler plotjuggler
+
+#COMANDOS
+#POSICION -90 : export RMW_IMPLEMENTATION=rmw_cyclonedds_cpp
+export ROS_AUTOMATIC_DISCOVERY_RANGE=LOCALHOST
+source /opt/ros/jazzy/setup.bash
+
+ros2 topic pub /position_controller/commands std_msgs/msg/Float64MultiArray "{data: [1.57, 0.0, 0.0]}" --once
+
+POSICION 90 : export RMW_IMPLEMENTATION=rmw_cyclonedds_cpp
+export ROS_AUTOMATIC_DISCOVERY_RANGE=LOCALHOST
+source /opt/ros/jazzy/setup.bash
+
+ros2 topic pub /position_controller/commands std_msgs/msg/Float64MultiArray "{data: [-1.57, 0.0, 0.0]}" --once
+
+# 90 -90: export RMW_IMPLEMENTATION=rmw_cyclonedds_cpp
+export ROS_AUTOMATIC_DISCOVERY_RANGE=LOCALHOST
+source /opt/ros/jazzy/setup.bash
+ros2 topic pub /position_controller/commands std_msgs/msg/Float64MultiArray "{data: [1.57, 1.57, 0.0]}" --once
+ros2 topic pub /position_controller/commands std_msgs/msg/Float64MultiArray "{data: [-1.57, 1.57, 0.0]}" --once
+
+
+#ASISTENTE DE PLANEACION DE TRAYECTORIAS MOVEIT
+cd ~/urdf_ws
+colcon build --packages-select Ensamble
+source install/setup.bash
+ros2 run moveit_setup_assistant moveit_setup_assistant
+
+#PROBAR TRAYECTORIAS CON TRAPEZOIDE POR DEFECTO 
+cd ~/urdf_ws
+colcon build --symlink-install
+source install/setup.bash
+ros2 launch Ensamble gazebo.launch.py
+ros2 run controller_manager spawner joint_state_broadcaster --ros-args -p use_sim_time:=true
+ros2 run controller_manager spawner scara_arm_controller --ros-args -p use_sim_time:=true
+ros2 launch ensamble_moveit_config move_group.launch.py use_sim_time:=true
+cd ~/urdf_ws
+source install/setup.bash
+ros2 launch ensamble_moveit_config moveit_rviz.launch.py use_sim_time:=true
+
+#TRAYECTORIAS CON INTERFAZ 
+cd ~/urdf_ws
+export GZ_RENDERING_ENGINE_BACKEND=ogre
+export QT_QPA_PLATFORM=xcb
+source install/setup.bash
+ros2 launch Ensamble gazebo.launch.py
+
+cd ~/urdf_ws
+source install/setup.bash
+ros2 run controller_manager spawner joint_state_broadcaster --ros-args -p use_sim_time:=true
+
+ros2 run controller_manager spawner scara_arm_controller --ros-args -p use_sim_time:=true
+
+cd ~/urdf_ws
+source install/setup.bash
+ros2 launch ensamble_moveit_config move_group.launch.py use_sim_time:=true
+
+cd ~/urdf_ws
+source install/setup.bash
+ros2 launch ensamble_moveit_config moveit_rviz.launch.py use_sim_time:=true
+
+source /opt/ros/jazzy/setup.bash
+ros2 run plotjuggler plotjuggler
+
+cd ~/urdf_ws
+source install/setup.bash
+python3 interfaz_trayectorias.py
+
+
+#CONEXION ESP32-WSL 
+usbipd list
+usbipd bind --busid 2-1
+usbipd attach --wsl --busid 2-1
+-EN WSL: ls /dev/ttyUSB* /dev/ttyACM* 2>/dev/null
+
+cd ~/urdf_ws
+source install/setup.bash
+python3 src/ensamble_moveit_config/nodo_puente_hil.py --ros-args -p use_sim_time:=true
+
+
