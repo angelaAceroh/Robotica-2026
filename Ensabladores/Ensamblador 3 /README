@@ -1,13 +1,6 @@
 En esta carpeta se encuentra toda la informacion relacionada con el desarollo del ensambalador número 3 estipulado dentro del entorno a trabajar. La carpeta se encuentra distribuida de la siguiente manera: 
-o Mecanica : se encuentran los archivos SOLIDWORKS del modelo CAD 
-o Diagramas de secuencia de proceso
-o Diagramas de flujo de la lógica de la programación del sistema
-o Planos mecánicos y eléctricos/electrónicos
-o Memorias de cálculo
-o Hojas de especificaciones de dispositivos
-o Instructivo para usuarios
-o Se puede incluir la cartilla
-o Paquetes de ROS2 con los respectivos archivos urdf y/o xacro, archivos launch
-o Proyectos de programación de microcontroladores
-o Código de la interfaz de usuario
-o Todo el código fuente debe estar comentado/documentado
+o Mecanica : se encuentran los archivos SOLIDWORKS del modelo CAD  y el plano completo del robot.
+o Electrónica: Se encuentran los diaframs de conexion de la electróncia del sistema
+o Control: Se encuentran los códigos acutales de las juntruas que realizan psoicoon a una velocidad constante.
+o Admin: Se nencyentra la infromacion relacionada con el grupo de trabajo y las verisones de las cartillas as entregar.
+o Software: se encyentra el archivo .zip de ros2 y sis capertas del archivo descomprimido tal cual como se sta usando.
