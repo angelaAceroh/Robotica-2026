@@ -1,0 +1,1 @@
+robot_state_publisher;joint_state_publisher;joint_state_publisher_gui;rviz2;xacro;ros_gz_sim;ros_gz_bridge;scara_kinematics;launch;launch_ros
