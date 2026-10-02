@@ -1,0 +1,1 @@
+geometry_msgs:launch:launch_ros:nav_msgs:python3-matplotlib:python3-numpy:python3-serial:python3-tk:rcl_interfaces:rclpy:robot_state_publisher:ros_gz_bridge:ros_gz_sim:rosgraph_msgs:rviz2:sensor_msgs:std_msgs:std_srvs:visualization_msgs

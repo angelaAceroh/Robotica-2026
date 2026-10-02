@@ -1,0 +1,6 @@
+source;share/scara_kinematics/hook/pythonpath.ps1
+source;share/scara_kinematics/hook/pythonpath.dsv
+source;share/scara_kinematics/hook/pythonpath.sh
+source;share/scara_kinematics/hook/ament_prefix_path.ps1
+source;share/scara_kinematics/hook/ament_prefix_path.dsv
+source;share/scara_kinematics/hook/ament_prefix_path.sh
