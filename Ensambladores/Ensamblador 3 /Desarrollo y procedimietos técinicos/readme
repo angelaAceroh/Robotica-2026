@@ -1,0 +1,4 @@
+En esta carpeta se encuentra toda la informacion relacionada con el desarollo del ensambalador número 3 estipulado dentro del entorno a trabajar. La carpeta se encuentra distribuida de la siguiente manera: 
+o Mecanica : se encuentran los archivos SOLIDWORKS del modelo CAD  y el plano completo del robot.
+o Electrónica: Se encuentran los diaframs de conexion de la electróncia del sistema
+o planeacion de movimiento: Se encuentan los archvios realizados con respecto a trayecptroas, control cinemático, cinematia directa y cinemátcia inversa. 
