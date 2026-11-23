@@ -1,2 +1,15 @@
-En esta carpeta se encuentan los archvios realizados con respecto a trayectorias, control cinemático, cinematia directa y cinemátcia inversa. 
-en donde el archivo "2metoso" es la comparacion entre los perfiles para la trayecotria; el arhvio "CONTROLCOMPENSADOR" contiene el control cinemático utilizado, el arcuvio "cinemáticas" contiene la cinemátcia inversa y directa y el archvio "metodoescogido" contiente el método de jacobiano inverso para la trayectoria
+En esta carpeta se consolidan los archivos correspondientes al modelado cinemático (directo e inverso) y a la generación de trayectorias, 
+debidamente clasificados y etiquetados según su función dentro del sistema de control:
+
+Dos métodos: Contiene las dos propuestas de perfiles de velocidad y posición evaluadas para la generación de trayectorias.
+
+Control compensador: Alberga los algoritmos y diseños correspondientes al lazo de control cinemático para la corrección de errores de seguimiento.
+
+Cinemática directa a mano: Incluye la evidencia fotográfica del desarrollo analítico y matemático realizado manualmente para obtener las ecuaciones del manipulador.
+
+Diagramas de nodos de comunicación: Detalla la arquitectura de mensajería y tópicos implementada entre el entorno ROS (Robot Operating System) y 
+el controlador del robot para la transmisión de datos de trayectoria y actualización de estados en tiempo real.
+
+Método escogido: Documenta la formulación e implementación del método seleccionado para la resolución cinemática, basado en la matriz Jacobiana.
+
+Cinemáticas: Recopila los scripts y modelos finales validados tanto para la cinemática directa como para la cinemática inversa del robot.
