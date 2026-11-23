@@ -1,1 +1,3 @@
-En esta carpeta se encuentran los codigos tulizandos hehcos en micropython para esp32 de cada una de las junturas de este robot, nombres coherentes a los nombres de las jutnruas en los demás archivos.
+En esta carpeta se alojan los scripts desarrollados en Python destinados a la validación individual de cada una de las articulaciones (junturas) del manipulador. 
+Los archivos están nombrados según la juntura específica que evalúan y corresponden a las rutinas de prueba de posicionamiento (códigos de pose). 
+Adicionalmente, se incluye el script del efector final, empleado para calibrar los límites de carrera y parametrizar la amplitud de apertura y cierre de la pinza (garra).
