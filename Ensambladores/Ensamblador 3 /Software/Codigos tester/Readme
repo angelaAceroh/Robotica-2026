@@ -1,2 +1,1 @@
-En esta carpeta se encuentra toda la informacion relacionada con el desarollo del ensambalador número 3 estipulado dentro del entorno a trabajar. La carpeta se encuentra distribuida de la siguiente manera: 
-o Mecanica : se encuentran los archivos utilizados para relizar las pruebas de las junturas, mismir achivos que se utilizan desde el software de ROS2
+En esta carpeta se encuentran los codigos tulizandos hehcos en micropython para esp32 de cada una de las junturas de este robot, nombres coherentes a los nombres de las jutnruas en los demás archivos.
