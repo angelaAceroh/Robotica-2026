@@ -1,1 +1,2 @@
-En esta carpeta se encuentan los archvios realizados con respecto a trayecptroas, control cinemático, cinematia directa y cinemátcia inversa. 
+En esta carpeta se encuentan los archvios realizados con respecto a trayectorias, control cinemático, cinematia directa y cinemátcia inversa. 
+en donde el archivo "2metoso" es la comparacion entre los perfiles para la trayecotria; el arhvio "CONTROLCOMPENSADOR" contiene el control cinemático utilizado, el arcuvio "cinemáticas" contiene la cinemátcia inversa y directa y el archvio "metodoescogido" contiente el método de jacobiano inverso para la trayectoria
