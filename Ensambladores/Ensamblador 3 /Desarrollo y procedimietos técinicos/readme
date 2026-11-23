@@ -1,9 +1,13 @@
-En esta sección se presentan tres carpetas fundamentales que recopilan los procedimientos previos, el diseño y la ingeniería de detalle necesarios para el desarrollo, ensamblaje y óptimo funcionamiento estructural y físico del sistema robótico.
+En esta sección se presentan tres carpetas fundamentales que recopilan los procedimientos previos, el diseño y la ingeniería de detalle necesarios para el desarrollo, 
+ensamblaje y óptimo funcionamiento estructural y físico del sistema robótico.
 
 La información se encuentra estructurada de la siguiente manera:
 
-Mecánica: Contiene los archivos nativos de diseño asistido por computadora (CAD en SolidWorks), el plano de ensamble general del robot y el despiece técnico detallado (planos de fabricación) correspondiente a la arquitectura mecánica y estructural del sistema.
+Mecánica: Contiene los archivos nativos de diseño asistido por computadora (CAD en SolidWorks), el plano de ensamble general del robot y el despiece técnico detallado (planos de fabricación) 
+correspondiente a la arquitectura mecánica y estructural del sistema.
 
-Electrónica: Recopila los diagramas esquemáticos y de conexionado, las hojas de datos técnicos (datasheets) de los componentes implementados y la documentación referente a la arquitectura de hardware y distribución electrónica del robot.
+Electrónica: Recopila los diagramas esquemáticos y de conexionado, las hojas de datos técnicos (datasheets) de los componentes implementados y 
+la documentación referente a la arquitectura de hardware y distribución electrónica del robot.
 
-Planeación de movimientos: Reúne toda la documentación asociada a la generación de trayectorias, el modelado matemático (cinemática directa e inversa) y la lógica de programación requerida para garantizar que el manipulador ejecute su secuencia operativa de manera autónoma y precisa.
+Planeación de movimientos: Reúne toda la documentación asociada a la generación de trayectorias, el modelado matemático (cinemática directa e inversa) y
+la lógica de programación requerida para garantizar que el manipulador ejecute su secuencia operativa de manera autónoma y precisa.
