@@ -5,7 +5,7 @@ o Desarollo y procedimientos técnicos: Esta carpeta esta dividida en :
 
           - Mecanica : se encuentran los archivos SOLIDWORKS del modelo CAD  y el plano completo del robot.
           - Electrónica: Se encuentran los diaframs de conexion de la electróncia del sistema
-          - Planeación de movimiento:  se encuentean los códigos de matlab para trayectorias, jacobiano y control cinemático junto con la cinemática directa utilzada hecha mano.
+          - Planeación de movimiento:  se encuentean los códigos de matlab para trayectorias, jacobiano, cinemática inversa y control cinemático junto con la cinemática directa utilzada hecha mano.
 
 o Software: Esta carpeta esta dividida en:
           - Codigos tester: Se encuentran los codigos en micropython para esp32 de cada una de las junturas.
