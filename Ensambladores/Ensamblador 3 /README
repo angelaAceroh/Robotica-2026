@@ -1,6 +1,12 @@
 En esta carpeta se encuentra toda la informacion relacionada con el desarollo del ensambalador número 3 estipulado dentro del entorno a trabajar. La carpeta se encuentra distribuida de la siguiente manera: 
-o Mecanica : se encuentran los archivos SOLIDWORKS del modelo CAD  y el plano completo del robot.
-o Electrónica: Se encuentran los diaframs de conexion de la electróncia del sistema
-o Control: Se encuentran los códigos acutales de las juntruas que realizan psoicoon a una velocidad constante.
-o Admin: Se nencyentra la infromacion relacionada con el grupo de trabajo y las verisones de las cartillas as entregar.
-o Software: se encyentra el archivo .zip de ros2 y sis capertas del archivo descomprimido tal cual como se sta usando.
+o Documentacion final: se encuentra la información correspodiente a las actas de reunion, la cartilla y sus avances y el instrucitivo del robot. 
+
+o Desarollo y procedimientos técnicos: Esta carpeta esta dividida en : 
+
+          - Mecanica : se encuentran los archivos SOLIDWORKS del modelo CAD  y el plano completo del robot.
+          - Electrónica: Se encuentran los diaframs de conexion de la electróncia del sistema
+          - Planeación de movimiento:  se encuentean los códigos de matlab para trayectorias, jacobiano y control cinemático junto con la cinemática directa utilzada hecha mano.
+
+o Software: Esta carpeta esta dividida en:
+          - Codigos tester: Se encuentran los codigos en micropython para esp32 de cada una de las junturas.
+          - ROS2 Y GAZEBO: Se encuentra la infromacion relacionada con Linux-roz2 en gazebo y la interfaz gráfica utilzada.
