@@ -1,0 +1,95 @@
+[1.365s] Invoking command in '/home/sergio/ros2_ws/src/scara_kinematics': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/sergio/ros2_ws/build/scara_kinematics/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/sergio/ros2_ws/install/scara_kinematics/lib/python3.14/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/scara_kinematics build --build-base /home/sergio/ros2_ws/build/scara_kinematics/build install --record /home/sergio/ros2_ws/build/scara_kinematics/install.log --install-scripts $base/lib/scara_kinematics --single-version-externally-managed install_data
+[1.929s] running egg_info
+[1.965s] writing ../../build/scara_kinematics/scara_kinematics.egg-info/PKG-INFO
+[1.965s] writing dependency_links to ../../build/scara_kinematics/scara_kinematics.egg-info/dependency_links.txt
+[1.966s] writing entry points to ../../build/scara_kinematics/scara_kinematics.egg-info/entry_points.txt
+[1.966s] writing requirements to ../../build/scara_kinematics/scara_kinematics.egg-info/requires.txt
+[1.967s] writing top-level names to ../../build/scara_kinematics/scara_kinematics.egg-info/top_level.txt
+[2.044s] reading manifest file '../../build/scara_kinematics/scara_kinematics.egg-info/SOURCES.txt'
+[2.048s] writing manifest file '../../build/scara_kinematics/scara_kinematics.egg-info/SOURCES.txt'
+[2.048s] running build
+[2.048s] running build_py
+[2.049s] copying scara_kinematics/esp.py -> /home/sergio/ros2_ws/build/scara_kinematics/build/lib/scara_kinematics
+[2.049s] copying scara_kinematics/protocolo.py -> /home/sergio/ros2_ws/build/scara_kinematics/build/lib/scara_kinematics
+[2.050s] copying scara_kinematics/control_placa_gui.py -> /home/sergio/ros2_ws/build/scara_kinematics/build/lib/scara_kinematics
+[2.050s] copying scara_kinematics/tray_gui.py -> /home/sergio/ros2_ws/build/scara_kinematics/build/lib/scara_kinematics
+[2.051s] copying scara_kinematics/ver_nodo.py -> /home/sergio/ros2_ws/build/scara_kinematics/build/lib/scara_kinematics
+[2.051s] copying scara_kinematics/urdf_fk.py -> /home/sergio/ros2_ws/build/scara_kinematics/build/lib/scara_kinematics
+[2.051s] copying scara_kinematics/estilo.py -> /home/sergio/ros2_ws/build/scara_kinematics/build/lib/scara_kinematics
+[2.052s] copying scara_kinematics/tray.py -> /home/sergio/ros2_ws/build/scara_kinematics/build/lib/scara_kinematics
+[2.052s] copying scara_kinematics/control_nodo.py -> /home/sergio/ros2_ws/build/scara_kinematics/build/lib/scara_kinematics
+[2.052s] copying scara_kinematics/ruta.py -> /home/sergio/ros2_ws/build/scara_kinematics/build/lib/scara_kinematics
+[2.053s] copying scara_kinematics/model.py -> /home/sergio/ros2_ws/build/scara_kinematics/build/lib/scara_kinematics
+[2.053s] copying scara_kinematics/trayectoria.py -> /home/sergio/ros2_ws/build/scara_kinematics/build/lib/scara_kinematics
+[2.054s] copying scara_kinematics/vector.py -> /home/sergio/ros2_ws/build/scara_kinematics/build/lib/scara_kinematics
+[2.054s] copying scara_kinematics/esp_rec.py -> /home/sergio/ros2_ws/build/scara_kinematics/build/lib/scara_kinematics
+[2.056s] copying scara_kinematics/efector.py -> /home/sergio/ros2_ws/build/scara_kinematics/build/lib/scara_kinematics
+[2.058s] copying scara_kinematics/alcance.py -> /home/sergio/ros2_ws/build/scara_kinematics/build/lib/scara_kinematics
+[2.059s] copying scara_kinematics/teodoro.py -> /home/sergio/ros2_ws/build/scara_kinematics/build/lib/scara_kinematics
+[2.059s] copying scara_kinematics/ruta_nodo.py -> /home/sergio/ros2_ws/build/scara_kinematics/build/lib/scara_kinematics
+[2.059s] copying scara_kinematics/puente_placa.py -> /home/sergio/ros2_ws/build/scara_kinematics/build/lib/scara_kinematics
+[2.059s] copying scara_kinematics/placa_vel.py -> /home/sergio/ros2_ws/build/scara_kinematics/build/lib/scara_kinematics
+[2.060s] copying scara_kinematics/__init__.py -> /home/sergio/ros2_ws/build/scara_kinematics/build/lib/scara_kinematics
+[2.060s] copying scara_kinematics/brazo_hw.py -> /home/sergio/ros2_ws/build/scara_kinematics/build/lib/scara_kinematics
+[2.060s] copying scara_kinematics/alvin.py -> /home/sergio/ros2_ws/build/scara_kinematics/build/lib/scara_kinematics
+[2.060s] copying scara_kinematics/control_gui.py -> /home/sergio/ros2_ws/build/scara_kinematics/build/lib/scara_kinematics
+[2.060s] copying scara_kinematics/auditor.py -> /home/sergio/ros2_ws/build/scara_kinematics/build/lib/scara_kinematics
+[2.060s] copying scara_kinematics/simon.py -> /home/sergio/ros2_ws/build/scara_kinematics/build/lib/scara_kinematics
+[2.061s] copying scara_kinematics/cc.py -> /home/sergio/ros2_ws/build/scara_kinematics/build/lib/scara_kinematics
+[2.061s] copying scara_kinematics/control_cinematico.py -> /home/sergio/ros2_ws/build/scara_kinematics/build/lib/scara_kinematics
+[2.061s] copying scara_kinematics/placa_simulada.py -> /home/sergio/ros2_ws/build/scara_kinematics/build/lib/scara_kinematics
+[2.062s] running install
+[2.070s] running install_lib
+[2.108s] running install_data
+[2.108s] copying resource/scara_kinematics -> /home/sergio/ros2_ws/install/scara_kinematics/share/ament_index/resource_index/packages
+[2.108s] copying package.xml -> /home/sergio/ros2_ws/install/scara_kinematics/share/scara_kinematics
+[2.109s] copying launch/rviz.launch.py -> /home/sergio/ros2_ws/install/scara_kinematics/share/scara_kinematics/launch
+[2.109s] copying launch/trayectoria.launch.py -> /home/sergio/ros2_ws/install/scara_kinematics/share/scara_kinematics/launch
+[2.110s] copying launch/brazo.launch.py -> /home/sergio/ros2_ws/install/scara_kinematics/share/scara_kinematics/launch
+[2.110s] copying launch/tray_gui.launch.py -> /home/sergio/ros2_ws/install/scara_kinematics/share/scara_kinematics/launch
+[2.110s] copying launch/gazebo.launch.py -> /home/sergio/ros2_ws/install/scara_kinematics/share/scara_kinematics/launch
+[2.111s] copying launch/control.launch.py -> /home/sergio/ros2_ws/install/scara_kinematics/share/scara_kinematics/launch
+[2.111s] copying launch/auditar.launch.py -> /home/sergio/ros2_ws/install/scara_kinematics/share/scara_kinematics/launch
+[2.111s] copying launch/ruta.launch.py -> /home/sergio/ros2_ws/install/scara_kinematics/share/scara_kinematics/launch
+[2.112s] copying launch/control_placa.launch.py -> /home/sergio/ros2_ws/install/scara_kinematics/share/scara_kinematics/launch
+[2.112s] copying launch/control_gui.launch.py -> /home/sergio/ros2_ws/install/scara_kinematics/share/scara_kinematics/launch
+[2.112s] copying launch/efector.launch.py -> /home/sergio/ros2_ws/install/scara_kinematics/share/scara_kinematics/launch
+[2.113s] copying config/control_placa.yaml -> /home/sergio/ros2_ws/install/scara_kinematics/share/scara_kinematics/config
+[2.113s] copying config/scara_urdf3.yaml -> /home/sergio/ros2_ws/install/scara_kinematics/share/scara_kinematics/config
+[2.113s] copying config/scara_urdf.yaml -> /home/sergio/ros2_ws/install/scara_kinematics/share/scara_kinematics/config
+[2.114s] copying config/micropython.yaml -> /home/sergio/ros2_ws/install/scara_kinematics/share/scara_kinematics/config
+[2.114s] copying rviz/scara.rviz -> /home/sergio/ros2_ws/install/scara_kinematics/share/scara_kinematics/rviz
+[2.114s] copying rviz/control.rviz -> /home/sergio/ros2_ws/install/scara_kinematics/share/scara_kinematics/rviz
+[2.115s] copying rqt/ruta.perspective -> /home/sergio/ros2_ws/install/scara_kinematics/share/scara_kinematics/rqt
+[2.115s] copying rqt/control.perspective -> /home/sergio/ros2_ws/install/scara_kinematics/share/scara_kinematics/rqt
+[2.116s] copying firmware/scara_esp32/scara_esp32.ino -> /home/sergio/ros2_ws/install/scara_kinematics/share/scara_kinematics/firmware/scara_esp32
+[2.116s] copying firmware/scara_esp32/scara_esp32.ino.bak4gdl -> /home/sergio/ros2_ws/install/scara_kinematics/share/scara_kinematics/firmware/scara_esp32
+[2.117s] copying firmware/micropython/main.py -> /home/sergio/ros2_ws/install/scara_kinematics/share/scara_kinematics/firmware/micropython
+[2.117s] copying firmware/micropython/Teodoro.py -> /home/sergio/ros2_ws/install/scara_kinematics/share/scara_kinematics/firmware/micropython
+[2.117s] copying firmware/micropython/main_control.py -> /home/sergio/ros2_ws/install/scara_kinematics/share/scara_kinematics/firmware/micropython
+[2.117s] running install_egg_info
+[2.155s] removing '/home/sergio/ros2_ws/install/scara_kinematics/lib/python3.14/site-packages/scara_kinematics-1.0.0-py3.14.egg-info' (and everything under it)
+[2.155s] Copying ../../build/scara_kinematics/scara_kinematics.egg-info to /home/sergio/ros2_ws/install/scara_kinematics/lib/python3.14/site-packages/scara_kinematics-1.0.0-py3.14.egg-info
+[2.158s] running install_scripts
+[2.342s] Installing alvin script to /home/sergio/ros2_ws/install/scara_kinematics/lib/scara_kinematics
+[2.343s] Installing auditor script to /home/sergio/ros2_ws/install/scara_kinematics/lib/scara_kinematics
+[2.343s] Installing brazo_hw script to /home/sergio/ros2_ws/install/scara_kinematics/lib/scara_kinematics
+[2.343s] Installing cc script to /home/sergio/ros2_ws/install/scara_kinematics/lib/scara_kinematics
+[2.345s] Installing control_gui script to /home/sergio/ros2_ws/install/scara_kinematics/lib/scara_kinematics
+[2.345s] Installing control_nodo script to /home/sergio/ros2_ws/install/scara_kinematics/lib/scara_kinematics
+[2.346s] Installing control_placa_gui script to /home/sergio/ros2_ws/install/scara_kinematics/lib/scara_kinematics
+[2.346s] Installing efector script to /home/sergio/ros2_ws/install/scara_kinematics/lib/scara_kinematics
+[2.346s] Installing esp script to /home/sergio/ros2_ws/install/scara_kinematics/lib/scara_kinematics
+[2.349s] Installing esp_rec script to /home/sergio/ros2_ws/install/scara_kinematics/lib/scara_kinematics
+[2.350s] Installing placa_simulada script to /home/sergio/ros2_ws/install/scara_kinematics/lib/scara_kinematics
+[2.350s] Installing puente_placa script to /home/sergio/ros2_ws/install/scara_kinematics/lib/scara_kinematics
+[2.350s] Installing ruta script to /home/sergio/ros2_ws/install/scara_kinematics/lib/scara_kinematics
+[2.350s] Installing ruta_nodo script to /home/sergio/ros2_ws/install/scara_kinematics/lib/scara_kinematics
+[2.350s] Installing simon script to /home/sergio/ros2_ws/install/scara_kinematics/lib/scara_kinematics
+[2.350s] Installing teodoro script to /home/sergio/ros2_ws/install/scara_kinematics/lib/scara_kinematics
+[2.350s] Installing tray script to /home/sergio/ros2_ws/install/scara_kinematics/lib/scara_kinematics
+[2.351s] Installing tray_gui script to /home/sergio/ros2_ws/install/scara_kinematics/lib/scara_kinematics
+[2.351s] Installing vector script to /home/sergio/ros2_ws/install/scara_kinematics/lib/scara_kinematics
+[2.351s] Installing ver_nodo script to /home/sergio/ros2_ws/install/scara_kinematics/lib/scara_kinematics
+[2.351s] writing list of installed files to '/home/sergio/ros2_ws/build/scara_kinematics/install.log'
+[2.407s] Invoked command in '/home/sergio/ros2_ws/src/scara_kinematics' returned '0': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/sergio/ros2_ws/build/scara_kinematics/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/sergio/ros2_ws/install/scara_kinematics/lib/python3.14/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/scara_kinematics build --build-base /home/sergio/ros2_ws/build/scara_kinematics/build install --record /home/sergio/ros2_ws/build/scara_kinematics/install.log --install-scripts $base/lib/scara_kinematics --single-version-externally-managed install_data

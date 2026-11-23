@@ -1,0 +1,82 @@
+# Vista del SCARA real. Solo lleva lo que alguien publica ahora: las mallas por
+# TF (robot_state_publisher) y los tres topics de cc. Los displays del marcador
+# arrastrable, del objetivo de IK, del espacio de trabajo y del esqueleto se
+# quitaron con los nodos que los publicaban.
+Panels:
+  - Class: rviz_common/Displays
+    Name: Displays
+Visualization Manager:
+  Class: ""
+  Displays:
+    - Class: rviz_default_plugins/Grid
+      Enabled: true
+      Name: Suelo
+      Cell Size: 0.1
+      Plane Cell Count: 20
+      Color: 90; 90; 90
+    - Class: rviz_default_plugins/RobotModel
+      Enabled: true
+      Name: Robot
+      Description Topic:
+        Value: /robot_description
+      Visual Enabled: true
+      Collision Enabled: false
+      Alpha: 1
+    - Class: rviz_default_plugins/TF
+      Enabled: true
+      Name: TF
+      Marker Scale: 0.15
+      Show Axes: true
+      Show Names: true
+      Show Arrows: false
+    - Class: rviz_default_plugins/Marker
+      Enabled: true
+      Name: Punta (cc)
+      Topic:
+        Value: /scara/ee_marker
+        Depth: 5
+        Reliability Policy: Reliable
+    - Class: rviz_default_plugins/Path
+      Enabled: true
+      Name: Rastro de la punta
+      Topic:
+        Value: /scara/ee_path
+        Depth: 1
+        Reliability Policy: Reliable
+      Color: 255; 200; 40
+      Line Style: Lines
+      Alpha: 1
+    - Class: rviz_default_plugins/Pose
+      Enabled: false
+      Name: Pose de la punta
+      Topic:
+        Value: /scara/ee_pose
+        Depth: 5
+        Reliability Policy: Reliable
+      Shape: Axes
+      Axes Length: 0.06
+      Axes Radius: 0.005
+  Global Options:
+    Background Color: 40; 42; 48
+    Fixed Frame: world
+    Frame Rate: 30
+  Tools:
+    - Class: rviz_default_plugins/MoveCamera
+    - Class: rviz_default_plugins/Interact
+      Hide Inactive Objects: true
+    - Class: rviz_default_plugins/FocusCamera
+  Value: true
+  Views:
+    Current:
+      Class: rviz_default_plugins/Orbit
+      Distance: 1.3
+      Focal Point: {X: 0.15, Y: 0, Z: 0.15}
+      Pitch: 0.45
+      Yaw: 0.75
+      Name: Vista actual
+    Saved: ~
+Window Geometry:
+  Height: 850
+  Width: 1300
+  Displays:
+    collapsed: false

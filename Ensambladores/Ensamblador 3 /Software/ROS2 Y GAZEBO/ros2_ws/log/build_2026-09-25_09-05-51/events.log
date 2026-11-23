@@ -1,0 +1,123 @@
+[0.000000] (-) TimerEvent: {}
+[0.000731] (-) JobUnselected: {'identifier': 'scara_urdf'}
+[0.001499] (scara_kinematics) JobQueued: {'identifier': 'scara_kinematics', 'dependencies': OrderedDict()}
+[0.003349] (scara_kinematics) JobStarted: {'identifier': 'scara_kinematics'}
+[0.099885] (-) TimerEvent: {}
+[0.200076] (-) TimerEvent: {}
+[0.300257] (-) TimerEvent: {}
+[0.400449] (-) TimerEvent: {}
+[0.500916] (-) TimerEvent: {}
+[0.601106] (-) TimerEvent: {}
+[0.701556] (-) TimerEvent: {}
+[0.801846] (-) TimerEvent: {}
+[0.902035] (-) TimerEvent: {}
+[1.002232] (-) TimerEvent: {}
+[1.103018] (-) TimerEvent: {}
+[1.204963] (-) TimerEvent: {}
+[1.305153] (-) TimerEvent: {}
+[1.405411] (-) TimerEvent: {}
+[1.505795] (-) TimerEvent: {}
+[1.605997] (-) TimerEvent: {}
+[1.706189] (-) TimerEvent: {}
+[1.806380] (-) TimerEvent: {}
+[1.906574] (-) TimerEvent: {}
+[2.007368] (-) TimerEvent: {}
+[2.107627] (-) TimerEvent: {}
+[2.207830] (-) TimerEvent: {}
+[2.308030] (-) TimerEvent: {}
+[2.408235] (-) TimerEvent: {}
+[2.508437] (-) TimerEvent: {}
+[2.608640] (-) TimerEvent: {}
+[2.709475] (-) TimerEvent: {}
+[2.809688] (-) TimerEvent: {}
+[2.909890] (-) TimerEvent: {}
+[3.010092] (-) TimerEvent: {}
+[3.110303] (-) TimerEvent: {}
+[3.211738] (-) TimerEvent: {}
+[3.220755] (scara_kinematics) Command: {'cmd': ['/usr/bin/python3', '-W', 'ignore:setup.py install is deprecated', '-W', 'ignore:easy_install command is deprecated', 'setup.py', 'egg_info', '--egg-base', '../../build/scara_kinematics', 'build', '--build-base', '/home/sergio/ros2_ws/build/scara_kinematics/build', 'install', '--record', '/home/sergio/ros2_ws/build/scara_kinematics/install.log', '--install-scripts', '$base/lib/scara_kinematics', '--single-version-externally-managed', 'install_data'], 'cwd': '/home/sergio/ros2_ws/src/scara_kinematics', 'env': OrderedDict({'LESSOPEN': '| /usr/bin/lesspipe %s', 'GZ_SIM_RESOURCE_PATH': '/opt/ros/lyrical/share', 'AI_AGENT': 'claude-code_2-1-280_agent', 'USER': 'sergio', 'CLAUDE_CODE_ENTRYPOINT': 'cli', 'GZ_CONFIG_PATH': '/opt/ros/lyrical/opt/gz_sim_vendor/share/gz:/opt/ros/lyrical/opt/gz_gui_vendor/share/gz:/opt/ros/lyrical/opt/gz_transport_vendor/share/gz:/opt/ros/lyrical/opt/sdformat_vendor/share/gz:/opt/ros/lyrical/opt/gz_rendering_vendor/share/gz:/opt/ros/lyrical/opt/gz_plugin_vendor/share/gz:/opt/ros/lyrical/opt/gz_fuel_tools_vendor/share/gz:/opt/ros/lyrical/opt/gz_msgs_vendor/share/gz:/opt/ros/lyrical/opt/gz_common_vendor/share/gz', 'GIT_EDITOR': 'true', 'XDG_SESSION_TYPE': 'wayland', 'PTYXIS_VERSION': '50.1', 'CLAUDE_CODE_SESSION_ATTENDED': '1', 'SHLVL': '2', 'LD_LIBRARY_PATH': '/opt/ros/lyrical/opt/gz_sim_vendor/lib:/opt/ros/lyrical/opt/gz_sensors_vendor/lib:/opt/ros/lyrical/opt/gz_gui_vendor/lib:/opt/ros/lyrical/opt/gz_transport_vendor/lib:/opt/ros/lyrical/opt/zenoh_cpp_vendor/lib:/opt/ros/lyrical/opt/gz_physics_vendor/lib:/opt/ros/lyrical/opt/sdformat_vendor/lib:/opt/ros/lyrical/opt/gz_rendering_vendor/lib:/opt/ros/lyrical/opt/gz_plugin_vendor/lib:/opt/ros/lyrical/opt/gz_fuel_tools_vendor/lib:/opt/ros/lyrical/opt/gz_msgs_vendor/lib:/opt/ros/lyrical/opt/gz_common_vendor/lib:/opt/ros/lyrical/opt/gz_math_vendor/lib:/opt/ros/lyrical/opt/gz_utils_vendor/lib:/opt/ros/lyrical/opt/rviz_ogre_vendor/lib:/opt/ros/lyrical/lib/x86_64-linux-gnu:/opt/ros/lyrical/opt/gz_tools_vendor/lib:/opt/ros/lyrical/opt/gz_ogre_next_vendor/lib:/opt/ros/lyrical/opt/gz_dartsim_vendor/lib:/opt/ros/lyrical/opt/gz_cmake_vendor/lib:/opt/ros/lyrical/lib', 'CLAUDE_CODE_MESSAGING_TOKEN': '00e9e925d1e2c85f0c3e3f42f0e2a1d4', 'HOME': '/home/sergio', 'OLDPWD': '/home/sergio/ros2_ws/src/scara_kinematics/scara_kinematics', 'DESKTOP_SESSION': 'ubuntu', 'IM_CONFIG_ENTRY': 'profile', 'ROS_PYTHON_VERSION': '3', 'GTK_MODULES': 'gail:atk-bridge', 'CLAUDE_CODE_CHILD_SESSION': '1', 'MANAGERPID': '2824', 'SYSTEMD_EXEC_PID': '3370', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'COLORTERM': 'truecolor', 'GIO_LAUNCHED_DESKTOP_FILE_PID': '5280', 'GNOME_KEYRING_CONTROL': '/run/user/1000/keyring', 'DEBUGINFOD_URLS': 'https://debuginfod.ubuntu.com', 'WAYLAND_DISPLAY': 'wayland-0', 'COLCON_PREFIX_PATH': '/home/sergio/proyectos/ros2_ws/install', 'ROS_DISTRO': 'lyrical', 'LOGNAME': 'sergio', 'MANAGERPIDFDID': '782', 'JOURNAL_STREAM': '10:28228', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'MEMORY_PRESSURE_WATCH': '/sys/fs/cgroup/user.slice/user-1000.slice/user@1000.service/session.slice/org.gnome.SettingsDaemon.MediaKeys.service/memory.pressure', 'XDG_SESSION_CLASS': 'user', 'USERNAME': 'sergio', 'TERM': 'xterm-256color', 'GNOME_DESKTOP_SESSION_ID': 'this-is-deprecated', 'FLATPAK_TTY_PROGRESS': '1', 'PATH': '/opt/ros/lyrical/opt/gz_msgs_vendor/bin:/opt/ros/lyrical/opt/gz_tools_vendor/bin:/opt/ros/lyrical/opt/gz_ogre_next_vendor/bin:/opt/ros/lyrical/bin:/home/sergio/.local/bin:/home/sergio/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin', 'INVOCATION_ID': '93441234f60b48d0af65533bfa66a1ad', 'COREPACK_ENABLE_AUTO_PIN': '0', 'XDG_MENU_PREFIX': 'gnome-', 'PTYXIS_PROFILE': 'ce9d6198ef796e94c017ee696a63f866', 'GNOME_SETUP_DISPLAY': 'unix:/tmp/.X11-unix/X1', 'XDG_RUNTIME_DIR': '/run/user/1000', 'CLAUDE_EFFORT': 'xhigh', 'DISPLAY': ':0', 'CLAUDE_PID': '5403', 'NoDefaultCurrentDirectoryInExePath': '1', 'LANG': 'es_ES.UTF-8', 'XDG_CURRENT_DESKTOP': 'ubuntu:GNOME', 'XMODIFIERS': '@im=ibus', 'XDG_SESSION_DESKTOP': 'ubuntu', 'XAUTHORITY': '/run/user/1000/.mutter-Xwaylandauth.FKCKW3', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.swp=00;90:*.tmp=00;90:*.dpkg-dist=00;90:*.dpkg-old=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:', 'SSH_AUTH_SOCK': '/run/user/1000/gcr/ssh', 'ROS_DOMAIN_ID': '0', 'AMENT_PREFIX_PATH': '/opt/ros/lyrical', 'SHELL': '/bin/bash', 'QT_ACCESSIBILITY': '1', 'GDMSESSION': 'ubuntu', 'CLAUDE_CODE_SESSION_ID': '35189769-0c44-4820-b8f1-826d9077f9a3', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'CLAUDECODE': '1', 'GPG_AGENT_INFO': '/run/user/1000/gnupg/S.gpg-agent:0:1', 'ROS_AUTOMATIC_DISCOVERY_RANGE': 'SUBNET', 'QT_IM_MODULE': 'ibus', 'PWD': '/home/sergio/ros2_ws/build/scara_kinematics', 'XDG_CONFIG_DIRS': '/etc/xdg/xdg-ubuntu:/etc/xdg', 'XDG_DATA_DIRS': '/usr/share/ubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop', 'CLAUDE_CODE_EXECPATH': '/home/sergio/.local/share/claude/versions/2.1.280', 'XDG_SESSION_EXTRA_DEVICE_ACCESS': 'render:accel', 'PYTHONPATH': '/home/sergio/ros2_ws/build/scara_kinematics/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/sergio/ros2_ws/install/scara_kinematics/lib/python3.14/site-packages:/opt/ros/lyrical/opt/gz_sim_vendor/lib/python:/opt/ros/lyrical/opt/gz_transport_vendor/lib/python:/opt/ros/lyrical/opt/sdformat_vendor/lib/python:/opt/ros/lyrical/opt/gz_msgs_vendor/lib/python:/opt/ros/lyrical/opt/gz_math_vendor/lib/python:/opt/ros/lyrical/lib/python3.14/site-packages', 'COLCON': '1', 'QT_IM_MODULES': 'wayland;ibus', 'MEMORY_PRESSURE_WRITE': 'c29tZSAyMDAwMDAgMjAwMDAwMAA=', 'VTE_VERSION': '8400', 'CLAUDE_CODE_MESSAGING_SOCKET': '/run/user/1000/cc-socks/5403.sock', 'CMAKE_PREFIX_PATH': '/opt/ros/lyrical/opt/gz_sim_vendor:/opt/ros/lyrical/opt/gz_sensors_vendor:/opt/ros/lyrical/opt/gz_gui_vendor:/opt/ros/lyrical/opt/gz_transport_vendor:/opt/ros/lyrical/opt/gz_physics_vendor:/opt/ros/lyrical/opt/sdformat_vendor:/opt/ros/lyrical/opt/gz_rendering_vendor:/opt/ros/lyrical/opt/gz_plugin_vendor:/opt/ros/lyrical/opt/gz_fuel_tools_vendor:/opt/ros/lyrical/opt/gz_msgs_vendor:/opt/ros/lyrical/opt/gz_common_vendor:/opt/ros/lyrical/opt/gz_math_vendor:/opt/ros/lyrical/opt/gz_utils_vendor:/opt/ros/lyrical/opt/gz_tools_vendor:/opt/ros/lyrical/opt/gz_ogre_next_vendor:/opt/ros/lyrical/opt/gz_dartsim_vendor:/opt/ros/lyrical/opt/gz_cmake_vendor'}), 'shell': False}
+[3.312720] (-) TimerEvent: {}
+[3.413021] (-) TimerEvent: {}
+[3.513221] (-) TimerEvent: {}
+[3.615803] (-) TimerEvent: {}
+[3.715987] (-) TimerEvent: {}
+[3.816192] (-) TimerEvent: {}
+[3.916392] (-) TimerEvent: {}
+[4.016838] (-) TimerEvent: {}
+[4.117035] (-) TimerEvent: {}
+[4.222735] (-) TimerEvent: {}
+[4.322934] (-) TimerEvent: {}
+[4.423143] (-) TimerEvent: {}
+[4.523342] (scara_kinematics) StdoutLine: {'line': b'running egg_info\n'}
+[4.523628] (-) TimerEvent: {}
+[4.608609] (scara_kinematics) StdoutLine: {'line': b'writing ../../build/scara_kinematics/scara_kinematics.egg-info/PKG-INFO\n'}
+[4.610526] (scara_kinematics) StdoutLine: {'line': b'writing dependency_links to ../../build/scara_kinematics/scara_kinematics.egg-info/dependency_links.txt\n'}
+[4.612179] (scara_kinematics) StdoutLine: {'line': b'writing entry points to ../../build/scara_kinematics/scara_kinematics.egg-info/entry_points.txt\n'}
+[4.613386] (scara_kinematics) StdoutLine: {'line': b'writing requirements to ../../build/scara_kinematics/scara_kinematics.egg-info/requires.txt\n'}
+[4.614654] (scara_kinematics) StdoutLine: {'line': b'writing top-level names to ../../build/scara_kinematics/scara_kinematics.egg-info/top_level.txt\n'}
+[4.623853] (-) TimerEvent: {}
+[4.724048] (-) TimerEvent: {}
+[4.824906] (-) TimerEvent: {}
+[4.862715] (scara_kinematics) StdoutLine: {'line': b"reading manifest file '../../build/scara_kinematics/scara_kinematics.egg-info/SOURCES.txt'\n"}
+[4.866773] (scara_kinematics) StdoutLine: {'line': b"writing manifest file '../../build/scara_kinematics/scara_kinematics.egg-info/SOURCES.txt'\n"}
+[4.867463] (scara_kinematics) StdoutLine: {'line': b'running build\n'}
+[4.867691] (scara_kinematics) StdoutLine: {'line': b'running build_py\n'}
+[4.869072] (scara_kinematics) StdoutLine: {'line': b'copying scara_kinematics/esp.py -> /home/sergio/ros2_ws/build/scara_kinematics/build/lib/scara_kinematics\n'}
+[4.869313] (scara_kinematics) StdoutLine: {'line': b'copying scara_kinematics/protocolo.py -> /home/sergio/ros2_ws/build/scara_kinematics/build/lib/scara_kinematics\n'}
+[4.869527] (scara_kinematics) StdoutLine: {'line': b'copying scara_kinematics/motor.py -> /home/sergio/ros2_ws/build/scara_kinematics/build/lib/scara_kinematics\n'}
+[4.871941] (scara_kinematics) StdoutLine: {'line': b'copying scara_kinematics/tray_gui.py -> /home/sergio/ros2_ws/build/scara_kinematics/build/lib/scara_kinematics\n'}
+[4.872193] (scara_kinematics) StdoutLine: {'line': b'copying scara_kinematics/urdf_fk.py -> /home/sergio/ros2_ws/build/scara_kinematics/build/lib/scara_kinematics\n'}
+[4.872391] (scara_kinematics) StdoutLine: {'line': b'copying scara_kinematics/estilo.py -> /home/sergio/ros2_ws/build/scara_kinematics/build/lib/scara_kinematics\n'}
+[4.872557] (scara_kinematics) StdoutLine: {'line': b'copying scara_kinematics/tray.py -> /home/sergio/ros2_ws/build/scara_kinematics/build/lib/scara_kinematics\n'}
+[4.875554] (scara_kinematics) StdoutLine: {'line': b'copying scara_kinematics/model.py -> /home/sergio/ros2_ws/build/scara_kinematics/build/lib/scara_kinematics\n'}
+[4.877619] (scara_kinematics) StdoutLine: {'line': b'copying scara_kinematics/trayectoria.py -> /home/sergio/ros2_ws/build/scara_kinematics/build/lib/scara_kinematics\n'}
+[4.879297] (scara_kinematics) StdoutLine: {'line': b'copying scara_kinematics/esp_rec.py -> /home/sergio/ros2_ws/build/scara_kinematics/build/lib/scara_kinematics\n'}
+[4.879527] (scara_kinematics) StdoutLine: {'line': b'copying scara_kinematics/teodoro.py -> /home/sergio/ros2_ws/build/scara_kinematics/build/lib/scara_kinematics\n'}
+[4.879667] (scara_kinematics) StdoutLine: {'line': b'copying scara_kinematics/__init__.py -> /home/sergio/ros2_ws/build/scara_kinematics/build/lib/scara_kinematics\n'}
+[4.881606] (scara_kinematics) StdoutLine: {'line': b'copying scara_kinematics/brazo_hw.py -> /home/sergio/ros2_ws/build/scara_kinematics/build/lib/scara_kinematics\n'}
+[4.883057] (scara_kinematics) StdoutLine: {'line': b'copying scara_kinematics/alvin.py -> /home/sergio/ros2_ws/build/scara_kinematics/build/lib/scara_kinematics\n'}
+[4.883235] (scara_kinematics) StdoutLine: {'line': b'copying scara_kinematics/auditor.py -> /home/sergio/ros2_ws/build/scara_kinematics/build/lib/scara_kinematics\n'}
+[4.883373] (scara_kinematics) StdoutLine: {'line': b'copying scara_kinematics/simon.py -> /home/sergio/ros2_ws/build/scara_kinematics/build/lib/scara_kinematics\n'}
+[4.883505] (scara_kinematics) StdoutLine: {'line': b'copying scara_kinematics/cc.py -> /home/sergio/ros2_ws/build/scara_kinematics/build/lib/scara_kinematics\n'}
+[4.883633] (scara_kinematics) StdoutLine: {'line': b'running install\n'}
+[4.895309] (scara_kinematics) StdoutLine: {'line': b'running install_lib\n'}
+[4.925260] (-) TimerEvent: {}
+[4.964987] (scara_kinematics) StdoutLine: {'line': b'copying /home/sergio/ros2_ws/build/scara_kinematics/build/lib/scara_kinematics/tray_gui.py -> /home/sergio/ros2_ws/install/scara_kinematics/lib/python3.14/site-packages/scara_kinematics\n'}
+[4.966922] (scara_kinematics) StdoutLine: {'line': b'byte-compiling /home/sergio/ros2_ws/install/scara_kinematics/lib/python3.14/site-packages/scara_kinematics/tray_gui.py to tray_gui.cpython-314.pyc\n'}
+[5.006649] (scara_kinematics) StdoutLine: {'line': b'running install_data\n'}
+[5.007131] (scara_kinematics) StdoutLine: {'line': b'copying resource/scara_kinematics -> /home/sergio/ros2_ws/install/scara_kinematics/share/ament_index/resource_index/packages\n'}
+[5.007708] (scara_kinematics) StdoutLine: {'line': b'copying package.xml -> /home/sergio/ros2_ws/install/scara_kinematics/share/scara_kinematics\n'}
+[5.008728] (scara_kinematics) StdoutLine: {'line': b'copying launch/rviz.launch.py -> /home/sergio/ros2_ws/install/scara_kinematics/share/scara_kinematics/launch\n'}
+[5.009042] (scara_kinematics) StdoutLine: {'line': b'copying launch/trayectoria.launch.py -> /home/sergio/ros2_ws/install/scara_kinematics/share/scara_kinematics/launch\n'}
+[5.010498] (scara_kinematics) StdoutLine: {'line': b'copying launch/brazo.launch.py -> /home/sergio/ros2_ws/install/scara_kinematics/share/scara_kinematics/launch\n'}
+[5.010980] (scara_kinematics) StdoutLine: {'line': b'copying launch/tray_gui.launch.py -> /home/sergio/ros2_ws/install/scara_kinematics/share/scara_kinematics/launch\n'}
+[5.011373] (scara_kinematics) StdoutLine: {'line': b'copying launch/gazebo.launch.py -> /home/sergio/ros2_ws/install/scara_kinematics/share/scara_kinematics/launch\n'}
+[5.011579] (scara_kinematics) StdoutLine: {'line': b'copying launch/auditar.launch.py -> /home/sergio/ros2_ws/install/scara_kinematics/share/scara_kinematics/launch\n'}
+[5.011768] (scara_kinematics) StdoutLine: {'line': b'copying config/scara_urdf3.yaml -> /home/sergio/ros2_ws/install/scara_kinematics/share/scara_kinematics/config\n'}
+[5.012170] (scara_kinematics) StdoutLine: {'line': b'copying config/scara_urdf.yaml -> /home/sergio/ros2_ws/install/scara_kinematics/share/scara_kinematics/config\n'}
+[5.012501] (scara_kinematics) StdoutLine: {'line': b'copying rviz/scara.rviz -> /home/sergio/ros2_ws/install/scara_kinematics/share/scara_kinematics/rviz\n'}
+[5.013837] (scara_kinematics) StdoutLine: {'line': b'copying firmware/scara_esp32/scara_esp32.ino -> /home/sergio/ros2_ws/install/scara_kinematics/share/scara_kinematics/firmware/scara_esp32\n'}
+[5.014034] (scara_kinematics) StdoutLine: {'line': b'copying firmware/scara_esp32/scara_esp32.ino.bak4gdl -> /home/sergio/ros2_ws/install/scara_kinematics/share/scara_kinematics/firmware/scara_esp32\n'}
+[5.014201] (scara_kinematics) StdoutLine: {'line': b'running install_egg_info\n'}
+[5.025550] (-) TimerEvent: {}
+[5.085268] (scara_kinematics) StdoutLine: {'line': b"removing '/home/sergio/ros2_ws/install/scara_kinematics/lib/python3.14/site-packages/scara_kinematics-1.0.0-py3.14.egg-info' (and everything under it)\n"}
+[5.085941] (scara_kinematics) StdoutLine: {'line': b'Copying ../../build/scara_kinematics/scara_kinematics.egg-info to /home/sergio/ros2_ws/install/scara_kinematics/lib/python3.14/site-packages/scara_kinematics-1.0.0-py3.14.egg-info\n'}
+[5.090776] (scara_kinematics) StdoutLine: {'line': b'running install_scripts\n'}
+[5.125743] (-) TimerEvent: {}
+[5.225930] (-) TimerEvent: {}
+[5.326123] (-) TimerEvent: {}
+[5.414075] (scara_kinematics) StdoutLine: {'line': b'Installing alvin script to /home/sergio/ros2_ws/install/scara_kinematics/lib/scara_kinematics\n'}
+[5.414348] (scara_kinematics) StdoutLine: {'line': b'Installing auditor script to /home/sergio/ros2_ws/install/scara_kinematics/lib/scara_kinematics\n'}
+[5.414906] (scara_kinematics) StdoutLine: {'line': b'Installing brazo_hw script to /home/sergio/ros2_ws/install/scara_kinematics/lib/scara_kinematics\n'}
+[5.415254] (scara_kinematics) StdoutLine: {'line': b'Installing cc script to /home/sergio/ros2_ws/install/scara_kinematics/lib/scara_kinematics\n'}
+[5.415568] (scara_kinematics) StdoutLine: {'line': b'Installing esp script to /home/sergio/ros2_ws/install/scara_kinematics/lib/scara_kinematics\n'}
+[5.415897] (scara_kinematics) StdoutLine: {'line': b'Installing esp_rec script to /home/sergio/ros2_ws/install/scara_kinematics/lib/scara_kinematics\n'}
+[5.416422] (scara_kinematics) StdoutLine: {'line': b'Installing simon script to /home/sergio/ros2_ws/install/scara_kinematics/lib/scara_kinematics\n'}
+[5.417471] (scara_kinematics) StdoutLine: {'line': b'Installing teodoro script to /home/sergio/ros2_ws/install/scara_kinematics/lib/scara_kinematics\n'}
+[5.417881] (scara_kinematics) StdoutLine: {'line': b'Installing tray script to /home/sergio/ros2_ws/install/scara_kinematics/lib/scara_kinematics\n'}
+[5.418042] (scara_kinematics) StdoutLine: {'line': b'Installing tray_gui script to /home/sergio/ros2_ws/install/scara_kinematics/lib/scara_kinematics\n'}
+[5.418181] (scara_kinematics) StdoutLine: {'line': b"writing list of installed files to '/home/sergio/ros2_ws/build/scara_kinematics/install.log'\n"}
+[5.426573] (-) TimerEvent: {}
+[5.511010] (scara_kinematics) CommandEnded: {'returncode': 0}
+[5.526732] (-) TimerEvent: {}
+[5.555565] (scara_kinematics) JobEnded: {'identifier': 'scara_kinematics', 'rc': 0}
+[5.557235] (-) EventReactorShutdown: {}

@@ -1,0 +1,99 @@
+[1.415s] Invoking command in '/home/sergio/ros2_ws/src/scara_kinematics': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/sergio/ros2_ws/build/scara_kinematics/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/sergio/ros2_ws/install/scara_kinematics/lib/python3.14/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/scara_kinematics build --build-base /home/sergio/ros2_ws/build/scara_kinematics/build install --record /home/sergio/ros2_ws/build/scara_kinematics/install.log --install-scripts $base/lib/scara_kinematics --single-version-externally-managed install_data
+[2.060s] running egg_info
+[2.094s] creating ../../build/scara_kinematics/scara_kinematics.egg-info
+[2.095s] writing ../../build/scara_kinematics/scara_kinematics.egg-info/PKG-INFO
+[2.095s] writing dependency_links to ../../build/scara_kinematics/scara_kinematics.egg-info/dependency_links.txt
+[2.096s] writing entry points to ../../build/scara_kinematics/scara_kinematics.egg-info/entry_points.txt
+[2.096s] writing requirements to ../../build/scara_kinematics/scara_kinematics.egg-info/requires.txt
+[2.096s] writing top-level names to ../../build/scara_kinematics/scara_kinematics.egg-info/top_level.txt
+[2.097s] writing manifest file '../../build/scara_kinematics/scara_kinematics.egg-info/SOURCES.txt'
+[2.171s] reading manifest file '../../build/scara_kinematics/scara_kinematics.egg-info/SOURCES.txt'
+[2.173s] writing manifest file '../../build/scara_kinematics/scara_kinematics.egg-info/SOURCES.txt'
+[2.173s] running build
+[2.176s] running build_py
+[2.176s] creating /home/sergio/ros2_ws/build/scara_kinematics/build/lib/scara_kinematics
+[2.176s] copying scara_kinematics/esp.py -> /home/sergio/ros2_ws/build/scara_kinematics/build/lib/scara_kinematics
+[2.177s] copying scara_kinematics/protocolo.py -> /home/sergio/ros2_ws/build/scara_kinematics/build/lib/scara_kinematics
+[2.177s] copying scara_kinematics/tray_gui.py -> /home/sergio/ros2_ws/build/scara_kinematics/build/lib/scara_kinematics
+[2.177s] copying scara_kinematics/urdf_fk.py -> /home/sergio/ros2_ws/build/scara_kinematics/build/lib/scara_kinematics
+[2.177s] copying scara_kinematics/estilo.py -> /home/sergio/ros2_ws/build/scara_kinematics/build/lib/scara_kinematics
+[2.177s] copying scara_kinematics/tray.py -> /home/sergio/ros2_ws/build/scara_kinematics/build/lib/scara_kinematics
+[2.177s] copying scara_kinematics/model.py -> /home/sergio/ros2_ws/build/scara_kinematics/build/lib/scara_kinematics
+[2.178s] copying scara_kinematics/trayectoria.py -> /home/sergio/ros2_ws/build/scara_kinematics/build/lib/scara_kinematics
+[2.179s] copying scara_kinematics/esp_rec.py -> /home/sergio/ros2_ws/build/scara_kinematics/build/lib/scara_kinematics
+[2.179s] copying scara_kinematics/teodoro.py -> /home/sergio/ros2_ws/build/scara_kinematics/build/lib/scara_kinematics
+[2.179s] copying scara_kinematics/__init__.py -> /home/sergio/ros2_ws/build/scara_kinematics/build/lib/scara_kinematics
+[2.179s] copying scara_kinematics/brazo_hw.py -> /home/sergio/ros2_ws/build/scara_kinematics/build/lib/scara_kinematics
+[2.180s] copying scara_kinematics/alvin.py -> /home/sergio/ros2_ws/build/scara_kinematics/build/lib/scara_kinematics
+[2.180s] copying scara_kinematics/auditor.py -> /home/sergio/ros2_ws/build/scara_kinematics/build/lib/scara_kinematics
+[2.180s] copying scara_kinematics/simon.py -> /home/sergio/ros2_ws/build/scara_kinematics/build/lib/scara_kinematics
+[2.180s] copying scara_kinematics/cc.py -> /home/sergio/ros2_ws/build/scara_kinematics/build/lib/scara_kinematics
+[2.181s] running install
+[2.194s] running install_lib
+[2.253s] creating /home/sergio/ros2_ws/install/scara_kinematics/lib/python3.14/site-packages/scara_kinematics
+[2.254s] copying /home/sergio/ros2_ws/build/scara_kinematics/build/lib/scara_kinematics/esp.py -> /home/sergio/ros2_ws/install/scara_kinematics/lib/python3.14/site-packages/scara_kinematics
+[2.254s] copying /home/sergio/ros2_ws/build/scara_kinematics/build/lib/scara_kinematics/protocolo.py -> /home/sergio/ros2_ws/install/scara_kinematics/lib/python3.14/site-packages/scara_kinematics
+[2.254s] copying /home/sergio/ros2_ws/build/scara_kinematics/build/lib/scara_kinematics/tray_gui.py -> /home/sergio/ros2_ws/install/scara_kinematics/lib/python3.14/site-packages/scara_kinematics
+[2.255s] copying /home/sergio/ros2_ws/build/scara_kinematics/build/lib/scara_kinematics/urdf_fk.py -> /home/sergio/ros2_ws/install/scara_kinematics/lib/python3.14/site-packages/scara_kinematics
+[2.255s] copying /home/sergio/ros2_ws/build/scara_kinematics/build/lib/scara_kinematics/estilo.py -> /home/sergio/ros2_ws/install/scara_kinematics/lib/python3.14/site-packages/scara_kinematics
+[2.255s] copying /home/sergio/ros2_ws/build/scara_kinematics/build/lib/scara_kinematics/tray.py -> /home/sergio/ros2_ws/install/scara_kinematics/lib/python3.14/site-packages/scara_kinematics
+[2.256s] copying /home/sergio/ros2_ws/build/scara_kinematics/build/lib/scara_kinematics/model.py -> /home/sergio/ros2_ws/install/scara_kinematics/lib/python3.14/site-packages/scara_kinematics
+[2.256s] copying /home/sergio/ros2_ws/build/scara_kinematics/build/lib/scara_kinematics/trayectoria.py -> /home/sergio/ros2_ws/install/scara_kinematics/lib/python3.14/site-packages/scara_kinematics
+[2.256s] copying /home/sergio/ros2_ws/build/scara_kinematics/build/lib/scara_kinematics/esp_rec.py -> /home/sergio/ros2_ws/install/scara_kinematics/lib/python3.14/site-packages/scara_kinematics
+[2.256s] copying /home/sergio/ros2_ws/build/scara_kinematics/build/lib/scara_kinematics/teodoro.py -> /home/sergio/ros2_ws/install/scara_kinematics/lib/python3.14/site-packages/scara_kinematics
+[2.257s] copying /home/sergio/ros2_ws/build/scara_kinematics/build/lib/scara_kinematics/__init__.py -> /home/sergio/ros2_ws/install/scara_kinematics/lib/python3.14/site-packages/scara_kinematics
+[2.257s] copying /home/sergio/ros2_ws/build/scara_kinematics/build/lib/scara_kinematics/brazo_hw.py -> /home/sergio/ros2_ws/install/scara_kinematics/lib/python3.14/site-packages/scara_kinematics
+[2.257s] copying /home/sergio/ros2_ws/build/scara_kinematics/build/lib/scara_kinematics/alvin.py -> /home/sergio/ros2_ws/install/scara_kinematics/lib/python3.14/site-packages/scara_kinematics
+[2.258s] copying /home/sergio/ros2_ws/build/scara_kinematics/build/lib/scara_kinematics/auditor.py -> /home/sergio/ros2_ws/install/scara_kinematics/lib/python3.14/site-packages/scara_kinematics
+[2.258s] copying /home/sergio/ros2_ws/build/scara_kinematics/build/lib/scara_kinematics/simon.py -> /home/sergio/ros2_ws/install/scara_kinematics/lib/python3.14/site-packages/scara_kinematics
+[2.258s] copying /home/sergio/ros2_ws/build/scara_kinematics/build/lib/scara_kinematics/cc.py -> /home/sergio/ros2_ws/install/scara_kinematics/lib/python3.14/site-packages/scara_kinematics
+[2.259s] byte-compiling /home/sergio/ros2_ws/install/scara_kinematics/lib/python3.14/site-packages/scara_kinematics/esp.py to esp.cpython-314.pyc
+[2.268s] byte-compiling /home/sergio/ros2_ws/install/scara_kinematics/lib/python3.14/site-packages/scara_kinematics/protocolo.py to protocolo.cpython-314.pyc
+[2.274s] byte-compiling /home/sergio/ros2_ws/install/scara_kinematics/lib/python3.14/site-packages/scara_kinematics/tray_gui.py to tray_gui.cpython-314.pyc
+[2.308s] byte-compiling /home/sergio/ros2_ws/install/scara_kinematics/lib/python3.14/site-packages/scara_kinematics/urdf_fk.py to urdf_fk.cpython-314.pyc
+[2.310s] byte-compiling /home/sergio/ros2_ws/install/scara_kinematics/lib/python3.14/site-packages/scara_kinematics/estilo.py to estilo.cpython-314.pyc
+[2.311s] byte-compiling /home/sergio/ros2_ws/install/scara_kinematics/lib/python3.14/site-packages/scara_kinematics/tray.py to tray.cpython-314.pyc
+[2.318s] byte-compiling /home/sergio/ros2_ws/install/scara_kinematics/lib/python3.14/site-packages/scara_kinematics/model.py to model.cpython-314.pyc
+[2.322s] byte-compiling /home/sergio/ros2_ws/install/scara_kinematics/lib/python3.14/site-packages/scara_kinematics/trayectoria.py to trayectoria.cpython-314.pyc
+[2.332s] byte-compiling /home/sergio/ros2_ws/install/scara_kinematics/lib/python3.14/site-packages/scara_kinematics/esp_rec.py to esp_rec.cpython-314.pyc
+[2.335s] byte-compiling /home/sergio/ros2_ws/install/scara_kinematics/lib/python3.14/site-packages/scara_kinematics/teodoro.py to teodoro.cpython-314.pyc
+[2.338s] byte-compiling /home/sergio/ros2_ws/install/scara_kinematics/lib/python3.14/site-packages/scara_kinematics/__init__.py to __init__.cpython-314.pyc
+[2.338s] byte-compiling /home/sergio/ros2_ws/install/scara_kinematics/lib/python3.14/site-packages/scara_kinematics/brazo_hw.py to brazo_hw.cpython-314.pyc
+[2.345s] byte-compiling /home/sergio/ros2_ws/install/scara_kinematics/lib/python3.14/site-packages/scara_kinematics/alvin.py to alvin.cpython-314.pyc
+[2.348s] byte-compiling /home/sergio/ros2_ws/install/scara_kinematics/lib/python3.14/site-packages/scara_kinematics/auditor.py to auditor.cpython-314.pyc
+[2.358s] byte-compiling /home/sergio/ros2_ws/install/scara_kinematics/lib/python3.14/site-packages/scara_kinematics/simon.py to simon.cpython-314.pyc
+[2.361s] byte-compiling /home/sergio/ros2_ws/install/scara_kinematics/lib/python3.14/site-packages/scara_kinematics/cc.py to cc.cpython-314.pyc
+[2.366s] running install_data
+[2.366s] creating /home/sergio/ros2_ws/install/scara_kinematics/share/ament_index/resource_index/packages
+[2.367s] copying resource/scara_kinematics -> /home/sergio/ros2_ws/install/scara_kinematics/share/ament_index/resource_index/packages
+[2.367s] copying package.xml -> /home/sergio/ros2_ws/install/scara_kinematics/share/scara_kinematics
+[2.367s] creating /home/sergio/ros2_ws/install/scara_kinematics/share/scara_kinematics/launch
+[2.368s] copying launch/rviz.launch.py -> /home/sergio/ros2_ws/install/scara_kinematics/share/scara_kinematics/launch
+[2.368s] copying launch/trayectoria.launch.py -> /home/sergio/ros2_ws/install/scara_kinematics/share/scara_kinematics/launch
+[2.369s] copying launch/brazo.launch.py -> /home/sergio/ros2_ws/install/scara_kinematics/share/scara_kinematics/launch
+[2.369s] copying launch/tray_gui.launch.py -> /home/sergio/ros2_ws/install/scara_kinematics/share/scara_kinematics/launch
+[2.369s] copying launch/gazebo.launch.py -> /home/sergio/ros2_ws/install/scara_kinematics/share/scara_kinematics/launch
+[2.369s] copying launch/auditar.launch.py -> /home/sergio/ros2_ws/install/scara_kinematics/share/scara_kinematics/launch
+[2.370s] creating /home/sergio/ros2_ws/install/scara_kinematics/share/scara_kinematics/config
+[2.370s] copying config/scara_urdf3.yaml -> /home/sergio/ros2_ws/install/scara_kinematics/share/scara_kinematics/config
+[2.370s] copying config/scara_urdf.yaml -> /home/sergio/ros2_ws/install/scara_kinematics/share/scara_kinematics/config
+[2.371s] creating /home/sergio/ros2_ws/install/scara_kinematics/share/scara_kinematics/rviz
+[2.371s] copying rviz/scara.rviz -> /home/sergio/ros2_ws/install/scara_kinematics/share/scara_kinematics/rviz
+[2.371s] creating /home/sergio/ros2_ws/install/scara_kinematics/share/scara_kinematics/firmware/scara_esp32
+[2.372s] copying firmware/scara_esp32/scara_esp32.ino -> /home/sergio/ros2_ws/install/scara_kinematics/share/scara_kinematics/firmware/scara_esp32
+[2.372s] copying firmware/scara_esp32/scara_esp32.ino.bak4gdl -> /home/sergio/ros2_ws/install/scara_kinematics/share/scara_kinematics/firmware/scara_esp32
+[2.372s] running install_egg_info
+[2.411s] Copying ../../build/scara_kinematics/scara_kinematics.egg-info to /home/sergio/ros2_ws/install/scara_kinematics/lib/python3.14/site-packages/scara_kinematics-1.0.0-py3.14.egg-info
+[2.412s] running install_scripts
+[2.653s] Installing alvin script to /home/sergio/ros2_ws/install/scara_kinematics/lib/scara_kinematics
+[2.654s] Installing auditor script to /home/sergio/ros2_ws/install/scara_kinematics/lib/scara_kinematics
+[2.654s] Installing brazo_hw script to /home/sergio/ros2_ws/install/scara_kinematics/lib/scara_kinematics
+[2.654s] Installing cc script to /home/sergio/ros2_ws/install/scara_kinematics/lib/scara_kinematics
+[2.655s] Installing esp script to /home/sergio/ros2_ws/install/scara_kinematics/lib/scara_kinematics
+[2.656s] Installing esp_rec script to /home/sergio/ros2_ws/install/scara_kinematics/lib/scara_kinematics
+[2.656s] Installing simon script to /home/sergio/ros2_ws/install/scara_kinematics/lib/scara_kinematics
+[2.656s] Installing teodoro script to /home/sergio/ros2_ws/install/scara_kinematics/lib/scara_kinematics
+[2.657s] Installing tray script to /home/sergio/ros2_ws/install/scara_kinematics/lib/scara_kinematics
+[2.657s] Installing tray_gui script to /home/sergio/ros2_ws/install/scara_kinematics/lib/scara_kinematics
+[2.657s] writing list of installed files to '/home/sergio/ros2_ws/build/scara_kinematics/install.log'
+[2.718s] Invoked command in '/home/sergio/ros2_ws/src/scara_kinematics' returned '0': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/sergio/ros2_ws/build/scara_kinematics/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/sergio/ros2_ws/install/scara_kinematics/lib/python3.14/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/scara_kinematics build --build-base /home/sergio/ros2_ws/build/scara_kinematics/build install --record /home/sergio/ros2_ws/build/scara_kinematics/install.log --install-scripts $base/lib/scara_kinematics --single-version-externally-managed install_data

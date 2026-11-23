@@ -1,0 +1,27 @@
+[console_scripts]
+alvin = scara_kinematics.alvin:main
+auditor = scara_kinematics.auditor:main
+brazo_hw = scara_kinematics.brazo_hw:main
+cc = scara_kinematics.cc:main
+control_gui = scara_kinematics.control_gui:main
+control_nodo = scara_kinematics.control_nodo:main
+control_placa_gui = scara_kinematics.control_placa_gui:main
+control_puntos = scara_kinematics.control_puntos:main
+efector = scara_kinematics.efector:main
+esp = scara_kinematics.esp:main
+esp_rec = scara_kinematics.esp_rec:main
+garra_gui = scara_kinematics.garra_gui:main
+juntas_gui = scara_kinematics.juntas_gui:main
+juntas_nodo = scara_kinematics.juntas_nodo:main
+placa_simulada = scara_kinematics.placa_simulada:main
+puente_garra = scara_kinematics.puente_garra:main
+puente_placa = scara_kinematics.puente_placa:main
+ruta = scara_kinematics.ruta:main
+ruta_nodo = scara_kinematics.ruta_nodo:main
+simon = scara_kinematics.simon:main
+teodoro = scara_kinematics.teodoro:main
+tray = scara_kinematics.tray:main
+tray_gui = scara_kinematics.tray_gui:main
+traycho_gui = scara_kinematics.traycho_gui:main
+vector = scara_kinematics.vector:main
+ver_nodo = scara_kinematics.ver_nodo:main

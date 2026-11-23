@@ -1,0 +1,100 @@
+{
+  "keys": {},
+  "groups": {
+    "pluginmanager": {
+      "keys": {
+        "running-plugins": {
+          "type": "repr",
+          "repr": "{'rqt_plot/Plot': [1, 2, 3, 4]}"
+        }
+      },
+      "groups": {
+        "plugin__rqt_plot__Plot__1": {
+          "keys": {},
+          "groups": {
+            "plugin": {
+              "keys": {
+                "topics": {
+                  "type": "repr",
+                  "repr": "['/scara/control/datos/punta_ref/x', '/scara/control/datos/punta_real/x', '/scara/control/datos/punta_ref/y', '/scara/control/datos/punta_real/y']"
+                },
+                "autoscroll": {
+                  "type": "repr",
+                  "repr": "True"
+                }
+              },
+              "groups": {}
+            }
+          }
+        },
+        "plugin__rqt_plot__Plot__2": {
+          "keys": {},
+          "groups": {
+            "plugin": {
+              "keys": {
+                "topics": {
+                  "type": "repr",
+                  "repr": "['/scara/control/datos/punta_ref/z', '/scara/control/datos/punta_real/z']"
+                },
+                "autoscroll": {
+                  "type": "repr",
+                  "repr": "True"
+                }
+              },
+              "groups": {}
+            }
+          }
+        },
+        "plugin__rqt_plot__Plot__3": {
+          "keys": {},
+          "groups": {
+            "plugin": {
+              "keys": {
+                "topics": {
+                  "type": "repr",
+                  "repr": "['/scara/control/datos/error/x', '/scara/control/datos/error/y', '/scara/control/datos/error/z', '/scara/control/datos/error_norma/data']"
+                },
+                "autoscroll": {
+                  "type": "repr",
+                  "repr": "True"
+                }
+              },
+              "groups": {}
+            }
+          }
+        },
+        "plugin__rqt_plot__Plot__4": {
+          "keys": {},
+          "groups": {
+            "plugin": {
+              "keys": {
+                "topics": {
+                  "type": "repr",
+                  "repr": "['/scara/control/datos/qd/x', '/scara/control/datos/qd/y', '/scara/control/datos/qd/z']"
+                },
+                "autoscroll": {
+                  "type": "repr",
+                  "repr": "True"
+                }
+              },
+              "groups": {}
+            }
+          }
+        }
+      }
+    },
+    "mainwindow": {
+      "keys": {
+        "geometry": {
+          "type": "repr(QByteArray.hex)",
+          "repr(QByteArray.hex)": "b'01d9d0cb000300000000000a0000001e00000549000002a10000000c00000020000005470000029f000000000000000003200000000c00000020000005470000029f'"
+        },
+        "state": {
+          "type": "repr(QByteArray.hex)",
+          "repr(QByteArray.hex)": "b'000000ff00000000fd00000001000000030000053c00000280fc0100000002fc000000000000029b0000003400fffffffc0200000002fb0000003a007200710074005f0070006c006f0074005f005f0050006c006f0074005f005f0031005f005f0050006c006f007400570069006400670065007401000000000000013d0000002400fffffffb0000003a007200710074005f0070006c006f0074005f005f0050006c006f0074005f005f0033005f005f0050006c006f007400570069006400670065007401000001430000013d0000002400fffffffc000002a10000029b0000003400fffffffc0200000002fb0000003a007200710074005f0070006c006f0074005f005f0050006c006f0074005f005f0032005f005f0050006c006f007400570069006400670065007401000000000000013d0000002400fffffffb0000003a007200710074005f0070006c006f0074005f005f0050006c006f0074005f005f0034005f005f0050006c006f007400570069006400670065007401000001430000013d0000002400ffffff0000053c0000000000000004000000040000000800000008fc00000000'"
+        }
+      },
+      "groups": {}
+    }
+  }
+}

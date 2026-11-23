@@ -1,0 +1,23 @@
+[INFO] [launch]: All log files can be found below /home/sergio/.ros/log/2026-09-29-16-32-23-845214-sergio-Inspiron-3481-17988
+[INFO] [launch]: Default logging verbosity is set to INFO
+[INFO] [alvin-1]: process started with pid [18016]
+[INFO] [simon-2]: process started with pid [18017]
+[INFO] [teodoro-3]: process started with pid [18018]
+[INFO] [cc-4]: process started with pid [18019]
+[INFO] [esp_rec-5]: process started with pid [18020]
+[INFO] [robot_state_publisher-6]: process started with pid [18021]
+[robot_state_publisher-6] [INFO] [1790717544.321977853] [robot_state_publisher]: Robot initialized
+[alvin-1] [INFO] [1790717545.700886483] [alvin]: Alvin (hombro) | junta juntura1 [0] | recorrido -120.0° .. +120.0° | IN 16/4 ENA 17 enc 26/25
+[cc-4] [INFO] [1790717545.961670078] [cc]: cinematica directa | junta por muestra lo de alvin, simon, teodoro | publica joint_states y scara/ee_pose
+[simon-2] [INFO] [1790717546.096905532] [simon]: Simón (codo) | junta juntura2 [1] | recorrido -150.0° .. +150.0° | IN 19/18 ENA 5 enc 12 (un solo canal)
+[esp_rec-5] [INFO] [1790717546.377368548] [esp_rec]: esperando a cc por scara/ee_pose | sin reenviar a la placa (reenviar:=true para hacerlo)
+[teodoro-3] [INFO] [1790717546.403013503] [teodoro]: Teodoro (husillo) | junta vertiacal1 [2] | recorrido 20.0 mm .. 170.0 mm | IN 22/21 ENA 23 enc 14/27
+[esp_rec-5] [WARN] [1790717546.853846680] [esp_rec]: cc no esta publicando: sin las tres juntas no hay punta que recibir
+[cc-4] [WARN] [1790717547.901427890] [cc]: sin noticias de alvin: sin su pieza no se completa ninguna muestra, y sin muestra no hay punta
+[robot_state_publisher-6] [INFO] [1790717552.202039993] [rclcpp]: signal_handler(signum=2)
+[INFO] [robot_state_publisher-6]: process has finished cleanly [pid 18021]
+[INFO] [simon-2]: process has finished cleanly [pid 18017]
+[INFO] [alvin-1]: process has finished cleanly [pid 18016]
+[INFO] [teodoro-3]: process has finished cleanly [pid 18018]
+[INFO] [cc-4]: process has finished cleanly [pid 18019]
+[INFO] [esp_rec-5]: process has finished cleanly [pid 18020]

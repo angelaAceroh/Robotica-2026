@@ -1,0 +1,65 @@
+# Como se pasa de la cinematica (junta) a los motores de la placa, y hasta donde
+# puede ir cada motor. Es el UNICO sitio donde hay que tocar estos numeros. Lo
+# leen los dos caminos al brazo:
+#   main.py          -> `vector` y la ventana `efector`        (efector.launch.py)
+#   main_control.py  -> `puente_placa` y `control_placa_gui`   (control_placa.launch.py)
+# Los dos programas de la placa cuentan igual (un test lo comprueba).
+#
+# «motor» aqui es lo que cuenta la placa, en las MISMAS unidades que Alvin.py,
+# Simon.py y Teodoro.py de Sergio (21/10):
+#   Alvin    grados de su junta   (5500 pulsos por vuelta)
+#   Simon    grados de su junta   (5500*21/18 pulsos por vuelta: la transmision)
+#   Teodoro  mm                   (5500 pulsos por vuelta de 41.4 mm)
+#
+#   motor = signo * reduccion * (grados(junta) - cero)      Alvin, Simon
+#   motor = signo * (d3 - cero) * 360 / paso_husillo_mm     Teodoro
+#
+# junta: la del modelo (scara_urdf3.yaml), positivo antihorario visto desde
+# arriba; con theta2 = b1 - b2 = 24.62 grados el codo esta recto (los b del
+# CAD); d3 en mm, sube con d3.
+#
+# Los numeros llevan siempre punto decimal: ROS no deja pasar 1 a un double.
+/**:
+  ros__parameters:
+    # Recorrido de cada motor, [min, max] de Alvin, Simon, Teodoro, en sus
+    # unidades. Los dio Sergio con el brazo delante (21/10, tarde): Alvin de -60
+    # a 60, Simon de 0 a -280, Teodoro de 0 a -135 (antes, los comentarios de
+    # sus programas: [0,100], [-200,0], [-100,0]). Tienen que ser los MIN y MAX
+    # de la tabla MOTORES de main.py y de main_control.py (el PC los compara con
+    # la placa al conectar).
+    limites_motor: [-60.0, 60.0, -280.0, 0.0, -135.0, 0.0]
+
+    # 1.0: la placa ya da grados de JUNTA (la transmision 21/18 de Simon esta
+    # dentro, en su POR_VUELTA).
+    reduccion: [1.0, 1.0]
+
+    # +1.0 si el motor positivo gira antihorario visto desde arriba (Teodoro: si
+    # sube). Comprobado en el brazo el 21/10: Alvin y Simon, «los negativos son
+    # en sentido contrario a las manecillas del reloj» (Sergio), o sea, su
+    # positivo es horario: -1 los dos (Simon se habia supuesto +1). Teodoro,
+    # con -5.4 mm la punta BAJO: su positivo sube, +1 (se habia supuesto -1).
+    signo: [-1.0, -1.0, 1.0]
+    # Donde esta cada junta con el motor en 0: grados, grados y d3 en mm.
+    # Alvin y Simon en 0 = el HOME de Sergio, que en el plano de la ventana
+    # esta en x = 0, y = -270 mm (lo dijo el 23/10, y ahi se pone la placa a 0
+    # con `fijar`; hasta entonces era y = -250, cero [-43.0, -95.38]). Es la IK
+    # de ese punto con el codo en la rama down (en el modelo el codo esta recto
+    # con theta2 = b1 - b2 = 24.62 grados).
+    # Teodoro: en 0 esta ARRIBA del todo y baja hasta -135; se supone que abajo
+    # del todo es el tope bajo del CAD, d3 = 20 mm, asi que en 0, d3 = 155
+    # (sin medir: mide la altura de la punta ahi).
+    cero: [-45.68, -90.01, 155.0]
+
+    # La placa ya cuenta a Teodoro en mm (lleva dentro los 41.4 mm por vuelta),
+    # asi que aqui «un grado de Teodoro» es un mm: 360. (0.0 = sin medir:
+    # Teodoro no se mueve y la z no se puede comprobar.)
+    # 29/10: el pinon M0.5 de 20 dientes daria pi*10 = 31.4 mm por vuelta (sin
+    # el +10 de Teodoro.py), o sea 273.08 aqui; NO se cambia sin medirlo con
+    # regla: con 41.4, los -135 de su recorrido son los 135 mm del CAD.
+    paso_husillo_mm: 360.0
+
+    # Solo main.py (`vector`): las velocidades de cada vector, fijas (las pidio
+    # Sergio el 2026-10-01), como en sus programas: RPM de Alvin, RPM de Simon y
+    # mm/min de Teodoro. El vector sale como [pos_alvin, 14, pos_simon, 30,
+    # pos_teodoro, 60]. Sus programas dicen «usa velocidades de 10 a 60».
+    velocidades: [14.0, 30.0, 60.0]

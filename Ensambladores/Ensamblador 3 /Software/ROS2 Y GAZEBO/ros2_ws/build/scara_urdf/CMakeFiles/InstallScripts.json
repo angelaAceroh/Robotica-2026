@@ -1,0 +1,7 @@
+{
+	"InstallScripts" : 
+	[
+		"/home/sergio/ros2_ws/build/scara_urdf/cmake_install.cmake"
+	],
+	"Parallel" : false
+}

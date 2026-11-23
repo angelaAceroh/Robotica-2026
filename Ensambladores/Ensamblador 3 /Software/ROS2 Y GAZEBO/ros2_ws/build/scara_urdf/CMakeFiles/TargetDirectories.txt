@@ -1,0 +1,9 @@
+/home/sergio/ros2_ws/build/scara_urdf/CMakeFiles/uninstall.dir
+/home/sergio/ros2_ws/build/scara_urdf/CMakeFiles/scara_urdf_uninstall.dir
+/home/sergio/ros2_ws/build/scara_urdf/CMakeFiles/test.dir
+/home/sergio/ros2_ws/build/scara_urdf/CMakeFiles/edit_cache.dir
+/home/sergio/ros2_ws/build/scara_urdf/CMakeFiles/rebuild_cache.dir
+/home/sergio/ros2_ws/build/scara_urdf/CMakeFiles/list_install_components.dir
+/home/sergio/ros2_ws/build/scara_urdf/CMakeFiles/install.dir
+/home/sergio/ros2_ws/build/scara_urdf/CMakeFiles/install/local.dir
+/home/sergio/ros2_ws/build/scara_urdf/CMakeFiles/install/strip.dir

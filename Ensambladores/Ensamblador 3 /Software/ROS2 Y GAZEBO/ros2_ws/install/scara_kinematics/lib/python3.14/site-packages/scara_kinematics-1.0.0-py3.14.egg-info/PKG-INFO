@@ -1,0 +1,13 @@
+Metadata-Version: 2.4
+Name: scara_kinematics
+Version: 1.0.0
+Summary: El SCARA en seis nodos: aduana, Alvin, Simon, Teodoro, cinematica directa y receptor.
+Maintainer: Sergio Quevedo
+Maintainer-email: squevedo1850@gmail.com
+License: BSD-3-Clause
+Requires-Dist: setuptools
+Dynamic: license
+Dynamic: maintainer
+Dynamic: maintainer-email
+Dynamic: requires-dist
+Dynamic: summary

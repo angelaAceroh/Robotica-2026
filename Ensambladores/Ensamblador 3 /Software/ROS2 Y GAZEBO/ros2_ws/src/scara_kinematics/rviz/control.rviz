@@ -1,0 +1,74 @@
+# Vista del control cinematico (control.launch.py rviz:=true): el robot de gz,
+# el camino pedido (verde), lo que hizo la punta (naranja) y la consigna de
+# ahora (la bola verde). Lo publica control_nodo.
+Panels:
+  - Class: rviz_common/Displays
+    Name: Displays
+Visualization Manager:
+  Class: ""
+  Displays:
+    - Class: rviz_default_plugins/Grid
+      Enabled: true
+      Name: Suelo
+      Cell Size: 0.1
+      Plane Cell Count: 20
+      Color: 90; 90; 90
+    - Class: rviz_default_plugins/RobotModel
+      Enabled: true
+      Name: Robot
+      Description Topic:
+        Value: /robot_description
+      Visual Enabled: true
+      Collision Enabled: false
+      Alpha: 0.8
+    - Class: rviz_default_plugins/Path
+      Enabled: true
+      Name: Camino pedido
+      Topic:
+        Value: /scara/control/deseado
+        Depth: 1
+        Reliability Policy: Reliable
+      Color: 40; 200; 60
+      Line Style: Lines
+      Alpha: 1
+    - Class: rviz_default_plugins/Path
+      Enabled: true
+      Name: Lo que hizo la punta
+      Topic:
+        Value: /scara/control/real
+        Depth: 1
+        Reliability Policy: Reliable
+      Color: 255; 120; 30
+      Line Style: Lines
+      Alpha: 1
+    - Class: rviz_default_plugins/Marker
+      Enabled: true
+      Name: Consigna (xd)
+      Topic:
+        Value: /scara/control/objetivo
+        Depth: 5
+        Reliability Policy: Reliable
+  Global Options:
+    Background Color: 40; 42; 48
+    Fixed Frame: world
+    Frame Rate: 30
+  Tools:
+    - Class: rviz_default_plugins/MoveCamera
+    - Class: rviz_default_plugins/Interact
+      Hide Inactive Objects: true
+    - Class: rviz_default_plugins/FocusCamera
+  Value: true
+  Views:
+    Current:
+      Class: rviz_default_plugins/Orbit
+      Distance: 1.1
+      Focal Point: {X: 0.3, Y: 0, Z: 0.12}
+      Pitch: 0.75
+      Yaw: 0.6
+      Name: Vista actual
+    Saved: ~
+Window Geometry:
+  Height: 650
+  Width: 1000
+  Displays:
+    collapsed: false
