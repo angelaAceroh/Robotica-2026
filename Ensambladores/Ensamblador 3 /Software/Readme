@@ -1,3 +1,10 @@
-Esta carpeta esta dividida en:
-          - Codigos tester: Se encuentran los codigos en micropython para esp32 de cada una de las junturas.
-          - ROS2 Y GAZEBO: Se encuentra la infromacion relacionada con Linux-roz2 en gazebo y la interfaz gráfica utilzada.
+Debido a la extensibilidad y a la arquitectura modular empleada en el desarrollo del software, 
+este directorio se subdivide en dos secciones principales:
+
+Códigos Test: Alberga los scripts desarrollados en MicroPython para el microcontrolador ESP32 (ejecutados en el entorno Thonny). 
+Estos programas fueron diseñados para realizar pruebas unitarias y validar el accionamiento individual de cada articulación (juntura) 
+antes de su integración definitiva en ROS.
+
+ROS 2 y Gazebo: Recopila toda la documentación y el código fuente desplegado en entorno Linux referente a la simulación en Gazebo y
+a la interfaz gráfica de usuario (GUI), detallando su propósito funcional, su arquitectura interna y 
+los mecanismos que permiten su correcta ejecución.
