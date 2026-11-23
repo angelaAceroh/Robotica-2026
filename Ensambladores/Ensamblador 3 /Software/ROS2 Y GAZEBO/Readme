@@ -1,1 +1,3 @@
-En esta carpeta se encuenta el .zip del entrono utilizado de ROS2, se encuentra también la carpeta descomprimda, en donde se encuentran algunos instructivos que puede consutlar si tiene alguna duda.
+En este directorio se aloja tanto el paquete comprimido (.zip) del espacio de trabajo (workspace) empleado en ROS 2 como su versión descomprimida. 
+En su interior se incluye una guía técnica detallada para consultar cada uno de los módulos contenidos en esta sección. Dado que la implementación conjunta de ROS 2 y Gazebo en entorno Linux 
+abarca una arquitectura extensa dividida en múltiples componentes, se recomienda revisar detenidamente cada instructivo para comprender a cabalidad la lógica de integración y funcionamiento del sistema.
