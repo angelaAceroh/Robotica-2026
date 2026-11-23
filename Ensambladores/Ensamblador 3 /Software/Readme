@@ -1,0 +1,3 @@
+Esta carpeta esta dividida en:
+          - Codigos tester: Se encuentran los codigos en micropython para esp32 de cada una de las junturas.
+          - ROS2 Y GAZEBO: Se encuentra la infromacion relacionada con Linux-roz2 en gazebo y la interfaz gráfica utilzada.
