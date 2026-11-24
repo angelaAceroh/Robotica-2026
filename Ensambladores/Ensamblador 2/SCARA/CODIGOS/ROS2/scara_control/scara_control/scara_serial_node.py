@@ -49,6 +49,8 @@ class ScaraSerialNode(Node):
 
         try:
             self.ser = serial.Serial(port, baudrate, timeout=0.05)
+            self.ser.dtr = False
+            self.ser.rts = False
             self.get_logger().info(f"Conectado a la ESP32 en {port} a {baudrate} baudios.")
         except Exception as e:
             self.get_logger().error(f"Error al abrir puerto serie {port}: {e}")
@@ -138,8 +140,10 @@ class ScaraSerialNode(Node):
             return
 
         try:
-            if self.ser.in_waiting > 0:
+            while self.ser.in_waiting > 0:
                 line = self.ser.readline().decode('utf-8', errors='ignore').strip()
+                if not line:
+                    continue
                 if line.startswith("P,"):
                     parts = line.split(",")
                     if len(parts) >= 4:

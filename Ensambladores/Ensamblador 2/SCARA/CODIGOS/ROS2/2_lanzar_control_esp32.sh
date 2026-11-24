@@ -18,4 +18,4 @@ if [ ! -e "$PUERTO" ]; then
     echo "Verifique que la ESP32 esté conectada o verifique con 'ls /dev/ttyUSB* /dev/ttyACM*'"
 fi
 
-ros2 launch scara_control scara.launch.py port:=$PUERTO baudrate:=115200
+ros2 launch scara_control scara.launch.py port:=$PUERTO baudrate:=115200 "$@"
