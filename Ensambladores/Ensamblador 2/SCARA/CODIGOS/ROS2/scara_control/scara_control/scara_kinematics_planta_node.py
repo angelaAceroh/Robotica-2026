@@ -41,11 +41,11 @@ class ScaraKinematicsPlantaNode(Node):
         self.declare_parameter('dir_m3', -1.0)
         self.declare_parameter('elbow_sign', -1.0)  # -1.0 = Codo Izquierdo (Físico real), +1.0 = Codo Derecho
 
-        # Parámetros de velocidad de trabajo rápida (considerando 60 RPM = 6.28 rad/s máx en motor)
-        self.declare_parameter('v_cart_default', 0.080)       # 8.0 cm/s (rápido y ágil)
-        self.declare_parameter('max_joint_vel_rad_j1', 0.80)  # 0.80 rad/s máx en Hombro
-        self.declare_parameter('max_joint_vel_rad_j2', 1.80)  # 1.80 rad/s máx en Codo
-        self.declare_parameter('max_joint_vel_m_s', 0.060)    # 6.0 cm/s máx en Z
+        # Parámetros de velocidad de trabajo calibrados físicamente (60 RPM máx en motor -> ~40 RPM con carga)
+        self.declare_parameter('v_cart_default', 0.050)       # 5.0 cm/s (suave, estable y preciso)
+        self.declare_parameter('max_joint_vel_rad_j1', 0.40)  # 0.40 rad/s máx en Hombro (~3.6 rad/s en motor J1)
+        self.declare_parameter('max_joint_vel_rad_j2', 0.90)  # 0.90 rad/s máx en Codo (~2.7 rad/s en motor J2)
+        self.declare_parameter('max_joint_vel_m_s', 0.035)    # 3.5 cm/s máx en Z
 
         self.s1 = self.get_parameter('dir_m1').get_parameter_value().double_value
         self.s2 = self.get_parameter('dir_m2').get_parameter_value().double_value
@@ -196,8 +196,8 @@ class ScaraKinematicsPlantaNode(Node):
         t_j2 = dq2 / self.max_joint_vel_rad_j2
         t_j3 = dq3 / self.max_joint_vel_m_s
 
-        # Tomar el tiempo limitante con un mínimo de 0.8 segundos para respuesta rápida
-        T_optimo = max(t_cart, t_j1, t_j2, t_j3, 0.8)
+        # Tomar el tiempo limitante con un mínimo de 1.2 segundos para aceleración y frenado suaves
+        T_optimo = max(t_cart, t_j1, t_j2, t_j3, 1.2)
         return T_optimo
 
     def cartesian_target_pose2d_callback(self, msg: Pose2D):
@@ -366,12 +366,12 @@ class ScaraKinematicsPlantaNode(Node):
         # -------------------------------------------------------------
         # FASE 2: Lazo de convergencia activa de alta precisión (< 1.5 mm)
         # -------------------------------------------------------------
-        max_convergence_time = 2.5  # Tiempo suficiente para converger sin corte prematuro
+        max_convergence_time = 3.5  # Tiempo suficiente para converger sin corte prematuro
         conv_start = time.time()
-        MAX_MOTOR_SPEED_BRAKE = 3.2
+        MAX_MOTOR_SPEED_BRAKE = 3.5
 
-        TOLERANCIA_RAD = 0.005   # ~0.28° (~1.5 mm en efector para cero deriva)
-        TOLERANCIA_M = 0.002     # 2 mm en eje Z
+        TOLERANCIA_RAD = 0.008   # ~0.45° (~2.0 mm en efector para cero deriva)
+        TOLERANCIA_M = 0.003     # 3 mm en eje Z
 
         done1, done2, done3 = False, False, False
 
@@ -594,21 +594,43 @@ class ScaraKinematicsPlantaNode(Node):
         self.get_logger().info("=== INICIANDO SECUENCIA PICK AND PLACE ===")
         self.get_logger().info(f"Param: Pick=({x_pick:.3f}, {y_pick:.3f}, {z_pick:.3f}) | Place=({x_place:.3f}, {y_place:.3f}, {z_place:.3f}) | Final=({x_final:.3f}, {y_final:.3f}, {z_safe:.3f})")
 
+        x_init, y_init, z_init = self.fk(self.q1_real, self.q2_real, self.q3_real)
+
         pasos = [
-            # (descripción, acción_tipo, params)
-            ("1. Elevar a altura de tránsito seguro", "MOVE", (self.fk(self.q1_real, self.q2_real)[0], self.fk(self.q1_real, self.q2_real)[1], z_safe)),
+            ("1. Elevar a altura de tránsito seguro", "MOVE", (x_init, y_init, z_safe)),
+        ]
+
+        # Salida segura de singularidad de frontera si el robot se encuentra cerca de Home (+Y extendido)
+        if y_init > 0.28 or abs(self.q2_real) < 0.35:
+            self.get_logger().info("Detectada posición cercana a singularidad de frontera (Home). Añadiendo flexión preparatoria.")
+            pasos.append(("1b. Flexión inicial preparatoria fuera de singularidad", "MOVE", (0.000, 0.250, z_safe)))
+
+        pasos.extend([
             ("2. Abrir gripper", "GRIPPER", ("open", pwm_open, dur_open_ms)),
             ("3. Posicionarse sobre el objeto (Pick)", "MOVE", (x_pick, y_pick, z_safe)),
             ("4. Descender hacia el objeto", "MOVE", (x_pick, y_pick, z_pick)),
             ("5. Agarrar objeto (Cerrar gripper suave)", "GRIPPER", ("close", pwm_close, dur_close_ms)),
             ("6. Levantar objeto a altura segura", "MOVE", (x_pick, y_pick, z_safe)),
-            ("7. Trasladar objeto hacia destino (Place)", "MOVE", (x_place, y_place, z_safe)),
+        ])
+
+        # Traslado hacia destino (Place):
+        # Si la trayectoria cruza el eje central (X_pick * X_place < 0 o gran recorrido horizontal),
+        # se inserta un punto de tránsito en arco para mantener Q2 casi constante (~-93° a -96°)
+        # y evitar saturación o inversión violenta del motor 2 con la carga suspendida.
+        if (x_pick * x_place < -0.001) or (abs(x_pick - x_place) > 0.15):
+            y_mid = max(0.220, min(0.250, (y_pick + y_place) / 2.0 + 0.030))
+            pasos.append(("7a. Arco de tránsito intermedio seguro", "MOVE", (0.000, y_mid, z_safe)))
+            pasos.append(("7b. Posicionarse sobre destino (Place)", "MOVE", (x_place, y_place, z_safe)))
+        else:
+            pasos.append(("7. Trasladar objeto hacia destino (Place)", "MOVE", (x_place, y_place, z_safe)))
+
+        pasos.extend([
             ("8. Descender en posición de entrega", "MOVE", (x_place, y_place, z_place)),
             ("9. Soltar objeto (Abrir gripper)", "GRIPPER", ("open", pwm_open, dur_open_ms)),
             ("10. Levantar herramienta a altura segura", "MOVE", (x_place, y_place, z_safe)),
             ("11. Retorno a posición de reposo final", "MOVE", (x_final, y_final, z_safe)),
             ("12. Cerrar gripper en reposo final", "GRIPPER", ("close", pwm_close, dur_close_ms)),
-        ]
+        ])
 
         for desc, tipo, params in pasos:
             if not self.rutina_activa:
