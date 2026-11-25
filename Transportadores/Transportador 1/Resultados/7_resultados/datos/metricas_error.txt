@@ -1,0 +1,17 @@
+Error de seguimiento por junta (planeada - real), en grados
+
+a) ciclo 14 puntos, Gazebo
+   J1   max   3.76   RMS  1.26   final  -0.05
+   J2   max   8.52   RMS  2.13   final   0.33
+   J3   max  14.73   RMS  4.19   final   0.82
+
+b) trayectoria ensenada, Gazebo
+   J1   max   2.97   RMS  0.71   final  -0.06
+   J2   max   3.05   RMS  0.88   final  -0.10
+   J3   max   7.88   RMS  2.22   final   0.42
+
+c) trayectoria ensenada, robot fisico (toma4_4)
+   J1   max   4.98   RMS  2.08   final   2.71
+   J2   max  12.77   RMS  2.84   final   1.23
+   J3   max  13.10   RMS  2.86   final  -3.05
+
