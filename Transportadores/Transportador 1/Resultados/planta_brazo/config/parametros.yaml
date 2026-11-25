@@ -1,0 +1,8 @@
+# Parametros geometricos compartidos por los nodos.
+/**:
+  ros__parameters:
+    d1: 0.200
+    a1: 0.05815
+    L2: 0.145
+    L3: 0.16285
+    Lg: 0.100

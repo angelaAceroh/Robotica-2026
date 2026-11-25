@@ -1,0 +1,150 @@
+<?xml version="1.0"?>
+<!-- Modelo URDF del robot 3R con el gripper definitivo. -->
+<robot name="planta_brazo" xmlns:xacro="http://www.ros.org/wiki/xacro">
+  <xacro:property name="d1"  value="0.200"/>
+  <xacro:property name="a1"  value="0.05815"/>
+  <xacro:property name="L2"  value="0.145"/>
+  <xacro:property name="L3"  value="0.16285"/>
+  <xacro:property name="L4"  value="0.100"/>
+  <xacro:property name="h_base" value="0.050"/>
+  <xacro:property name="r_base" value="0.095"/>
+  <xacro:property name="off_b2" value="0.0195"/>
+  <xacro:property name="off_b3" value="-0.0205"/>
+  <xacro:property name="PI2" value="1.5707963267948966"/>
+  <xacro:property name="PI"  value="3.141592653589793"/>
+  <material name="gris">     <color rgba="0.70 0.70 0.72 1.0"/></material>
+  <material name="azul">     <color rgba="0.25 0.45 0.75 1.0"/></material>
+  <material name="naranja">  <color rgba="0.85 0.45 0.20 1.0"/></material>
+  <material name="verde">    <color rgba="0.30 0.62 0.40 1.0"/></material>
+  <material name="morado">   <color rgba="0.60 0.35 0.60 1.0"/></material>
+  <xacro:macro name="inercia_caja" params="m x y z ox oy oz">
+    <inertial>
+      <origin xyz="${ox} ${oy} ${oz}" rpy="0 0 0"/>
+      <mass value="${m}"/>
+      <inertia ixx="${m*(y*y+z*z)/12}" ixy="0" ixz="0"
+               iyy="${m*(x*x+z*z)/12}" iyz="0"
+               izz="${m*(x*x+y*y)/12}"/>
+    </inertial>
+  </xacro:macro>
+  <link name="world"/>
+  <joint name="anclaje" type="fixed">
+    <parent link="world"/><child link="base_link"/>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+  </joint>
+  <link name="base_link">
+    <xacro:inercia_caja m="1.60" x="0.19" y="0.19" z="${h_base}" ox="0" oy="0" oz="${h_base/2}"/>
+    <visual>
+      <origin xyz="-0.095 0.095 0" rpy="${PI2} 0 0"/>
+      <geometry>
+        <mesh filename="package://planta_brazo/meshes/BASE.STL"
+              scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="gris"/>
+    </visual>
+    <visual>
+      <origin xyz="-0.080 -0.080 ${h_base}" rpy="${PI2} 0 ${PI2}"/>
+      <geometry>
+        <mesh filename="package://planta_brazo/meshes/TAPA.STL"
+              scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="gris"/>
+    </visual>
+    <collision>
+      <origin xyz="0 0 ${h_base/2}" rpy="0 0 0"/>
+      <geometry><cylinder radius="${r_base}" length="${h_base}"/></geometry>
+    </collision>
+  </link>
+  <joint name="J1" type="revolute">
+    <parent link="base_link"/><child link="link1"/>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <axis xyz="0 0 1"/>
+    <limit lower="${-95*PI/180}" upper="${95*PI/180}" effort="8.0" velocity="3.5"/>
+    <dynamics damping="0.20" friction="0.10"/>
+  </joint>
+  <link name="link1">
+    <xacro:inercia_caja m="1.10" x="0.10" y="0.09" z="${d1-h_base}"
+                        ox="${a1/2}" oy="0" oz="${(d1+h_base)/2}"/>
+    <visual>
+      <origin xyz="-0.040 -0.040 ${d1-0.125}" rpy="${PI2} 0 ${PI2}"/>
+      <geometry>
+        <mesh filename="package://planta_brazo/meshes/BRAZO1.STL"
+              scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="azul"/>
+    </visual>
+    <collision>
+      <origin xyz="0 0 ${h_base+0.004}" rpy="0 0 0"/>
+      <geometry><cylinder radius="0.080" length="0.008"/></geometry>
+    </collision>
+    <collision>
+      <origin xyz="${a1/2} 0 ${(d1+h_base)/2}" rpy="0 0 0"/>
+      <geometry><box size="${a1+0.055} 0.070 ${d1-h_base}"/></geometry>
+    </collision>
+  </link>
+  <joint name="J2" type="revolute">
+    <parent link="link1"/><child link="link2"/>
+    <origin xyz="${a1} 0 ${d1}" rpy="0 0 0"/>
+    <axis xyz="0 -1 0"/>
+    <limit lower="${-68*PI/180}" upper="${133*PI/180}" effort="12.0" velocity="3.0"/>
+    <dynamics damping="0.30" friction="0.20"/>
+  </joint>
+  <link name="link2">
+    <xacro:inercia_caja m="0.32" x="0.190" y="0.040" z="0.040" ox="0.073" oy="${off_b2+0.020}" oz="0"/>
+    <visual>
+      <origin xyz="0.16456 ${off_b2} -0.020" rpy="${PI2} 0 ${PI}"/>
+      <geometry><mesh filename="package://planta_brazo/meshes/Brazo2.STL"/></geometry>
+      <material name="naranja"/>
+    </visual>
+    <collision>
+      <origin xyz="0.073 ${off_b2+0.020} 0" rpy="0 0 0"/>
+      <geometry><box size="0.190 0.040 0.040"/></geometry>
+    </collision>
+  </link>
+  <joint name="J3" type="revolute">
+    <parent link="link2"/><child link="link3"/>
+    <origin xyz="${L2} 0 0" rpy="0 0 0"/>
+    <axis xyz="0 -1 0"/>
+    <limit lower="${-108*PI/180}" upper="${140*PI/180}" effort="8.0" velocity="3.0"/>
+    <dynamics damping="0.30" friction="0.20"/>
+  </joint>
+  <link name="link3">
+    <xacro:inercia_caja m="0.26" x="0.190" y="0.040" z="0.040" ox="0.068" oy="${off_b3+0.020}" oz="0"/>
+    <visual>
+      <origin xyz="-0.020 0.0195 -0.040" rpy="${PI2} 0 0"/>
+      <geometry>
+        <mesh filename="package://planta_brazo/meshes/gripper_def.STL"
+              scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="morado"/>
+    </visual>
+    <visual>
+      <origin xyz="0.183 -0.0305 -0.040" rpy="${PI2} 0 ${PI}"/>
+      <geometry>
+        <mesh filename="package://planta_brazo/meshes/cremallera_def.STL"
+              scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="verde"/>
+    </visual>
+    <collision>
+      <origin xyz="0.068 ${off_b3+0.020} 0" rpy="0 0 0"/>
+      <geometry><box size="0.190 0.040 0.040"/></geometry>
+    </collision>
+  </link>
+  <joint name="muneca" type="fixed">
+    <parent link="link3"/><child link="brida"/>
+    <origin xyz="${L3} 0 0" rpy="0 0 0"/>
+  </joint>
+  <link name="brida">
+    <xacro:inercia_caja m="0.09" x="0.060" y="0.040" z="0.040" ox="0.030" oy="0" oz="0"/>
+    <collision>
+      <origin xyz="0.030 0 0" rpy="0 0 0"/>
+      <geometry><box size="0.060 0.040 0.040"/></geometry>
+    </collision>
+  </link>
+  <joint name="tcp_joint" type="fixed">
+    <parent link="brida"/><child link="tcp"/>
+    <origin xyz="${L4} 0 0" rpy="0 0 0"/>
+  </joint>
+  <link name="tcp"/>
+  <xacro:include filename="planta_brazo.gazebo.xacro"/>
+</robot>

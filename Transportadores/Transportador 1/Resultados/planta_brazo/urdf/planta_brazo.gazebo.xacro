@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<!-- Plugins nativos de Gazebo: controladores de posicion y publicador de estado. -->
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+  <xacro:macro name="control_posicion" params="junta p i d imax cmax">
+    <gazebo>
+      <plugin filename="gz-sim-joint-position-controller-system"
+              name="gz::sim::systems::JointPositionController">
+        <joint_name>${junta}</joint_name>
+        <topic>/planta_brazo/${junta}/cmd_pos</topic>
+        <p_gain>${p}</p_gain>
+        <i_gain>${i}</i_gain>
+        <d_gain>${d}</d_gain>
+        <i_max>${imax}</i_max>
+        <i_min>-${imax}</i_min>
+        <cmd_max>${cmax}</cmd_max>
+        <cmd_min>-${cmax}</cmd_min>
+      </plugin>
+    </gazebo>
+  </xacro:macro>
+  <xacro:control_posicion junta="J1" p="220.0" i="200.0" d="16.0" imax="40.0" cmax="200.0"/>
+  <xacro:control_posicion junta="J2" p="400.0" i="500.0" d="30.0" imax="40.0" cmax="200.0"/>
+  <xacro:control_posicion junta="J3" p="260.0" i="350.0" d="16.0" imax="40.0" cmax="200.0"/>
+  <gazebo>
+    <plugin filename="gz-sim-joint-state-publisher-system"
+            name="gz::sim::systems::JointStatePublisher">
+      <joint_name>J1</joint_name>
+      <joint_name>J2</joint_name>
+      <joint_name>J3</joint_name>
+    </plugin>
+  </gazebo>
+  <gazebo reference="base_link">
+    <mu1>0.9</mu1>
+    <mu2>0.9</mu2>
+  </gazebo>
+</robot>
