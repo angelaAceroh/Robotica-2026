@@ -1,0 +1,302 @@
+<?xml version="1.0"?>
+<!--
+  ============================================================================
+  PLANTA BRAZO - Robot antropomorfico 3R (UMNG - Laboratorio de Robotica)
+  ============================================================================
+  Descripcion URDF generada a partir de los STL de:
+      PLANTA BRAZO - 3/PLANTA BRAZO - 22/STL
+  y del explosionado ENSAMBLAJEBRAZOFINALSLDASM.pdf
+
+  Los STL de SolidWorks se exportaron cada uno con su propio origen local
+  (esquina de su caja envolvente) y en milimetros.  Por eso cada <visual>
+  lleva su propia transformacion "mesh -> link"; las mallas se reescribieron
+  en metros (STL binario, normales recalculadas) para no depender del
+  atributo scale, que algunos visualizadores ignoran.
+
+  Ejes de las articulaciones localizados midiendo los alojamientos de
+  rodamiento 628-2RS (D=24 mm) presentes en cada pieza:
+
+     BRAZO1  : eje J1 (vertical, Y local) en (x=40.50 , z=39.67)
+               eje J2 (X local)           en (y=214.65, z=97.82)
+     Brazo2  : alojamiento J2 en (x=164.56, y=20)   <- D24 + eje 8 mm
+               alojamiento J3 en (x= 18.20, y=20)   <- D24 + hexagono
+     Brazo3  : alojamiento J3 en (x=162.85, y=20)   <- D24 + hexagono
+     BASE    : eje J1 en (x=100, z=100), cara superior en y=120
+     TAPA    : eje J1 en (x= 80, z= 80), apoya en base (y=100 <-> z=120)
+
+  Convencion de la cadena (coincide con la DH de CinematicaDirecta.pdf):
+     q1 -> giro sobre Z (base)
+     q2 -> eje (0,-1,0): q2>0 levanta el brazo
+     q3 -> eje (0,-1,0): codo
+     En q=(0,0,0) el brazo queda horizontal sobre +X.
+
+  NOTA sobre effort/velocity: Gazebo SI hace cumplir estos limites.  Con los
+  valores iniciales (2-3 N.m y 2.0 rad/s) la trayectoria de demostracion pedia
+  2.46 rad/s en J1 y el robot se quedaba hasta 22 grados por detras de la
+  consigna.  Los valores actuales dejan margen para que el seguimiento sea
+  limpio; NO estan medidos de los servos reales, hay que ajustarlos cuando se
+  conozca el par de bloqueo y la velocidad sin carga del motor de cada eje.
+  ============================================================================
+-->
+<robot name="planta_brazo" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+  <!-- ===================== PARAMETROS MEDIDOS (m) ===================== -->
+  <xacro:property name="d1"  value="0.200"/>    <!-- suelo -> eje J2.  MEDIDO en el robot;
+                                                     el CAD tenia 0.34265 con una base que no es la real -->
+  <xacro:property name="a1"  value="0.05815"/>  <!-- offset horizontal eje J1 -> eje J2 -->
+  <xacro:property name="L2"  value="0.145"/>    <!-- eje J2 -> eje J3 (Brazo2).  MEDIDO (CAD: 0.14636) -->
+  <xacro:property name="L3"  value="0.16285"/>  <!-- eje J3 -> brida muñeca (Brazo3) -->
+  <xacro:property name="L4"  value="0.100"/>    <!-- brida -> punta del gripper. PROVISIONAL -->
+  <xacro:property name="h_base" value="0.050"/> <!-- espesor del plato de la base nueva -->
+  <xacro:property name="r_base" value="0.095"/> <!-- radio del plato de la base nueva -->
+
+  <!-- separaciones laterales reales entre piezas (montaje alternado) -->
+  <xacro:property name="off_b2" value="0.0195"/>   <!-- Brazo2 al lado +Y del horquilla de BRAZO1 -->
+  <xacro:property name="off_b3" value="-0.0205"/>  <!-- Brazo3 al lado -Y del extremo de Brazo2 -->
+
+  <xacro:property name="PI2" value="1.5707963267948966"/>
+  <xacro:property name="PI"  value="3.141592653589793"/>
+  <!-- las mallas se re-exportaron ya en METROS, por eso no llevan atributo scale -->
+
+  <material name="gris">     <color rgba="0.70 0.70 0.72 1.0"/></material>
+  <material name="azul">     <color rgba="0.25 0.45 0.75 1.0"/></material>
+  <material name="naranja">  <color rgba="0.85 0.45 0.20 1.0"/></material>
+  <material name="verde">    <color rgba="0.30 0.62 0.40 1.0"/></material>
+  <material name="morado">   <color rgba="0.60 0.35 0.60 1.0"/></material>
+
+  <!-- macro de inercia de caja (aproximada) -->
+  <xacro:macro name="inercia_caja" params="m x y z ox oy oz">
+    <inertial>
+      <origin xyz="${ox} ${oy} ${oz}" rpy="0 0 0"/>
+      <mass value="${m}"/>
+      <inertia ixx="${m*(y*y+z*z)/12}" ixy="0" ixz="0"
+               iyy="${m*(x*x+z*z)/12}" iyz="0"
+               izz="${m*(x*x+y*y)/12}"/>
+    </inertial>
+  </xacro:macro>
+
+  <!-- ============================ WORLD ============================ -->
+  <link name="world"/>
+  <joint name="anclaje" type="fixed">
+    <parent link="world"/><child link="base_link"/>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+  </joint>
+
+  <!-- ============================ BASE ============================= -->
+  <!-- Plato circular de 190 mm de diametro y 50 mm de espesor (BASE.STL nueva,
+       modelada en MILIMETROS: de ahi el scale 0.001). -->
+  <link name="base_link">
+    <xacro:inercia_caja m="1.60" x="0.19" y="0.19" z="${h_base}" ox="0" oy="0" oz="${h_base/2}"/>
+    <visual>
+      <origin xyz="-0.095 0.095 0" rpy="${PI2} 0 0"/>
+      <geometry>
+        <mesh filename="package://planta_brazo/meshes/BASE.STL"
+              scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="gris"/>
+    </visual>
+    <!-- TAPA: plato que cierra la base y ALOJA el rodamiento de J1.
+         Va en base_link porque es la parte FIJA: el rodamiento esta en ella y
+         el eje de BRAZO1 gira por dentro.  Lleva ademas el alojamiento del
+         motor de J1 (buje a x=134.5, z=55 de la malla).
+         Malla nueva del CAD (2026-10-29), en MILIMETROS: 160 x 160 x 33.
+         Eje J1 medido en la malla: x=80.00, z=80.00 (centro del plato).
+         rpy = (PI2, 0, PI2) lleva  malla x->mundo y,  y->z,  z->x. -->
+    <visual>
+      <origin xyz="-0.080 -0.080 ${h_base}" rpy="${PI2} 0 ${PI2}"/>
+      <geometry>
+        <mesh filename="package://planta_brazo/meshes/TAPA.STL"
+              scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="gris"/>
+    </visual>
+    <collision>
+      <origin xyz="0 0 ${h_base/2}" rpy="0 0 0"/>
+      <geometry><cylinder radius="${r_base}" length="${h_base}"/></geometry>
+    </collision>
+  </link>
+
+  <!-- ================= J1: giro de la base (TAPA + BRAZO1) ========= -->
+  <joint name="J1" type="revolute">
+    <parent link="base_link"/><child link="link1"/>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <axis xyz="0 0 1"/>
+    <limit lower="${-95*PI/180}" upper="${95*PI/180}" effort="8.0" velocity="3.5"/>
+    <dynamics damping="0.20" friction="0.10"/>
+  </joint>
+
+  <!-- Columna: del plato de la base al eje del hombro, a la altura d1.
+       La malla BRAZO1.STL del CAD estaba hecha para un hombro a 0.34265 m y ya
+       no encaja con el robot real, asi que la columna se dibuja parametrica a
+       partir de d1.  Cuando haya malla nueva del CAD, se sustituye aqui. -->
+  <link name="link1">
+    <xacro:inercia_caja m="1.10" x="0.10" y="0.09" z="${d1-h_base}"
+                        ox="${a1/2}" oy="0" oz="${(d1+h_base)/2}"/>
+    <!-- COLUMNA: BRAZO1.STL, malla nueva del CAD (2026-10-29), en MILIMETROS.
+         Ejes MEDIDOS sobre la propia malla, no estimados:
+            J1 -> cilindro inferior, x=40.00, z=40.00
+            J2 -> agujero D=24.0 (rodamiento 628-2RS) en y=125.00, z=99.00,
+                  localizado con 64 vertices y cobertura angular completa.
+         Comprobacion: dentro de la pieza, J1->J2 en horizontal son
+         99-40 = 59.0 mm, y el a1 medido en el robot real es 58.15 mm.
+         Se ancla por el AGUJERO DE J2, que es lo que se ve girar; el eje J1
+         queda exacto y J2 cae a 0.85 mm, que es la diferencia CAD/robot.
+         El cilindro de abajo entra 8 mm en la TAPA: ahi va el rodamiento. -->
+    <visual>
+      <origin xyz="-0.040 -0.040 ${d1-0.125}" rpy="${PI2} 0 ${PI2}"/>
+      <geometry>
+        <mesh filename="package://planta_brazo/meshes/BRAZO1.STL"
+              scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="azul"/>
+    </visual>
+    <collision>
+      <origin xyz="0 0 ${h_base+0.004}" rpy="0 0 0"/>
+      <geometry><cylinder radius="0.080" length="0.008"/></geometry>
+    </collision>
+    <collision>
+      <origin xyz="${a1/2} 0 ${(d1+h_base)/2}" rpy="0 0 0"/>
+      <geometry><box size="${a1+0.055} 0.070 ${d1-h_base}"/></geometry>
+    </collision>
+  </link>
+
+  <!-- ===================== J2: hombro (Brazo2) ===================== -->
+  <joint name="J2" type="revolute">
+    <parent link="link1"/><child link="link2"/>
+    <origin xyz="${a1} 0 ${d1}" rpy="0 0 0"/>
+    <axis xyz="0 -1 0"/>
+    <!-- El HOME es theta2 = +90, asi que el tope superior NO puede ser 90:
+         el home caeria justo en el limite y el control entraria en ciclo
+         limite.  La trayectoria de la guia llega a ~127 grados.
+         PENDIENTE: confirmar en el robot fisico que llega a 135 sin chocar. -->
+    <limit lower="${-68*PI/180}" upper="${133*PI/180}" effort="12.0" velocity="3.0"/>
+    <dynamics damping="0.30" friction="0.20"/>
+  </joint>
+
+  <link name="link2">
+    <xacro:inercia_caja m="0.32" x="0.190" y="0.040" z="0.040" ox="0.073" oy="${off_b2+0.020}" oz="0"/>
+    <visual>
+      <origin xyz="0.16456 ${off_b2} -0.020" rpy="${PI2} 0 ${PI}"/>
+      <geometry><mesh filename="package://planta_brazo/meshes/Brazo2.STL"/></geometry>
+      <material name="naranja"/>
+    </visual>
+    <collision>
+      <origin xyz="0.073 ${off_b2+0.020} 0" rpy="0 0 0"/>
+      <geometry><box size="0.190 0.040 0.040"/></geometry>
+    </collision>
+  </link>
+
+  <!-- ====================== J3: codo (Brazo3) ====================== -->
+  <joint name="J3" type="revolute">
+    <parent link="link2"/><child link="link3"/>
+    <origin xyz="${L2} 0 0" rpy="0 0 0"/>
+    <axis xyz="0 -1 0"/>
+    <!-- 2026-11-20: J3 de [-123, 105] a [-108, 140], igual que el firmware y config.py -->
+    <limit lower="${-108*PI/180}" upper="${140*PI/180}" effort="8.0" velocity="3.0"/>
+    <dynamics damping="0.30" friction="0.20"/>
+  </joint>
+
+  <link name="link3">
+    <xacro:inercia_caja m="0.26" x="0.190" y="0.040" z="0.040" ox="0.068" oy="${off_b3+0.020}" oz="0"/>
+    <!-- Brazo3.STL QUITADO el 2026-10-29: en el robot fisico ese antebrazo
+         largo NO esta montado.  Hoy en J3 solo va Brazo33 (el que se dibuja
+         en la brida).  Se vuelve a poner descomentando esto, o se sustituye
+         por la malla del gripper definitivo cuando exista.
+         OJO: esto es SOLO el dibujo.  La cinematica NO cambia, es una decision
+         tomada el 2026-10-29: L3 = 0.16285 y L4 = 0.100 se quedan como estan.
+         Motivo: el modelo describe el robot CON gripper, que es el que hara la
+         tarea.  Hoy, con solo Brazo33 (60 mm) detras de J3, el alcance real es
+         263 mm y el robot no llega a NINGUN punto cartesiano de los que usamos
+         (control, circulo, tarea de la caja: 300-381 mm).
+         Numero para el diseno del gripper: para cubrir el circulo D700 que la
+         linea le asigna al transportador 1 (radio 350 mm) hace falta
+             Lc = 350 - 58.15 - 145 = 147 mm  desde el eje de J3.
+         Cuando exista el gripper se pone su longitud real en L4 y se borra
+         esta nota.
+    <visual>
+      <origin xyz="0.16285 ${off_b3} -0.020" rpy="${PI2} 0 ${PI}"/>
+      <geometry><mesh filename="package://planta_brazo/meshes/Brazo3.STL"/></geometry>
+      <material name="verde"/>
+    </visual>
+    -->
+    <!-- Brazo33: el eslabon PROVISIONAL que hay montado hoy, 60 mm, pegado al
+         eje de J3.  Se dibuja aqui para que Gazebo se vea igual que el robot
+         real mientras se termina el gripper.  Es SOLO el dibujo: la cinematica
+         sigue poniendo la punta en L3+L4 = 263 mm. -->
+    <!-- 2026-11-23: GRIPPER DEFINITIVO (Brazo33def + cremadef, de Julian, en mm).
+         Sustituye al dibujo provisional gripper_nuevo.STL (se deja comentado).
+         Colocado midiendo la malla:
+           gripper_def: el agujero del cubo de J3 esta en la malla en (20, 40)
+             con su eje en Z de la malla; Rx(+90) lo pone sobre el eje de J3
+             (Y de link3) y deja el canal de la cremallera por DEBAJO del brazo
+             en el home.
+           cremallera_def: la barra dentada (20 x 19.4) va dentro del canal
+             inferior del gripper (y 0..20, z 5..35 de su malla), girada 180
+             para que las palas salgan por la punta.  Dibujada RECOGIDA: las
+             palas asoman 65 mm por la punta (de x=138 a x=203 del gripper).
+         Es SOLO el dibujo: la cinematica sigue siendo L3 + L4 = 263 mm. -->
+    <visual>
+      <origin xyz="-0.020 0.0195 -0.040" rpy="${PI2} 0 0"/>
+      <geometry>
+        <mesh filename="package://planta_brazo/meshes/gripper_def.STL"
+              scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="morado"/>
+    </visual>
+    <visual>
+      <origin xyz="0.183 -0.0305 -0.040" rpy="${PI2} 0 ${PI}"/>
+      <geometry>
+        <mesh filename="package://planta_brazo/meshes/cremallera_def.STL"
+              scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="verde"/>
+    </visual>
+    <!-- provisional, ya sustituido:
+    <visual>
+      <origin xyz="0 -0.020 -0.020" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://planta_brazo/meshes/gripper_nuevo.STL"
+              scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="morado"/>
+    </visual>
+    -->
+    <collision>
+      <origin xyz="0.068 ${off_b3+0.020} 0" rpy="0 0 0"/>
+      <geometry><box size="0.190 0.040 0.040"/></geometry>
+    </collision>
+  </link>
+
+  <!-- =================== Brida de muñeca + gripper ================= -->
+  <joint name="muneca" type="fixed">
+    <parent link="link3"/><child link="brida"/>
+    <origin xyz="${L3} 0 0" rpy="0 0 0"/>
+  </joint>
+
+  <link name="brida">
+    <xacro:inercia_caja m="0.09" x="0.060" y="0.040" z="0.040" ox="0.030" oy="0" oz="0"/>
+    <!-- Gripper nuevo (Brazo33.STL, 60 x 40 x 40 mm, modelado en MILIMETROS).
+         Sustituye al gripper.STL del CAD, que eran 3 MB y mucho mas grande que
+         el real.  La longitud cinematica sigue siendo L4 = 0.100 m, que es
+         PROVISIONAL mientras el gripper no este disenado del todo. -->
+    <!-- El dibujo de Brazo33 se movio a link3 (pegado al eje de J3), que es
+         donde esta en el robot real.  Aqui, en la brida, quedaria flotando a
+         L3 = 163 mm del codo.  Cuando exista el gripper definitivo su malla
+         vuelve a esta brida, que es su sitio cinematico. -->
+    <collision>
+      <origin xyz="0.030 0 0" rpy="0 0 0"/>
+      <geometry><box size="0.060 0.040 0.040"/></geometry>
+    </collision>
+  </link>
+
+  <!-- TCP: punta de los dedos del gripper -->
+  <joint name="tcp_joint" type="fixed">
+    <parent link="brida"/><child link="tcp"/>
+    <origin xyz="${L4} 0 0" rpy="0 0 0"/>
+  </joint>
+  <link name="tcp"/>
+
+  <!-- ============ extensiones de Gazebo (ignoradas por RViz) ============ -->
+  <xacro:include filename="planta_brazo.gazebo.xacro"/>
+
+</robot>

@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<robot name="model">
+
+  <link name="BASE">
+    <inertial>
+      <origin xyz="0.00136677200467418 -0.00639380308058279 0.0171295915840594" rpy="0 0 0" />
+      <mass value="0.754888955455691" />
+      <inertia
+        ixx="0.00192285337928567"
+        ixy="1.20586980895583E-05"
+        ixz="-4.28233565400652E-06"
+        iyy="0.00199271107343671"
+        iyz="2.15001773398834E-05"
+        izz="0.00369310700230148" />
+    </inertial>
+
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://urdf_test/meshes/BASE.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://urdf_test/meshes/BASE.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="LINK1">
+    <inertial>
+      <origin xyz="0.0148033818234096 -0.00150554848553286 0.135280575764737" rpy="0 0 0" />
+      <mass value="0.455263061147759" />
+      <inertia
+        ixx="0.00077947509652376"
+        ixy="-8.5982006431484E-06"
+        ixz="-0.000205049869729128"
+        iyy="0.00102442943494144"
+        iyz="-7.16985046807448E-06"
+        izz="0.000420992556097781" />
+    </inertial>
+
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://urdf_test/meshes/LINK1.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://urdf_test/meshes/LINK1.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="JOINT1" type="continuous">
+    <origin xyz="0 0 0" rpy="0 0 0" />
+    <parent link="BASE" />
+    <child link="LINK1" />
+    <axis xyz="0 0 1" />
+    <limit effort="10.0" velocity="2.0" />
+  </joint>
+
+  <link name="LINK2">
+    <inertial>
+      <origin xyz="0.0769079116194523 -5.191962987601E-06 -0.000228445190306736" rpy="0 0 0" />
+      <mass value="0.307489816312597" />
+      <inertia
+        ixx="7.54334484233441E-05"
+        ixy="8.75583963579696E-08"
+        ixz="3.47885456592276E-06"
+        iyy="0.000823236774618907"
+        iyz="-1.24597476056515E-08"
+        izz="0.000824938515208358" />
+    </inertial>
+
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://urdf_test/meshes/LINK2.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://urdf_test/meshes/LINK2.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="JOINT2" type="continuous">
+    <origin xyz="0.0603621218574259 -0.0395963680467823 0.173"
+            rpy="1.5707963267949 -0.600972306898982 0.0349615289753919" />
+    <parent link="LINK1" />
+    <child link="LINK2" />
+    <axis xyz="0 0 1" />
+    <limit effort="10.0" velocity="2.0" />
+  </joint>
+
+  <link name="LINK3">
+    <inertial>
+      <origin xyz="0.0480366720745053 0.0226721886092709 0.00246576465357418" rpy="0 0 0" />
+      <mass value="0.161191889245345" />
+      <inertia
+        ixx="4.1790403213516E-05"
+        ixy="-2.04151726071471E-05"
+        ixz="-1.94606100949496E-06"
+        iyy="7.44394513698466E-05"
+        iyz="3.67720816093729E-09"
+        izz="8.65816399688166E-05" />
+    </inertial>
+
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://urdf_test/meshes/LINK3.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://urdf_test/meshes/LINK3.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="JOINT3" type="continuous">
+    <origin xyz="0.149999999998983 0 -0.0400000000034975"
+            rpy="0 0 -1.16943729465582" />
+    <parent link="LINK2" />
+    <child link="LINK3" />
+    <axis xyz="0 0 1" />
+    <limit effort="10.0" velocity="2.0" />
+  </joint>
+
+  <ros2_control name="GazeboSimSystem" type="system">
+    <hardware>
+      <plugin>gz_ros2_control/GazeboSimSystem</plugin>
+    </hardware>
+
+    <joint name="JOINT1">
+      <command_interface name="position" />
+      <state_interface name="position" />
+      <state_interface name="velocity" />
+    </joint>
+
+    <joint name="JOINT2">
+      <command_interface name="position" />
+      <state_interface name="position" />
+      <state_interface name="velocity" />
+    </joint>
+
+    <joint name="JOINT3">
+      <command_interface name="position" />
+      <state_interface name="position" />
+      <state_interface name="velocity" />
+    </joint>
+  </ros2_control>
+
+  <gazebo>
+    <plugin
+      filename="libgz_ros2_control-system.so"
+      name="gz_ros2_control::GazeboSimROS2ControlPlugin">
+      <parameters>__CONTROLLERS_FILE__</parameters>
+    </plugin>
+  </gazebo>
+
+</robot>

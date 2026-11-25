@@ -1,0 +1,98 @@
+<?xml version="1.0"?>
+<!--
+  ============================================================================
+  PLANTA BRAZO - extensiones para Gazebo (gz sim / Harmonic)
+  ============================================================================
+  Este archivo NO cambia la cinematica: solo anade las etiquetas <gazebo>,
+  que el parser de URDF de robot_state_publisher ignora, de modo que el mismo
+  xacro sirve para RViz y para Gazebo.
+
+  Se usan plugins nativos de gz-sim (no hace falta ros2_control):
+
+    JointPositionController  x3  -> controlador PID de posicion por junta.
+        escucha  gz.msgs.Double  en  /planta_brazo/J{n}/cmd_pos
+    JointStatePublisher          -> publica el estado REAL medido en la fisica
+        en  /world/lab_brazo/model/planta_brazo/joint_state  (gz.msgs.Model)
+
+  El puente ros_gz_bridge traduce esos dos topicos a std_msgs/Float64 y a
+  sensor_msgs/JointState, que es lo que consumen la GUI, robot_state_publisher
+  y cinematica_directa.py.
+
+  Ganancias: el brazo pesa poco (~0.8 kg de eslabon 2 en adelante) pero el par
+  de gravedad en el hombro llega a ~2 N.m con el brazo horizontal, por eso J2
+  lleva la P mas alta.
+
+  El termino INTEGRAL es el que elimina la caida estatica, y hubo que ajustarlo
+  midiendo, no a ojo:
+
+    - con i_max pequeno (4/10/6) el integrador se saturaba antes de compensar
+      la gravedad y J2 se quedaba clavado 4.35 grados por debajo de la consigna
+      con el brazo estirado; eso son 49 mm de caida en la punta de los dedos.
+    - soltando i_max el error se va a cero, pero con i_gain bajo tardaba 6.5 s
+      (constante de tiempo) en llegar, mas de lo que dura cualquier movimiento.
+    - con las ganancias de abajo asienta en ~2.5 s y el error estatico queda en
+      0.45 mm de media (1.3 mm en el peor punto), medido con
+      comparacion_cinematicas.py.
+
+  i_max = 40 hace de anti-windup: es bastante mas de lo que pide la gravedad
+  (~30 en unidades de mando) pero limita lo que puede acumular el integrador
+  durante un desplazamiento largo.  Con la trayectoria de demostracion a 3 s
+  por tramo el rebote al llegar a cada punto queda entre 3 y 5 grados; subir
+  d_gain para quitarlo lo EMPEORA (lo probamos: con d x3 el rebote pasa de 4.6
+  a 10.8 grados), asi que se deja amortiguacion moderada.
+
+  Aviso: estas ganancias, como los limites de effort/velocity del URDF, no son
+  medidas de los servos reales; son las que hacen que la simulacion se comporte
+  de forma razonable.
+  ============================================================================
+-->
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+  <!-- macro para no repetir el bloque del controlador -->
+  <xacro:macro name="control_posicion" params="junta p i d imax cmax">
+    <gazebo>
+      <plugin filename="gz-sim-joint-position-controller-system"
+              name="gz::sim::systems::JointPositionController">
+        <joint_name>${junta}</joint_name>
+        <topic>/planta_brazo/${junta}/cmd_pos</topic>
+        <p_gain>${p}</p_gain>
+        <i_gain>${i}</i_gain>
+        <d_gain>${d}</d_gain>
+        <i_max>${imax}</i_max>
+        <i_min>-${imax}</i_min>
+        <cmd_max>${cmax}</cmd_max>
+        <cmd_min>-${cmax}</cmd_min>
+      </plugin>
+    </gazebo>
+  </xacro:macro>
+
+  <!-- REAJUSTADAS el 2026-10-23.  Las anteriores (i de 200/500/350 con
+       i_max 40) dejaban un CICLO LIMITE: con el brazo parado en el home, J2
+       oscilaba entre 90.28 y 90.36 grados.  Ese rizado entraba en el control
+       cinematico a traves de la medida, se multiplicaba por K=10 y salia por
+       el jacobiano inverso como mando tembloroso: 97 cambios de signo de la
+       velocidad de J2 en una trayectoria que solo tiene 3 inversiones reales.
+       Eso era el "baile".
+       Ahora la integral es mucho menor (solo para la caida estatica por
+       gravedad) y la derivativa mayor, que es lo que amortigua el rizado. -->
+  <xacro:control_posicion junta="J1" p="220.0" i="200.0" d="16.0" imax="40.0" cmax="200.0"/>
+  <xacro:control_posicion junta="J2" p="400.0" i="500.0" d="30.0" imax="40.0" cmax="200.0"/>
+  <xacro:control_posicion junta="J3" p="260.0" i="350.0" d="16.0" imax="40.0" cmax="200.0"/>
+
+  <!-- estado real de las juntas medido por la fisica -->
+  <gazebo>
+    <plugin filename="gz-sim-joint-state-publisher-system"
+            name="gz::sim::systems::JointStatePublisher">
+      <joint_name>J1</joint_name>
+      <joint_name>J2</joint_name>
+      <joint_name>J3</joint_name>
+    </plugin>
+  </gazebo>
+
+  <!-- friccion del apoyo de la base contra el suelo -->
+  <gazebo reference="base_link">
+    <mu1>0.9</mu1>
+    <mu2>0.9</mu2>
+  </gazebo>
+
+</robot>

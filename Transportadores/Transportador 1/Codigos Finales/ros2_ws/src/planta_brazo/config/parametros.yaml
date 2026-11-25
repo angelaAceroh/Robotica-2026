@@ -1,0 +1,18 @@
+# Parametros geometricos del robot PLANTA BRAZO (metros / radianes)
+#
+# MEDIDAS REALES del robot fisico, de
+# correciones/robot_antropomorfo_3gdl_referencia.md (2026-10-22).
+#
+# Cambios respecto a los valores del CAD que habia antes:
+#   d1  0.34265 -> 0.200   el CAD tenia una base mucho mas alta que la real
+#   L2  0.14636 -> 0.145   se unifica con lo medido sobre el robot
+#   Lg  0.12300 -> 0.100   gripper sin disenar; longitud provisional (L4)
+#
+# Tienen que coincidir con scripts/cinematica.py y con urdf/planta_brazo.urdf.xacro.
+/**:
+  ros__parameters:
+    d1: 0.200       # suelo -> eje del hombro (J2)        [L1 en la guia]
+    a1: 0.05815     # offset horizontal eje J1 -> eje J2
+    L2: 0.145       # eje J2 -> eje J3 (Brazo2)
+    L3: 0.16285     # eje J3 -> brida de muñeca (Brazo3)  [del CAD, por medir]
+    Lg: 0.100       # brida -> punta del gripper          [L4, PROVISIONAL]

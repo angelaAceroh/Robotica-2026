@@ -1,0 +1,177 @@
+<?xml version='1.0' encoding='utf-8'?>
+<robot name="transportador2">
+  <!-- GENERADO por herramientas/preparar_urdf.py a partir de originales/transportador2_urdf_2.urdf. No editar a mano: editar el original o la herramienta y regenerar. -->
+  <link name="world" />
+  <joint name="fijar_al_suelo" type="fixed">
+    <parent link="world" />
+    <child link="base_link" />
+    <origin xyz="0 0 0.21" rpy="0 0 0" />
+  </joint>
+  <link name="base_link">
+    <inertial>
+      <origin xyz="0.0014422 -0.089162 1.1102" rpy="0 0 0" />
+      <mass value="2.1674" />
+      <inertia ixx="0.011298" ixy="-6.1106E-05" ixz="-8.7801E-05" iyy="0.017974" iyz="3.4946E-05" izz="0.011188" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://urdf_2/meshes/base_link.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="1 1 1 1" />
+      </material>
+    </visual>
+  </link>
+  <link name="link_1">
+    <inertial>
+      <origin xyz="0.0091816 0.00093504 -0.0015377" rpy="0 0 0" />
+      <mass value="1.4686" />
+      <inertia ixx="0.0041792" ixy="5.5678E-05" ixz="2.0281E-05" iyy="0.0037762" iyz="6.918E-06" izz="0.0067156" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://urdf_2/meshes/link_1.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="1 1 1 1" />
+      </material>
+    </visual>
+  </link>
+  <joint name="joint_1_base" type="continuous">
+    <origin xyz="0.002426 -1.1147 0.046072" rpy="0 0 1.5708" />
+    <parent link="base_link" />
+    <child link="link_1" />
+    <axis xyz="0 0 1" />
+    <limit effort="1.5" velocity="2" />
+    <dynamics damping="0.5" friction="0.0" />
+  </joint>
+  <link name="link_2">
+    <inertial>
+      <origin xyz="0.14452 -0.0049054 -0.022656" rpy="0 0 0" />
+      <mass value="0.52185" />
+      <inertia ixx="0.00067805" ixy="-6.0559E-19" ixz="0.00038465" iyy="0.0039063" iyz="-2.973E-19" izz="0.003423" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://urdf_2/meshes/link_2.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="1 1 1 1" />
+      </material>
+    </visual>
+  </link>
+  <joint name="joint_2_hombro" type="revolute">
+    <origin xyz="0.052065 0.004646 0.093" rpy="1.5708 0 0" />
+    <parent link="link_1" />
+    <child link="link_2" />
+    <axis xyz="0.13441 0 0.99093" />
+    <limit lower="-1.309" upper="1.745" effort="3" velocity="2" />
+    <dynamics damping="0.5" friction="0.0" />
+  </joint>
+  <link name="link_3">
+    <inertial>
+      <origin xyz="0.11376 0.0017306 -0.015307" rpy="0 0 0" />
+      <mass value="0.31589" />
+      <inertia ixx="0.00015104" ixy="1.0185E-06" ixz="0.00014026" iyy="0.001283" iyz="-4.9232E-07" izz="0.0011963" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://urdf_2/meshes/link_3.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="1 1 1 1" />
+      </material>
+    </visual>
+  </link>
+  <joint name="joint_3_brazo" type="revolute">
+    <origin xyz="0.3238 -0.0055 -0.046443" rpy="0 0 0" />
+    <parent link="link_2" />
+    <child link="link_3" />
+    <axis xyz="-0.13441 0 -0.99093" />
+    <limit lower="-1.745" upper="1.745" effort="2.5" velocity="2" />
+    <dynamics damping="0.5" friction="0.0" />
+  </joint>
+  <link name="link_4">
+    <inertial>
+      <origin xyz="0.057716 -0.0001247 -0.0078286" rpy="0 0 0" />
+      <mass value="0.081794" />
+      <inertia ixx="4.8686E-05" ixy="4.3805E-07" ixz="2.677E-07" iyy="9.8121E-05" iyz="-5.9417E-08" izz="5.0624E-05" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://urdf_2/meshes/link_4.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.77647 0.75686 0.73725 1" />
+      </material>
+    </visual>
+  </link>
+  <joint name="joint_4_muneca" type="revolute">
+    <origin xyz="0.25764 0.0025 -0.034947" rpy="0 0 0" />
+    <parent link="link_3" />
+    <child link="link_4" />
+    <axis xyz="0.13441 0 0.99093" />
+    <limit lower="-1.745" upper="1.745" effort="1.5" velocity="2" />
+    <dynamics damping="0.5" friction="0.0" />
+  </joint>
+  <gazebo>
+    <plugin filename="gz-sim-joint-position-controller-system" name="gz::sim::systems::JointPositionController">
+      <joint_name>joint_1_base</joint_name>
+      <topic>/transportador2/joint_1_base/cmd_pos</topic>
+      <p_gain>120.0</p_gain>
+      <i_gain>40.0</i_gain>
+      <d_gain>6.0</d_gain>
+      <i_max>20.0</i_max>
+      <i_min>-20.0</i_min>
+      <cmd_max>60.0</cmd_max>
+      <cmd_min>-60.0</cmd_min>
+    </plugin>
+  </gazebo>
+  <gazebo>
+    <plugin filename="gz-sim-joint-position-controller-system" name="gz::sim::systems::JointPositionController">
+      <joint_name>joint_2_hombro</joint_name>
+      <topic>/transportador2/joint_2_hombro/cmd_pos</topic>
+      <p_gain>120.0</p_gain>
+      <i_gain>40.0</i_gain>
+      <d_gain>6.0</d_gain>
+      <i_max>20.0</i_max>
+      <i_min>-20.0</i_min>
+      <cmd_max>60.0</cmd_max>
+      <cmd_min>-60.0</cmd_min>
+    </plugin>
+  </gazebo>
+  <gazebo>
+    <plugin filename="gz-sim-joint-position-controller-system" name="gz::sim::systems::JointPositionController">
+      <joint_name>joint_3_brazo</joint_name>
+      <topic>/transportador2/joint_3_brazo/cmd_pos</topic>
+      <p_gain>120.0</p_gain>
+      <i_gain>40.0</i_gain>
+      <d_gain>6.0</d_gain>
+      <i_max>20.0</i_max>
+      <i_min>-20.0</i_min>
+      <cmd_max>60.0</cmd_max>
+      <cmd_min>-60.0</cmd_min>
+    </plugin>
+  </gazebo>
+  <gazebo>
+    <plugin filename="gz-sim-joint-position-controller-system" name="gz::sim::systems::JointPositionController">
+      <joint_name>joint_4_muneca</joint_name>
+      <topic>/transportador2/joint_4_muneca/cmd_pos</topic>
+      <p_gain>120.0</p_gain>
+      <i_gain>40.0</i_gain>
+      <d_gain>6.0</d_gain>
+      <i_max>20.0</i_max>
+      <i_min>-20.0</i_min>
+      <cmd_max>60.0</cmd_max>
+      <cmd_min>-60.0</cmd_min>
+    </plugin>
+  </gazebo>
+  <gazebo>
+    <plugin filename="gz-sim-joint-state-publisher-system" name="gz::sim::systems::JointStatePublisher" />
+  </gazebo>
+</robot>

@@ -1,0 +1,140 @@
+<?xml version='1.0' encoding='utf-8'?>
+<robot name="ensamblador3">
+  <!-- GENERADO por herramientas/preparar_urdf.py a partir de originales/ensamblador3_scara_urdf_2.urdf. No editar a mano: editar el original o la herramienta y regenerar. -->
+  <link name="world" />
+  <joint name="fijar_al_suelo" type="fixed">
+    <parent link="world" />
+    <child link="Alvin" />
+    <origin xyz="0 0 0" rpy="0 0 0" />
+  </joint>
+  <link name="Alvin">
+    <inertial>
+      <origin xyz="0 8.43352926117728E-18 0.15" rpy="0 0 0" />
+      <mass value="2.35619449019235" />
+      <inertia ixx="0.0191440802328128" ixy="-2.0909865862841E-51" ixz="-3.41495302512106E-35" iyy="0.0191440802328128" iyz="-9.91859943088721E-19" izz="0.00294524311274044" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://scara_urdf_2/meshes/Alvin.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.894117647058823 0.894117647058823 0.894117647058823 1" />
+      </material>
+    </visual>
+  </link>
+  <link name="Simon">
+    <inertial>
+      <origin xyz="0.137940645716693 0.025 3.46944695195361E-18" rpy="0 0 0" />
+      <mass value="1.9345685683984" />
+      <inertia ixx="0.00389987261489919" ixy="2.02008106424183E-19" ixz="-5.42101086242752E-19" iyy="0.0215265120856496" iyz="-1.6137345800145E-20" izz="0.0184327097075831" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://scara_urdf_2/meshes/Simon.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.894117647058823 0.894117647058823 0.894117647058823 1" />
+      </material>
+    </visual>
+  </link>
+  <joint name="Simon_joint" type="continuous">
+    <origin xyz="0 0 0.25" rpy="1.5708 0 0.22687" />
+    <parent link="Alvin" />
+    <child link="Simon" />
+    <axis xyz="0 1 0" />
+    <limit effort="50.0" velocity="1.5" />
+    <dynamics damping="0.5" friction="0.0" />
+  </joint>
+  <link name="Teodoro">
+    <inertial>
+      <origin xyz="0.125 0.0250000000000001 4.16333634234434E-17" rpy="0 0 0" />
+      <mass value="2.13484510006475" />
+      <inertia ixx="0.00412810441244396" ixy="4.24827345208287E-19" ixz="-8.72782748850831E-18" iyy="0.0253528113883726" iyz="9.64244524728694E-21" izz="0.0221142257676223" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://scara_urdf_2/meshes/Teodoro.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.894117647058823 0.894117647058823 0.894117647058823 1" />
+      </material>
+    </visual>
+  </link>
+  <joint name="Teodoro_joint" type="continuous">
+    <origin xyz="0.25 0.05 0" rpy="0 -0.42977 0" />
+    <parent link="Simon" />
+    <child link="Teodoro" />
+    <axis xyz="0 1 0" />
+    <limit effort="50.0" velocity="1.5" />
+    <dynamics damping="0.5" friction="0.0" />
+  </joint>
+  <link name="Dave">
+    <inertial>
+      <origin xyz="-0.000131764318892669 -0.0800900082239438 0.000996415656700236" rpy="0 0 0" />
+      <mass value="0.8716902001295" />
+      <inertia ixx="0.00285400846522637" ixy="1.69575824300654E-21" ixz="-6.36831449026069E-06" iyy="0.000535735247579319" iyz="7.94064676943184E-20" izz="0.00290132419498099" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://scara_urdf_2/meshes/Dave.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.894117647058823 0.894117647058823 0.894117647058823 1" />
+      </material>
+    </visual>
+  </link>
+  <joint name="Dave_joint" type="prismatic">
+    <origin xyz="0.25 0 0" rpy="-3.1416 -0.33438 3.1416" />
+    <parent link="Teodoro" />
+    <child link="Dave" />
+    <axis xyz="0 1 0" />
+    <limit lower="0.02" upper="0.17" effort="200.0" velocity="0.1" />
+    <dynamics damping="0.5" friction="0.0" />
+  </joint>
+  <gazebo>
+    <plugin filename="gz-sim-joint-position-controller-system" name="gz::sim::systems::JointPositionController">
+      <joint_name>Simon_joint</joint_name>
+      <topic>/ensamblador3/Simon_joint/cmd_pos</topic>
+      <p_gain>120.0</p_gain>
+      <i_gain>40.0</i_gain>
+      <d_gain>6.0</d_gain>
+      <i_max>20.0</i_max>
+      <i_min>-20.0</i_min>
+      <cmd_max>60.0</cmd_max>
+      <cmd_min>-60.0</cmd_min>
+    </plugin>
+  </gazebo>
+  <gazebo>
+    <plugin filename="gz-sim-joint-position-controller-system" name="gz::sim::systems::JointPositionController">
+      <joint_name>Teodoro_joint</joint_name>
+      <topic>/ensamblador3/Teodoro_joint/cmd_pos</topic>
+      <p_gain>120.0</p_gain>
+      <i_gain>40.0</i_gain>
+      <d_gain>6.0</d_gain>
+      <i_max>20.0</i_max>
+      <i_min>-20.0</i_min>
+      <cmd_max>60.0</cmd_max>
+      <cmd_min>-60.0</cmd_min>
+    </plugin>
+  </gazebo>
+  <gazebo>
+    <plugin filename="gz-sim-joint-position-controller-system" name="gz::sim::systems::JointPositionController">
+      <joint_name>Dave_joint</joint_name>
+      <topic>/ensamblador3/Dave_joint/cmd_pos</topic>
+      <p_gain>800.0</p_gain>
+      <i_gain>100.0</i_gain>
+      <d_gain>40.0</d_gain>
+      <i_max>50.0</i_max>
+      <i_min>-50.0</i_min>
+      <cmd_max>200.0</cmd_max>
+      <cmd_min>-200.0</cmd_min>
+    </plugin>
+  </gazebo>
+  <gazebo>
+    <plugin filename="gz-sim-joint-state-publisher-system" name="gz::sim::systems::JointStatePublisher" />
+  </gazebo>
+</robot>
